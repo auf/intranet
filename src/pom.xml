@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>AUF intranet</name>
+	<groupId>com.savoirfairelinux.auf</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<properties>
+		<liferay.version>6.1.1</liferay.version>
+	</properties>
+    
+	<modules>
+		<module>themes/auf-theme</module>
+	</modules>
+    
+	<dependencies>
+	  <dependency>
+	    <groupId>javax.jms</groupId>
+	    <artifactId>jms</artifactId>
+	    <version>1.1</version>
+	  </dependency>
+	</dependencies>
+    
+	<build>
+	  <finalName>${project.artifactId}</finalName>
+	  <plugins>
+	      <plugin>
+		  <groupId>com.liferay.maven.plugins</groupId>
+		  <artifactId>liferay-maven-plugin</artifactId>
+		  <version>${liferay.version}</version>
+		  <configuration>
+		    <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
+		    <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
+		    <appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
+		    <appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
+		    <liferayVersion>${liferay.version}</liferayVersion>
+		  </configuration>
+	      </plugin>
+	  </plugins>
+	  <pluginManagement>
+	      <plugins>
+		  <plugin>
+		      <groupId>com.liferay.maven.plugins</groupId>
+		      <artifactId>liferay-maven-plugin</artifactId>
+		      <version>${liferay.version}</version>
+		      <configuration>
+			  <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
+			  <liferayVersion>${liferay.version}</liferayVersion>
+		      </configuration>
+		  </plugin>
+	      </plugins>
+	  </pluginManagement>
+	</build>
+</project>
