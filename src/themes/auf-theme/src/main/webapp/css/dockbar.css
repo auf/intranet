@@ -1,0 +1,573 @@
+/* line 1, ../sass/dockbar.scss */
+.portlet-dockbar, .portlet-staging-bar {
+  background: url(../images/application/loading_indicator.gif) no-repeat 50%;
+}
+
+/* line 5, ../sass/dockbar.scss */
+.portlet-dockbar {
+  background-color: #E0E7F1;
+  border-bottom: 1px solid #636364;
+}
+
+/* line 10, ../sass/dockbar.scss */
+.dockbar, .staging-bar {
+  visibility: hidden;
+}
+
+/* line 14, ../sass/dockbar.scss */
+.dockbar-ready .dockbar, .staging .staging-bar, .live-view .staging-bar {
+  visibility: visible;
+}
+
+/* line 18, ../sass/dockbar.scss */
+.dockbar-ready .portlet-dockbar, .staging-ready .portlet-staging-bar, .portal-popup .portlet-dockbar, .portal-popup .portlet-staging-bar {
+  background: none;
+  border-width: 0;
+}
+
+/* line 23, ../sass/dockbar.scss */
+.dockbar {
+  background: #97a1ae url(../images/dockbar/dockbar_bg.png) repeat-x 0 0;
+  border-bottom: 1px solid #636364;
+  font-size: 13px;
+  padding: 1px 5px;
+  position: relative;
+  z-index: 300;
+}
+
+/* line 32, ../sass/dockbar.scss */
+.dockbar:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* line 40, ../sass/dockbar.scss */
+.ie7 .dockbar {
+  zoom: 1;
+}
+
+/* line 44, ../sass/dockbar.scss */
+.ie6 .dockbar, .ie6 .lfr-dockbar-pinned .dockbar {
+  height: 10px;
+  left: 0;
+  position: relative;
+  top: 0;
+}
+
+/* line 51, ../sass/dockbar.scss */
+.dockbar a {
+  color: #2C2F34;
+  font-weight: bold;
+  text-shadow: 1px 1px #FFF;
+}
+
+/* line 57, ../sass/dockbar.scss */
+.dockbar .menu-button-active {
+  background: #5c94da url(../images/dockbar/button_active_bg.png) repeat-x 0 0;
+}
+
+/* line 61, ../sass/dockbar.scss */
+.dockbar .menu-button-active a {
+  color: #FFF;
+  text-shadow: -1px -1px #2C2F34;
+}
+
+/* line 66, ../sass/dockbar.scss */
+.dockbar .user-avatar .sign-out {
+  font-size: 0.8em;
+  padding-left: 0;
+}
+
+/* line 71, ../sass/dockbar.scss */
+.dockbar ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 76, ../sass/dockbar.scss */
+.dockbar li li {
+  margin-left: 0;
+}
+
+/* line 80, ../sass/dockbar.scss */
+html > .lfr-dockbar-pinned {
+  padding-top: 3.45em;
+}
+
+/* line 84, ../sass/dockbar.scss */
+.lfr-dockbar-pinned .dockbar {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* line 91, ../sass/dockbar.scss */
+.dockbar .pin-dockbar {
+  margin-left: 0;
+}
+
+/* line 95, ../sass/dockbar.scss */
+.ie6 .dockbar .pin-dockbar {
+  display: none;
+}
+
+/* line 99, ../sass/dockbar.scss */
+.pin-dockbar img {
+  background: url(../images/dockbar/pin.png) no-repeat 0 0;
+  height: 27px;
+  vertical-align: middle;
+  width: 27px;
+}
+
+/* line 106, ../sass/dockbar.scss */
+.lfr-dockbar-pinned .pin-dockbar img {
+  background-image: url(../images/dockbar/unpin.png);
+}
+
+/* line 110, ../sass/dockbar.scss */
+.dockbar .user-portrait {
+  text-decoration: none;
+}
+
+/* line 114, ../sass/dockbar.scss */
+.dockbar .user-avatar img {
+  vertical-align: middle;
+  width: 25px;
+}
+
+/* line 119, ../sass/dockbar.scss */
+.dockbar .impersonating-user {
+  background: url(../images/messages/alert.png) no-repeat 0 50%;
+  padding-left: 20px;
+}
+
+/* line 124, ../sass/dockbar.scss */
+.dockbar .impersonating-user .user-links a {
+  color: #999;
+}
+
+/* ---------- Staging Dockbar ---------- */
+/* line 130, ../sass/dockbar.scss */
+.variation-selector {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 1em;
+}
+
+/* line 137, ../sass/dockbar.scss */
+.layout-revision-container {
+  margin: 1em 0 0 1em;
+  padding: 0;
+}
+/* line 141, ../sass/dockbar.scss */
+.layout-revision-container .aproximate-date {
+  color: #999;
+  font-weight: bold;
+}
+/* line 146, ../sass/dockbar.scss */
+.layout-revision-container .current-version {
+  color: #41801d;
+  display: block;
+}
+/* line 151, ../sass/dockbar.scss */
+.layout-revision-container .current-version-pointer {
+  display: inline-block;
+  width: 0;
+}
+/* line 156, ../sass/dockbar.scss */
+.layout-revision-container .current-version-pointer img {
+  left: -25px;
+  position: relative;
+}
+/* line 161, ../sass/dockbar.scss */
+.layout-revision-container .layout-variation-name {
+  color: #666;
+  font-size: 1.15em;
+  margin-bottom: 0.1em;
+  text-transform: uppercase;
+}
+/* line 168, ../sass/dockbar.scss */
+.layout-revision-container .layout-revision-current {
+  color: #666;
+}
+/* line 172, ../sass/dockbar.scss */
+.layout-revision-container .real-date {
+  color: #999;
+  display: block;
+  text-align: right;
+}
+/* line 178, ../sass/dockbar.scss */
+.layout-revision-container .taglib-workflow-status .workflow-status {
+  background: none;
+  padding-left: 0;
+}
+/* line 182, ../sass/dockbar.scss */
+.layout-revision-container .taglib-workflow-status .workflow-status .workflow-status-ready-for-publication {
+  color: #41801d;
+  font-weight: bold;
+}
+
+/* line 189, ../sass/dockbar.scss */
+.layout-revision-container-root {
+  margin: 0;
+}
+
+/* line 193, ../sass/dockbar.scss */
+.staging-details {
+  background: url() no-repeat 0 0;
+  padding-left: 65px;
+  min-height: 50px;
+}
+
+/* line 199, ../sass/dockbar.scss */
+.staging .staging-details {
+  background-image: url(../images/staging_bar/staging.png);
+}
+
+/* line 203, ../sass/dockbar.scss */
+.live-view .staging-details {
+  background-image: url(../images/staging_bar/live.png);
+}
+
+/* line 207, ../sass/dockbar.scss */
+.staging .staging-tabview-list {
+  background-color: #FFDBA6;
+}
+
+/* line 211, ../sass/dockbar.scss */
+.live-view .staging-tabview-list {
+  background-color: #C4F0BC;
+}
+
+/* ---------- Menus ---------- */
+/* line 217, ../sass/dockbar.scss */
+.aui-dockbarmenu-hidden {
+  visibility: hidden;
+}
+
+/* line 221, ../sass/dockbar.scss */
+.dockbar .aui-toolbar {
+  float: left;
+}
+
+/* line 225, ../sass/dockbar.scss */
+.dockbar .user-toolbar {
+  float: right;
+}
+
+/* line 229, ../sass/dockbar.scss */
+.aui-underlay .portal-add-content {
+  background-color: transparent;
+  font-size: 11px;
+}
+
+/* line 234, ../sass/dockbar.scss */
+.aui-underlay .portal-add-content .portlet-dd-placeholder {
+  display: none;
+}
+
+/* line 238, ../sass/dockbar.scss */
+.add-application .yui3-widget-bd, .dockbar-messages .yui3-widget-bd {
+  padding: 0 10px 10px;
+}
+
+/* line 242, ../sass/dockbar.scss */
+.add-application {
+  left: 10px !important;
+}
+
+/* line 246, ../sass/dockbar.scss */
+.lfr-has-sidebar #main-content {
+  padding-left: 220px;
+}
+
+/* line 250, ../sass/dockbar.scss */
+.manage-layouts {
+  left: 60px !important;
+}
+
+/* line 254, ../sass/dockbar.scss */
+.my-sites-menu {
+  max-width: 350px;
+}
+
+/* line 258, ../sass/dockbar.scss */
+.my-sites-menu ul {
+  list-style: none;
+  max-height: 300px;
+  overflow: auto;
+}
+
+/* line 264, ../sass/dockbar.scss */
+.my-sites-menu ul, .my-sites-menu li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 270, ../sass/dockbar.scss */
+.my-sites-menu a {
+  display: block;
+  overflow: hidden;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* line 277, ../sass/dockbar.scss */
+.my-sites-menu .control-panel a {
+  background: url(../images/dock/control_panel.png) no-repeat 3px 50%;
+  padding-left: 25px;
+}
+
+/* line 282, ../sass/dockbar.scss */
+.my-sites-menu .current-site {
+  border: solid #1D4280;
+  border-width: 1px 0;
+}
+
+/* line 287, ../sass/dockbar.scss */
+.my-sites-menu .current-site a {
+  background: #3068ba url(../images/arrows/01_right.png) no-repeat scroll 2px 30%;
+  color: #FFF;
+  padding-left: 20px;
+  text-shadow: 1px 1px #333;
+}
+
+/* line 294, ../sass/dockbar.scss */
+.my-sites-menu .current-site .site-type {
+  color: #FFF;
+}
+
+/* line 298, ../sass/dockbar.scss */
+.my-sites-menu .current-site a:hover, .my-sites-menu a:hover .site-type {
+  color: #FFF;
+  text-shadow: 1px 1px #333;
+}
+
+/* line 303, ../sass/dockbar.scss */
+.my-sites-menu .site-name {
+  cursor: pointer;
+  float: left;
+}
+
+/* line 308, ../sass/dockbar.scss */
+.my-sites-menu .site-type {
+  color: #777;
+  float: right;
+  font-size: 0.8em;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+/* line 316, ../sass/dockbar.scss */
+.ie7 .my-sites-menu .site-type {
+  float: none;
+}
+
+/* line 320, ../sass/dockbar.scss */
+.my-sites-menu a:hover .site-type {
+  color: #FFF;
+}
+
+/* line 324, ../sass/dockbar.scss */
+.ie7 .my-sites-menu a {
+  overflow: visible;
+  text-align: left;
+}
+
+/* line 329, ../sass/dockbar.scss */
+.ie7 .my-sites-menu .site-name {
+  float: none;
+}
+
+/* line 333, ../sass/dockbar.scss */
+.ie7 .my-sites-menu .site-type {
+  float: none;
+}
+
+/* line 337, ../sass/dockbar.scss */
+.ie6 .my-sites-menu {
+  width: 200px;
+}
+
+/* line 341, ../sass/dockbar.scss */
+.ie6 .my-sites-menu a {
+  height: 1%;
+}
+
+/* line 345, ../sass/dockbar.scss */
+.dockbar .toggle-controls a {
+  background: url(../images/dockbar/checked.png) no-repeat 0 50%;
+  padding-left: 20px;
+}
+
+/* line 350, ../sass/dockbar.scss */
+.controls-hidden .toggle-controls a {
+  background-image: url(../images/dockbar/unchecked.png);
+}
+
+/* line 354, ../sass/dockbar.scss */
+.toggle-controls a {
+  background-image: url(../images/dockbar/unchecked.png);
+}
+
+/* line 358, ../sass/dockbar.scss */
+.dockbar .menu-button {
+  background: url(../images/arrows/05_down.png) no-repeat 93% 50%;
+  display: inline-block;
+  padding: 5px 20px 5px 5px;
+  text-decoration: none;
+}
+
+/* line 365, ../sass/dockbar.scss */
+.dockbar .menu-button span {
+  background: url() no-repeat 0 50%;
+  padding-left: 20px;
+}
+
+/* line 370, ../sass/dockbar.scss */
+.dockbar .add-content .menu-button span {
+  background-image: url(../images/common/add.png);
+}
+
+/* line 374, ../sass/dockbar.scss */
+.dockbar .manage-content .menu-button span {
+  background-image: url(../images/dockbar/settings.png);
+}
+
+/* line 378, ../sass/dockbar.scss */
+.dockbar .my-sites .menu-button span {
+  background-image: url(../images/dockbar/places.png);
+}
+
+/* line 382, ../sass/dockbar.scss */
+.dockbar-messages-container {
+  left: 50%;
+  margin-left: -150px;
+}
+
+/* line 387, ../sass/dockbar.scss */
+.dockbar-messages {
+  width: 300px;
+}
+
+/* line 391, ../sass/dockbar.scss */
+.showing-messages .dockbar-messages {
+  display: block;
+}
+
+/* line 395, ../sass/dockbar.scss */
+.multiple-messages .dockbar-message {
+  border-top: 1px solid #CCC;
+  padding: 5px 0;
+}
+
+/* line 400, ../sass/dockbar.scss */
+.multiple-messages .first {
+  border-top-width: 0;
+  padding-top: 0;
+}
+
+/* line 405, ../sass/dockbar.scss */
+.add-content-menu .add-page a {
+  background: url(../images/navigation/add_page.png) no-repeat 3px 50%;
+  padding-left: 25px;
+}
+
+/* line 410, ../sass/dockbar.scss */
+.add-content-menu .add-application a {
+  background: url(../images/common/portlet.png) no-repeat 3px 50%;
+  padding-left: 25px;
+}
+
+/* line 415, ../sass/dockbar.scss */
+.add-content-menu a.lfr-portlet-used {
+  color: #999;
+  cursor: auto;
+}
+
+/* line 420, ../sass/dockbar.scss */
+.manage-content-menu li a, .manage-content-menu li .disabled {
+  background: url() no-repeat 3px 50%;
+  padding-left: 25px;
+}
+
+/* line 425, ../sass/dockbar.scss */
+.manage-content-menu .manage-page a {
+  background-image: url(../images/dock/page_settings.png);
+}
+
+/* line 429, ../sass/dockbar.scss */
+.manage-content-menu .manage-site-content a {
+  background-image: url(../images/common/site_icon.png);
+}
+
+/* line 433, ../sass/dockbar.scss */
+.manage-content-menu .manage-site-memberships a {
+  background-image: url(../images/common/assign.png);
+}
+
+/* line 437, ../sass/dockbar.scss */
+.manage-content-menu .manage-page-customization a, .manage-content-menu .manage-page-customization .disabled {
+  background-image: url(../images/dock/customizations.png);
+}
+
+/* line 441, ../sass/dockbar.scss */
+.manage-content-menu .page-layout a {
+  background-image: url(../images/dock/layout.png);
+}
+
+/* line 445, ../sass/dockbar.scss */
+.manage-content-menu .sitemap a {
+  background-image: url(../images/common/sitemap.png);
+}
+
+/* line 449, ../sass/dockbar.scss */
+.manage-content-menu .settings a {
+  background-image: url(../images/common/configuration.png);
+}
+
+/* ---------- Customization Bar ---------- */
+/* line 455, ../sass/dockbar.scss */
+.page-customization-bar {
+  background-color: #999;
+  color: #FFF;
+  font-size: 1.2em;
+  font-weight: bold;
+  min-height: 30px;
+  padding: 5px;
+}
+
+/* line 464, ../sass/dockbar.scss */
+.controls-hidden .page-customization-bar {
+  display: none;
+}
+
+/* line 468, ../sass/dockbar.scss */
+.page-customization-bar .customized-icon {
+  margin: 5px;
+  vertical-align: middle;
+}
+
+/* line 473, ../sass/dockbar.scss */
+.page-customization-bar .page-customization-actions {
+  padding-left: 5em;
+}
+
+/* line 477, ../sass/dockbar.scss */
+.page-customization-bar .page-customization-actions a {
+  color: #EEE;
+  font-size: 0.8em;
+  padding: 0 1em;
+}
+
+/* line 483, ../sass/dockbar.scss */
+.page-customization-bar .reset-prototype {
+  display: inline;
+  padding-left: 1em;
+}
