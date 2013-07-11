@@ -4,7 +4,7 @@ class liferay {
 	$liferay_archive=extlookup("liferay_archive")
 	$database_backup=extlookup("database_backup")
 
-	file { ["/vagrant/liferay","/vagrant/liferay/deploy","${liferay_folder}"]:
+	file { ["/vagrant/mount","${liferay_folder}"]:
 		ensure	=> directory,
 		owner	=> vagrant,
 		group	=> vagrant
