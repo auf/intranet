@@ -11,3 +11,17 @@ javascripts_dir = "js"
 output_style = :expanded    # :compressed
 # line_comments = false
 
+TARGET_PATH="../../../../../../tools/vagrant/mount/tomcat-7.0.40/webapps/welcome-theme/"
+ACTIVE=true
+watch "./**/*" do |project_dir, relative_path|
+  if File.exists?(File.join(project_dir, relative_path))
+    f = File.expand_path(File.join(project_dir, TARGET_PATH, relative_path))
+    dir = File.dirname(f)
+    unless File.exists?(dir) and File.directory?(dir)
+      FileUtils.mkdir_p dir, :noop => !ACTIVE, :verbose => true
+    end
+    FileUtils.cp File.join(project_dir, relative_path), f, :noop => !ACTIVE, :verbose => true
+  else
+    FileUtils.rm f, :force => true, :noop => !ACTIVE, :verbose => true
+  end
+end
