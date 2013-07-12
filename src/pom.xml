@@ -27,17 +27,25 @@
 	  <finalName>${project.artifactId}</finalName>
 	  <plugins>
 	      <plugin>
-		  <groupId>com.liferay.maven.plugins</groupId>
-		  <artifactId>liferay-maven-plugin</artifactId>
-		  <version>${liferay.version}</version>
-		  <configuration>
-		    <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
-		    <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
-		    <appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
-		    <appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
-		    <liferayVersion>${liferay.version}</liferayVersion>
-		  </configuration>
-	      </plugin>
+            <groupId>com.liferay.maven.plugins</groupId>
+            <artifactId>liferay-maven-plugin</artifactId>
+            <version>${liferay.version}</version>
+            <configuration>
+                <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
+                <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
+                <appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
+                <appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
+                <liferayVersion>${liferay.version}</liferayVersion>
+            </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <packagingExcludes>sass/**,.sass-cache/**,config.rg</packagingExcludes>
+                </configuration>
+            </plugin>
 	  </plugins>
 	  <pluginManagement>
 	      <plugins>
