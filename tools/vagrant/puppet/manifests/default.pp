@@ -65,7 +65,7 @@ class liferay {
 		source	=> "/vagrant/puppet/templates/liferay-init",
 		owner	=> root,
 		group	=> root,
-		mode	=> 744
+		mode	=> 755
 	}
 	
 	# add liferay service to startup and start it
@@ -115,11 +115,19 @@ class oracle-java7-jdk {
 	}
 }
 
-class openjdk6 {
-  package { "openjdk-6-jdk":
-    ensure => installed,
-    require => Class["apt-get-update"]
-  }
+class oracle-java6-installer {
+    exec { "accept-jdk-license":
+        command => "echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections",
+        unless  => "debconf-show oracle-java6-installer | grep 'shared/accepted-oracle-license-v1-1: true'"
+    }
+    exec { "accept-jre-license":
+        command => "echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections",
+        unless  => "debconf-show oracle-java6-installer | grep 'shared/accepted-oracle-license-v1-1: true'"
+    }
+    package { "oracle-java6-installer":
+        ensure  => present,
+        require => [Exec["accept-jdk-license"], Exec["accept-jre-license"], Class["apt-get-update"]]
+    }
 }
 
 class unzip {
@@ -171,8 +179,8 @@ $extlookup_precedence = ["%{hostname}", "default"]
 
 include apt-get-update
 include unzip
-include oracle-java7-jdk
-#include openjdk6
+#include oracle-java7-jdk
+include oracle-java6-installer
 include mysql
 include nfs
 include liferay

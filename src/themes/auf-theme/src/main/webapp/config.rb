@@ -11,7 +11,7 @@ javascripts_dir = "js"
 output_style = :expanded    # :compressed
 # line_comments = false
 
-TARGET_PATH="../../../../../../tools/vagrant/mount/tomcat-7.0.40/webapps/welcome-theme/"
+TARGET_PATH="../../../../../../tools/vagrant/mount/tomcat-7.0.27/webapps/auf-theme/"
 ACTIVE=true
 watch "./**/*" do |project_dir, relative_path|
   if File.exists?(File.join(project_dir, relative_path))
