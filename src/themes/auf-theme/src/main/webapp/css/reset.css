@@ -1,0 +1,83 @@
+/* Apply a natural box layout model to all elements: http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.chromeframe {position: absolute; top: 0;}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins,
+kbd, q, s, samp, small, strike, strong, tt, var, dl, dt,
+dd, ol, ul, li, fieldset, form, input, textarea, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    margin: 0; padding: 0;
+    border: 0; border-radius: 0; /* for iOS */
+    line-height: 1.4;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+ 
+img, input, select { vertical-align: middle; }
+ 
+ol, ul { list-style: none; }
+ 
+a,
+label,
+input[type=button],
+input[type=submit],
+button { cursor: pointer; }
+ 
+input, select, textarea { font-family: inherit; }
+textarea { overflow: auto; } /* prevents scrollbar from showing up when unneeded in IE */
+ 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ 
+caption, th, td { text-align: left; font-weight: normal; }
+ 
+h1, h2, h3, h4, h5, h6 { fline-height: normal; font-weight: normal; }
+ 
+i, em { font-style: italic; }
+b, strong { font-weight: bold; }
+ 
+q:lang(en) { quotes: '&#8220;' '&#8221;' '&#8216;' '&#8217;'; }
+ 
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display: block; }
+ 
+del { text-decoration: line-through; }
+ 
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+input[type=file], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+.clearfix { zoom: 1; }  
