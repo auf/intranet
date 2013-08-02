@@ -5,23 +5,23 @@
 <html lang="fr" class="no-js">
 
 <head>
-	<title>$the_title - $company_name</title>
+    <title>$the_title - $company_name</title>
 
-	$theme.include($top_head_include)
+    $theme.include($top_head_include)
 
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" media="screen" href="/auf-theme/css/style.css">
-	<link rel="stylesheet" media="screen" href="/auf-theme/css/reset.css">
-	<link rel="stylesheet" media="screen" href="/auf-theme/css/jui.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-	<script>
-		$(function() {
-			$( "#tabs" ).tabs();
-		});
-	</script>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="/auf-theme/css/style.css">
+    <link rel="stylesheet" media="screen" href="/auf-theme/css/reset.css">
+    <link rel="stylesheet" media="screen" href="/auf-theme/css/jui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#tabs" ).tabs();
+        });
+    </script>
 </head>
 
 <body>
@@ -29,51 +29,57 @@
 $theme.include($body_top_include)
 
 #if ($is_signed_in)
-	#dockbar()
+    #dockbar()
 #end
 
 <!--CONTENEUR-->
 <div id="container-full">
 
-	<header id="banner" role="banner">
+    <header id="banner" role="banner">
 
         <div class="baseline">
-        	<img alt="$logo_description" src="/auf-theme/images/logo.jpg">
-			<h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
+            <img alt="$logo_description" src="/auf-theme/images/logo.jpg">
+            <h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
         </div>
         <div class="rechercher">
-        	<input type="text" placeholder="Rechercher un document, une personne..." value=""><input type="submit">
+            <input type="text" placeholder="Rechercher un document, une personne..." value=""><input type="submit">
         </div>
         <div class="ecrire">
-        	<a href="/">contacter<br>l’administrateur</a>
+            <a href="/">contacter<br>l’administrateur</a>
         </div>
 
-	</header>
+    </header>
 
-	<!-- MENU -->
-	<nav>
-		
-	</nav>
-
-	#if ($selectable)
-		$theme.include($content_include)
-	#else
-		$portletDisplay.recycle()
-
-		$portletDisplay.setTitle($the_title)
-
-		$theme.wrapPortlet("portlet.vm", $content_include)
-	#end
+    <!-- MENU -->
+    <nav>
+        #if ($has_navigation || $is_signed_in)
+            #parse ("$full_templates_path/navigation.vm")
+        #end
+    </nav>
 
     <!-- PARTIE CENTRALE -->
-    <div id="contenu"></div>
+    <div id="contenu">
+        #if (!$is_signed_in)
+            <a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+        #end
+        
+        #if ($selectable)
+            $theme.include($content_include)
+        #else
+            $portletDisplay.recycle()
+
+            $portletDisplay.setTitle($the_title)
+
+            $theme.wrapPortlet("portlet.vm", $content_include)
+        #end
+    </div>
 
     <!-- FOOTER -->
-	<footer>
-		
-		<p><small>&copy; Copyright Your Name Here 2013. All Rights Reserved.</small></p>
-		
-	</footer>
+    <footer>
+        
+        <p><small>&copy; Copyright Your Name Here 2013. All Rights Reserved.</small></p>
+        
+    </footer>
 
 </div>
 
