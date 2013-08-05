@@ -1,3 +1,4 @@
 liferay_version,6.1.1-ce-ga2
 liferay_archive,liferay-portal-tomcat-6.1.1-ce-ga2.zip
 database_backup,
+auf_data,auf-data.sql
