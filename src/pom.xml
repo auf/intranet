@@ -12,6 +12,7 @@
     
 	<modules>
 		<module>themes/auf-theme</module>
+	    <module>hooks/auf-sync</module>
   </modules>
     
 	<dependencies>
