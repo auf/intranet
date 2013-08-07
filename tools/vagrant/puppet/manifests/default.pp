@@ -62,6 +62,16 @@ class liferay {
 		group	=> vagrant,
 		mode	=> 644
 	}
+	
+	# copy context.xml
+	file { "${liferay_folder}/tomcat/conf/context.xml":
+		require => Exec["deploy"],
+		ensure	=> present,
+		source	=> "/vagrant/puppet/templates/context.xml",
+		owner	=> vagrant,
+		group	=> vagrant,
+		mode	=> 644
+	}
 
 	# create database
 	exec { "liferay-db-create":
