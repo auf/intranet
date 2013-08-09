@@ -4,8 +4,8 @@ class auf {
   # create database
 	exec { "auf-db-create":
 		require	=> Service["mysql"],
-		command	=> "mysql -uroot -e 'create database auf'",
-		unless	=> "mysql -uroot auf"
+		command	=> "mysql -uroot -e 'DROP DATABASE IF EXISTS auf; CREATE DATABASE auf'",
+		#unless	=> "mysql -uroot auf"
 	}
 
 	# Init database from a dump sql
