@@ -39,7 +39,7 @@
     </aui:form>     
     <br /><br />
     <div>
-        <h5>Rechercher une personne de l'organisation.</h5>
+        <h5><liferay-ui:message key="search-a-person-of-the-organisation" /></h5>
     </div>
     <br />
 </div>
@@ -57,33 +57,30 @@
 </script>
 
 
-<c:if test="${displaySearch}">                 
-	<p>
-	The list size: ${size}
-	</p>
+<c:if test="${displaySearch}">
 	
 	<table>
 		<thead>
 		<tr>
-			<th>Login</th>
-			<th>Surname</th>
-			<th>Prenom</th>
-			<th>Courriel</th>
+			<th><liferay-ui:message key="heading-login" /></th>
+			<th><liferay-ui:message key="heading-firstname" /></th>
+			<th><liferay-ui:message key="heading-lastname" /></th>
+			<th><liferay-ui:message key="heading-email" /></th>
 		</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="u" items="${users}">
+		<c:forEach var="user" items="${users}">
 		<tr>
 			<td>
 				<portlet:renderURL var="url">
 	                <portlet:param name="action" value="viewPerson" />
-	                <portlet:param name="idEmploye" value="${u.email}" />
+	                <portlet:param name="idEmploye" value="${user.email}" />
 	            </portlet:renderURL>
-	            <a href="${url}">${u.login}</a>
+	            <a href="${url}">${user.login}</a>
 	        </td>
-			<td>${u.lastName}</td>
-			<td>${u.firstName}</td>
-			<td>${u.email}</td>
+			<td>${user.lastName}</td>
+			<td>${user.firstName}</td>
+			<td>${user.email}</td>
 		</tr>
 		</c:forEach>
 		</tbody>
@@ -96,46 +93,46 @@
 	<table>
 		<thead>
 				<tr>
-			<th>Champ</th>
-			<th>Valeur</th>
+			<th><liferay-ui:message key="label-field" /></th>
+			<th><liferay-ui:message key="label-value" /></th>
 
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
-			<td>Login</td>
+			<td><liferay-ui:message key="heading-login" /></td>
 			<td>${user.login}</td>
 		</tr>
 		<tr>
-			<td>Prenom</td>
+			<td><liferay-ui:message key="heading-firstname" /></td>
 			<td>${user.firstName}</td>
 		</tr>
 		<tr>
-			<td>Surnom</td>
+			<td><liferay-ui:message key="heading-lastname" /></td>
 			<td>${user.lastName}</td>
 		</tr>
 		<tr>
-			<td>Courriel</td>
+			<td><liferay-ui:message key="heading-email" /></td>
 			<td>${user.email}</td>
 		</tr>
 		<tr>
-			<td>Gender</td>
+			<td><liferay-ui:message key="heading-gender" /></td>
 			<td>${user.gender}</td>
 		</tr>
 		<tr>
-			<td>Titre du poste</td>
+			<td><liferay-ui:message key="heading-post-title" /></td>
 			<td>${user.postDesc}</td>
 		</tr>
 		<tr>
-			<td>Tel Poste</td>
+			<td><liferay-ui:message key="heading-post-telephone" /></td>
 			<td>${user.telPost}</td>
 		</tr>
 		<tr>
-			<td>Tel IP</td>
+			<td><liferay-ui:message key="heading-tel-ip" /></td>
 			<td>${user.telIp}</td>
 		</tr>
 		<tr>
-			<td>Tel IP Nomade</td>
+			<td><liferay-ui:message key="heading-tel-ip-nomade" /></td>
 			<td>${user.telIpNomade}</td>
 		</tr>
 		</tbody>

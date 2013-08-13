@@ -3,10 +3,11 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>auf-sync</portlet-name>
+	    <portlet-name>auf-sync</portlet-name>
 		<icon>/icon.png</icon>
 		<instanceable>false</instanceable>
 		<header-portlet-css>/css/main.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery-1.10.2.min.js</header-portlet-javascript>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
 	</portlet>
 	<role-mapper>
