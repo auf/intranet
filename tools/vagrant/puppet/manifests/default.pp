@@ -52,16 +52,26 @@ class liferay {
 		unless	=> "test -h ${liferay_folder}/tomcat",
 		user	=> vagrant
 	}
-	
-	# copy portal-ext.properties
-	file { "${liferay_folder}/portal-ext.properties":
-		require => Exec["deploy"],
-		ensure	=> present,
-		source	=> "/vagrant/puppet/templates/portal-ext.properties",
-		owner	=> vagrant,
-		group	=> vagrant,
-		mode	=> 644
-	}
+    
+    # copy portal-ext.properties
+    file { "${liferay_folder}/portal-ext.properties":
+        require => Exec["deploy"],
+        ensure  => present,
+        source  => "/vagrant/puppet/templates/portal-ext.properties",
+        owner   => vagrant,
+        group   => vagrant,
+        mode    => 644
+    }
+    
+    # copy portal-setup-wizard.properties
+    file { "${liferay_folder}/portal-setup-wizard.properties":
+        require => Exec["deploy"],
+        ensure  => present,
+        source  => "/vagrant/puppet/templates/portal-setup-wizard.properties",
+        owner   => vagrant,
+        group   => vagrant,
+        mode    => 644
+    }
 	
 	# copy context.xml
 	file { "${liferay_folder}/tomcat/conf/context.xml":

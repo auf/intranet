@@ -1,3 +1,5 @@
 .vagrant
 liferay-portal*
+license-*
 mount
+*.sql
