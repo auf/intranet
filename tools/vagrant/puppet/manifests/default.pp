@@ -4,16 +4,14 @@ class auf {
   # create database
 	exec { "auf-db-create":
 		require	=> Service["mysql"],
-		command	=> "mysql -uroot -e 'create database auf'",
-		unless	=> "mysql -uroot auf"
+		command	=> "mysql -uroot -e 'DROP DATABASE IF EXISTS auf; CREATE DATABASE auf'",
 	}
 
 	# Init database from a dump sql
 	exec { "auf-db-init":
 		require	=> Exec["liferay-db-create"],
 		command	=> "mysql -uroot auf < /vagrant/${auf_data}",
-        onlyif  => "test -f /vagrant/${auf_data}" #,
-        #unless  => "mysql -uroot auf -e 'desc ref_employe'"
+        onlyif  => "test -f /vagrant/${auf_data}"
 	}
 }
 

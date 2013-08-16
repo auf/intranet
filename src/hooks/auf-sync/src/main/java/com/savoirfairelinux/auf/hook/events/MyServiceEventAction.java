@@ -10,6 +10,8 @@ import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -18,50 +20,40 @@ import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 
 public class MyServiceEventAction extends Action {
 	
-	//private static final Log log = LogFactoryUtil.getLog(MyServiceEventAction.class);
-	
+	private static final Log log = LogFactoryUtil.getLog(MyServiceEventAction.class);
 
 	@Override
 	public void run(HttpServletRequest req, HttpServletResponse res)
 			throws ActionException {
-		System.out.println("##### SERVICE EVENT LOG");
-		
 
-		List<AufEmployeTable> results = null;
-		try {
-			results = AnnuaireUtil.getAllData();
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		List<AufEmployeTable> results = AnnuaireUtil.getAllData();	
 			
-			
-		for(AufEmployeTable e : results) {
-			if (e.getLogin() == null) continue;
+		for(AufEmployeTable aufEmploye : results) {
+			if (aufEmploye.getLogin() == null) continue;
 			
 			long companyId = CompanyThreadLocal.getCompanyId();
-			User employe = null;
+			User liferayUser = null;
 			try {
-				employe = UserLocalServiceUtil.getUserByEmailAddress(companyId, e.getEmail());
-			} catch (PortalException e1) {
+				liferayUser = UserLocalServiceUtil.getUserByEmailAddress(companyId, aufEmploye.getEmail());
+			} catch (PortalException portalException) {
+				// this exception is thrown if now user can be found
 				// create new user
 				try {
-					System.out.println("CREATING NEW USER");
-					employe = UserLocalServiceUtil.addUser(
+					liferayUser = UserLocalServiceUtil.addUser(
 							UserLocalServiceUtil.getDefaultUserId(companyId),
 							companyId,
 							true,
 							"",
 							"",
 							false,
-							e.getLogin(),
-							e.getEmail(),
+							aufEmploye.getLogin(),
+							aufEmploye.getEmail(),
 							0,
 							"",
-							new Locale("en"),
-							e.getFirstName(),
+							new Locale("fr"),
+							aufEmploye.getFirstName(),
 							"",
-							e.getLastName(),
+							aufEmploye.getLastName(),
 							0,
 							0,
 							false,
@@ -76,32 +68,26 @@ public class MyServiceEventAction extends Action {
 							false,
 							null);
 					
-				} catch (SystemException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				} catch (PortalException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}					
+				} catch (Exception ex) {
+					log.error("User could not be created");
+					ex.printStackTrace();
+				}
 			} catch (SystemException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
+				return;
 			}
 			
-			System.out.println("MODIFYING USER");
-			employe.setScreenName(e.getLogin()); //has to be unique in the DB because of indexes
-			employe.setEmailAddress(e.getEmail()); //has to be unique in the DB because of indexes
-			employe.setCompanyId(companyId);
-			employe.setFirstName(e.getFirstName());
-			employe.setLastName(e.getLastName());				
-			employe.setScreenName(e.getLogin());
+			liferayUser.setScreenName(aufEmploye.getLogin()); //has to be unique in the DB because of indexes
+			liferayUser.setEmailAddress(aufEmploye.getEmail()); //has to be unique in the DB because of indexes
+			liferayUser.setCompanyId(companyId);
+			liferayUser.setFirstName(aufEmploye.getFirstName());
+			liferayUser.setLastName(aufEmploye.getLastName());				
+			liferayUser.setScreenName(aufEmploye.getLogin());
 
 			try {
-				System.out.println("SAVING USER");
-				employe.persist();
-				System.out.println("SAVED USER");
+				liferayUser.persist();
 			} catch (SystemException e1) {
-				// TODO Auto-generated catch block
+				log.error("Could not persist employe: " + liferayUser);
 				e1.printStackTrace();
 			}
 
