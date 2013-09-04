@@ -14,21 +14,22 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
+import com.liferay.portal.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
-import com.savoirfairelinux.auf.hook.db.AufEmployeTable;
+import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 
-public class MyServiceEventAction extends Action {
+public class SynchronizeEventAction extends Action {
 	
-	private static final Log log = LogFactoryUtil.getLog(MyServiceEventAction.class);
+	private static final Log log = LogFactoryUtil.getLog(SynchronizeEventAction.class);
 
 	@Override
 	public void run(HttpServletRequest req, HttpServletResponse res)
 			throws ActionException {
 
-		List<AufEmployeTable> results = AnnuaireUtil.getAllData();	
+		List<AufEmploye> results = AnnuaireUtil.getAllData();	
 			
-		for(AufEmployeTable aufEmploye : results) {
+		for(AufEmploye aufEmploye : results) {
 			if (aufEmploye.getLogin() == null) continue;
 			
 			long companyId = CompanyThreadLocal.getCompanyId();
@@ -36,7 +37,7 @@ public class MyServiceEventAction extends Action {
 			try {
 				liferayUser = UserLocalServiceUtil.getUserByEmailAddress(companyId, aufEmploye.getEmail());
 			} catch (PortalException portalException) {
-				// this exception is thrown if now user can be found
+				// this exception is thrown if no user can be found
 				// create new user
 				try {
 					liferayUser = UserLocalServiceUtil.addUser(
@@ -83,6 +84,18 @@ public class MyServiceEventAction extends Action {
 			liferayUser.setFirstName(aufEmploye.getFirstName());
 			liferayUser.setLastName(aufEmploye.getLastName());				
 			liferayUser.setScreenName(aufEmploye.getLogin());
+			
+			try {
+				String name = aufEmploye.getImplantation().getRegion().getName();
+				long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
+				if (orgId != 0) {
+					UserLocalServiceUtil.addOrganizationUsers(orgId, new long[] {liferayUser.getUserId()});
+				}
+			} catch (PortalException e) {
+				e.printStackTrace();
+			} catch (SystemException e) {
+				e.printStackTrace();
+			}
 
 			try {
 				liferayUser.persist();

@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.savoirfairelinux.auf.hook.db.AufEmployeTable;
+import com.savoirfairelinux.auf.hook.db.AufEmploye;
 
 public class AnnuaireUtil {
 	public static AnnuaireUtil instance = new AnnuaireUtil();
@@ -19,10 +19,10 @@ public class AnnuaireUtil {
         entityManager = emf.createEntityManager();
     }
 
-    public static List<AufEmployeTable> getAllData() {
-        List<AufEmployeTable> result = new ArrayList<AufEmployeTable>();
+    public static List<AufEmploye> getAllData() {
+        List<AufEmploye> result = new ArrayList<AufEmploye>();
         try {
-            result = instance.entityManager.createNativeQuery("SELECT * FROM ref_employe WHERE courriel IS NOT NULL", AufEmployeTable.class)
+            result = instance.entityManager.createNativeQuery("SELECT * FROM ref_employe WHERE courriel IS NOT NULL", AufEmploye.class)
                     .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,11 +30,11 @@ public class AnnuaireUtil {
         return result;
     }
 
-	public static List<AufEmployeTable> getUsersLike(String search) {
-		List<AufEmployeTable> result = new ArrayList<AufEmployeTable>();
+	public static List<AufEmploye> getUsersLike(String search) {
+		List<AufEmploye> result = new ArrayList<AufEmploye>();
 		search = "%" + search + "%";
         try {
-            result = instance.entityManager.createNamedQuery("AufEmployeTable.findLikeName", AufEmployeTable.class)
+            result = instance.entityManager.createNamedQuery("AufEmploye.findLikeName", AufEmploye.class)
             		.setParameter("param", search.toLowerCase())
                     .getResultList();
         } catch (Exception e) {
@@ -43,10 +43,10 @@ public class AnnuaireUtil {
         return result;
 	}
 
-	public static AufEmployeTable getUserByEmail(String email) {
-		AufEmployeTable user = null;
+	public static AufEmploye getUserByEmail(String email) {
+		AufEmploye user = null;
         try {
-        	user = instance.entityManager.createNamedQuery("AufEmployeTable.findByEmail", AufEmployeTable.class)
+        	user = instance.entityManager.createNamedQuery("AufEmploye.findByEmail", AufEmploye.class)
             		.setParameter("email", email.toLowerCase())
                     .getSingleResult();
         } catch (Exception e) {
