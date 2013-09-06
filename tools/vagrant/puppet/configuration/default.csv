@@ -1,4 +1,4 @@
-liferay_version,6.1.20-ee-ga2
-liferay_archive,liferay-portal-tomcat-6.1.20-ee-ga2-20120731110418084.zip
+liferay_version,6.1.30-ee-ga3
+liferay_archive,liferay-portal-tomcat-6.1.30-ee-ga3-20130812170130063.zip
 database_backup,auf-liferay-6.1.20-20130905.sql
 auf_data,auf-data.sql
