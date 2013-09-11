@@ -1,0 +1,21 @@
+#set($editURL=$request.attributes.get("aui:a:scopedAttributes").replaceAll(".*href=([^, }]*).*","$1").replaceAll("(.*)&_15_portletResource=[^&]*(.*)","$1$2")+"&_15_articleId=$reserved-article-id.data&_15_version=$reserved-article-version.data")
+
+#set ($JAP = $permissionChecker.getClass().forName("com.liferay.portlet.journal.service.permission.JournalArticlePermission").newInstance())
+#set($hasUpdatePersmission=$JAP.contains($permissionChecker, $groupId, $reserved-article-id.data, "UPDATE"))
+
+<h2>Curriculum vitae</h2>
+<h3>Formation</h3>
+#if($hasUpdatePersmission)
+<a href="$editURL">Modifier</a>
+#end
+#foreach($diplome in $diplomeName.getSiblings())
+<h4>$diplome.diplomeType.getData()</h4>
+<div>
+    <div>$diplome.getData()</div>
+    <div>$diplome.diplomeDate.getData()</div>
+</div>
+#end
+
+#if($hasUpdatePersmission)
+<a href="$editURL">Ajouter une formation</a>
+#end
