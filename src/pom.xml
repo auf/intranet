@@ -8,12 +8,13 @@
 	<version>1.0</version>
 	<packaging>pom</packaging>
 	<properties>
-		<liferay.version>6.1.1</liferay.version>
+		<liferay.version>6.1.30</liferay.version>
 	</properties>
 
 	<modules>
 		<module>themes/auf-theme</module>
 		<module>hooks/auf-sync</module>
+		<module>hooks/auf-asset-publisher-hook</module>
 	</modules>
 
 	<dependencies>

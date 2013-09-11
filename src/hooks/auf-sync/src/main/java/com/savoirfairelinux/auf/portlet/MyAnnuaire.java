@@ -12,7 +12,7 @@ import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;
-import com.savoirfairelinux.auf.hook.db.AufEmployeTable;
+import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 
 @Controller
@@ -32,7 +32,7 @@ public class MyAnnuaire {
 			RenderResponse response) throws Exception {
 		String search = ParamUtil.getString(request, "search", "");
 
-		List<AufEmployeTable> users = AnnuaireUtil.getUsersLike(search);
+		List<AufEmploye> users = AnnuaireUtil.getUsersLike(search);
 
 		model.addAttribute("size", users.size());
 		model.addAttribute("users", users);
@@ -48,7 +48,7 @@ public class MyAnnuaire {
 			RenderResponse response) throws Exception {
 		String email = ParamUtil.getString(request, "idEmploye", "");
 
-		AufEmployeTable user = null;
+		AufEmploye user = null;
 
 		user = AnnuaireUtil.getUserByEmail(email);
 		if (user == null) {

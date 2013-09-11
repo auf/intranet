@@ -4,6 +4,8 @@ package com.savoirfairelinux.auf.hook.db;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -11,11 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ref_employe")
 @NamedQueries({
-    @NamedQuery(name = "AufEmployeTable.findAll", query = "SELECT e FROM AufEmployeTable e"),
-    @NamedQuery(name = "AufEmployeTable.findLikeName", query = "SELECT e FROM AufEmployeTable e WHERE LOWER(e.firstName) LIKE :param"),
-    @NamedQuery(name = "AufEmployeTable.findByEmail", query = "SELECT e FROM AufEmployeTable e WHERE LOWER(e.email) = :email"),
+    @NamedQuery(name = "AufEmploye.findAll", query = "SELECT e FROM AufEmploye e"),
+    @NamedQuery(name = "AufEmploye.findLikeName", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.firstName) LIKE :param"),
+    @NamedQuery(name = "AufEmploye.findByEmail", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.email) = :email"),
 })
-public class AufEmployeTable {
+public class AufEmploye {
 	
     @Id
     private Long id;
@@ -36,6 +38,10 @@ public class AufEmployeTable {
     private String telIp;
 	@Column(name = "telephone_ip_nomade")
     private String telIpNomade;
+
+	@ManyToOne
+	@JoinColumn(name="implantation")
+    private AufImplantation implantation;
     
     public String getLastName(){
     	return lastName;
@@ -86,4 +92,13 @@ public class AufEmployeTable {
 	public String getTelIpNomade() {
 		return telIpNomade;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public AufImplantation getImplantation() {
+		return implantation;
+	}
+
 }
