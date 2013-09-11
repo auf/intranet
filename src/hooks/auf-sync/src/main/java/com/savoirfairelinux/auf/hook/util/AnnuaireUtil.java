@@ -22,7 +22,7 @@ public class AnnuaireUtil {
     public static List<AufEmploye> getAllData() {
         List<AufEmploye> result = new ArrayList<AufEmploye>();
         try {
-            result = instance.entityManager.createNativeQuery("SELECT * FROM ref_employe WHERE courriel IS NOT NULL", AufEmploye.class)
+            result = instance.entityManager.createNativeQuery("SELECT * FROM ref_employe WHERE courriel IS NOT NULL AND actif=1", AufEmploye.class)
                     .getResultList();
         } catch (Exception e) {
             e.printStackTrace();

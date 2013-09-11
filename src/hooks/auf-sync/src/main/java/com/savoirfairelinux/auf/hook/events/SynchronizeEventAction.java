@@ -13,9 +13,13 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.User;
+import com.liferay.portal.model.UserConstants;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
+import com.liferay.portal.service.UserLocalService;
 import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portlet.UserAttributes;
+import com.liferay.portlet.usersadmin.util.UsersAdmin;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 
@@ -84,6 +88,7 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setFirstName(aufEmploye.getFirstName());
 			liferayUser.setLastName(aufEmploye.getLastName());				
 			liferayUser.setScreenName(aufEmploye.getLogin());
+			liferayUser.setStatus(0); //0 = active
 			
 			try {
 				String name = aufEmploye.getImplantation().getRegion().getName();

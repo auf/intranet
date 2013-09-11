@@ -20,9 +20,16 @@ public class AufRegion {
     
     @Column(name = "nom")
     private String name;
+    
+    @Column(name = "actif")
+    private Integer active;
 
 	public String getName() {
 		return name;
+	}
+	
+	public boolean isActive() {
+		return (active == 1) ? true : false;
 	}
 
 }

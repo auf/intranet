@@ -59,7 +59,9 @@ public class StartupAction extends SimpleAction {
 		log.info("Adding Regions");
 		Organization poleRegions = addOrganization("Régions", auf);
 		for(AufRegion region : regions) {
-			addOrganization(region.getName(), poleRegions);
+			if (region.isActive()) {
+				addOrganization(region.getName(), poleRegions);
+			}
 		}
 
 	}
