@@ -39,7 +39,9 @@ $theme.include($body_top_include)
             <h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
         </div>
         <div class="rechercher">
-            <input type="text" placeholder="Rechercher un document, une personne..." value=""><input type="submit">
+            $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+			$theme.runtime("3", "", $velocityPortletPreferences.toString())
+			$velocityPortletPreferences.reset()
         </div>
         <div class="ecrire">
             <a href="/">contacter<br>l’administrateur</a>
@@ -59,6 +61,12 @@ $theme.include($body_top_include)
         #if (!$is_signed_in)
             <a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
         #end
+        
+        <div id="sidebar">
+        	$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+			$theme.runtime("58", "", $velocityPortletPreferences.toString())
+			$velocityPortletPreferences.reset()
+        </div>
         
         #if ($selectable)
             $theme.include($content_include)
