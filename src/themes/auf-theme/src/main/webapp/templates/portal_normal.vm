@@ -58,25 +58,31 @@ $theme.include($body_top_include)
 
     <!-- PARTIE CENTRALE -->
     <div id="contenu">
-        #if (!$is_signed_in)
-            <a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
-        #end
-        
-        <div id="sidebar">
-        	$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
-			$theme.runtime("58", "", $velocityPortletPreferences.toString())
-			$velocityPortletPreferences.reset()
+    
+     	<!-- colonne gauche -->
+        <div class="gauche">
+
+          $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+			    $theme.runtime("58", "", $velocityPortletPreferences.toString())
+			    $velocityPortletPreferences.reset()
+            
         </div>
         
-        #if ($selectable)
-            $theme.include($content_include)
-        #else
-            $portletDisplay.recycle()
+        <!-- partie centrale -->
+        <div class="centre">
+        
+          #if ($selectable)
+              $theme.include($content_include)
+          #else
+              $portletDisplay.recycle()
 
-            $portletDisplay.setTitle($the_title)
+              $portletDisplay.setTitle($the_title)
 
-            $theme.wrapPortlet("portlet.vm", $content_include)
-        #end
+              $theme.wrapPortlet("portlet.vm", $content_include)
+          #end
+
+        </div>
+
     </div>
 
     <!-- FOOTER -->

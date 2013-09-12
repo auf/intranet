@@ -420,11 +420,11 @@ p{
 .centre .box_centre .com{ padding-left: 25px; background: url(../images/com.png) left no-repeat;}
 .centre .box_centre .page{ padding-left: 25px; background: url(../images/page.png) left no-repeat;}
 
-.centre img{
+/* .centre img{
 	padding: 6px;
 	border: 1px solid #FCFCFC;
 	margin-bottom: 14px;
-}
+} */
 
 #contenu .centre ul{
 	margin-bottom: 20px;
