@@ -2,7 +2,8 @@ package com.savoirfairelinux.liferay.client;
 
 public enum Template {
 
-    CVExperience(Structure.CVExperience, "CV-Experience", ""),
+	AUFNOUVELLE(Structure.AUFNOUVELLE, "AUF-nouvelle", ""),
+	CVExperience(Structure.CVExperience, "CV-Experience", ""),
     CVFormation(Structure.CVFormation, "CV-Formation", "")
     ;
     

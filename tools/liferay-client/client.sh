@@ -12,9 +12,9 @@ case "$1" in
 		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateTemplates
 		;;
 	all)
-		"$0" categories
-		"$0" structures
-		"$0" templates
+		#mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateCategories
+		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateStructures
+		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateTemplates
 		;;
 	*)
 		echo "$0 [categories|structures|templates|all]"

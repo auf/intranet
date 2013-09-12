@@ -3,7 +3,8 @@ package com.savoirfairelinux.liferay.client;
 public enum Structure {
 
     CVExperience("CV-Experience", ""),
-    CVFormation("CV-Formation", "");
+    CVFormation("CV-Formation", ""),
+    AUFNOUVELLE("AUF-nouvelle", "");
     
     private final String name;
     private final String description;
