@@ -39,9 +39,9 @@ $theme.include($body_top_include)
             <h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
         </div>
         <div class="rechercher">
-            $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
-			$theme.runtime("3", "", $velocityPortletPreferences.toString())
-			$velocityPortletPreferences.reset()
+            $velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
+			#embedPortletUsing("3", "", $velocityPortletPreferences.toString())
+            $velocityPortletPreferences.reset()
         </div>
         <div class="ecrire">
             <a href="/">contacter<br>l’administrateur</a>

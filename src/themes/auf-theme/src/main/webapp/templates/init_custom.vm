@@ -1,3 +1,13 @@
 #*
 This file allows you to override and define new Velocity variables.
 *#
+#set ($overrideDbPrefs = "true")
+#macro (embedPortletUsing, $portletId, $requestVars, $preferences)
+  #if ($overrideDbPrefs)
+    #set ($locPortletPreferenceService = $serviceLocator.findService("com.liferay.portal.service.PortletPreferencesLocalService"))
+    #set ($locPlidLong = $getterUtil.getLong($plid))
+    $locPortletPreferenceService.deletePortletPreferences(0, 3, $locPlidLong, $portletId)
+  #end
+
+  $theme.runtime($portletId, $requestVars, $preferences)
+#end
