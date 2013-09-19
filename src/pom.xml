@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>themes/auf-theme</module>
+		<module>hooks/auf-theme-hook</module>
 		<module>hooks/auf-sync</module>
 		<module>hooks/auf-asset-publisher-hook</module>
 	</modules>

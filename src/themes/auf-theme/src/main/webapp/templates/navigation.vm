@@ -1,27 +1,68 @@
 <nav class="$nav_css_class" id="navigation">
-	<ul>
-		#foreach ($nav_item in $nav_items)
-			#if ($nav_item.isSelected())
-				<li class="selected">
-			#else
-				<li>
-			#end
-				<a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
 
-				#if ($nav_item.hasChildren())
-					<ul class="child-menu">
-						#foreach ($nav_child in $nav_item.getChildren())
-							#if ($nav_child.isSelected())
-								<li class="selected">
-							#else
-								<li>
-							#end
-								<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
-							</li>
-						#end
-					</ul>
+	<ul class="main-menu">
+		<li>
+            <a href="$homeURL" class="main-menu">Accueil</span></a>
+		</li>
+		<li>
+			<a href="#">Pôles support</span></a>
+			<ul class="child-menu">
+				#set( $poles = $aufTool.getSubOrganizations($poleSupportOrgId) )
+				#foreach ($pole in $poles)
+					<li>
+			            #set( $pole_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
+	                    $pole_url.setWindowState("normal")
+	                    $pole_url.setPortletMode("view")
+	                    $pole_url.setParameter("struts_action", "/my_places/view")
+	                    $pole_url.setParameter("groupId", "$pole.getGroup().getGroupId()")
+	                    $pole_url.setParameter("privateLayout", "false")
+	                    $pole_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+						<a href="$pole_url">$pole.getName()</a>
+					</li>
 				#end
-			</li>
-		#end
+			</ul>
+		</li>
+		<li>
+			<a href="#">Pôles strategiques</span></a>
+			<ul class="child-menu">
+				#set( $poles = $aufTool.getSubOrganizations($poleStrategicOrgId) )
+				#foreach ($pole in $poles)
+					<li>
+			            #set( $pole_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
+	                    $pole_url.setWindowState("normal")
+	                    $pole_url.setPortletMode("view")
+	                    $pole_url.setParameter("struts_action", "/my_places/view")
+	                    $pole_url.setParameter("groupId", "$pole.getGroup().getGroupId()")
+	                    $pole_url.setParameter("privateLayout", "false")
+	                    $pole_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+						<a href="$pole_url">$pole.getName()</a>
+					</li>
+				#end
+			</ul>
+		</li>
+		<li>
+			<a href="#">Régions</span></a>
+			<ul class="child-menu">
+				#set( $regions = $aufTool.getSubOrganizations($regionOrgId) )
+				#foreach ($region in $regions)
+					<li>
+			            #set( $region_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
+	                    $region_url.setWindowState("normal")
+	                    $region_url.setPortletMode("view")
+	                    $region_url.setParameter("struts_action", "/my_places/view")
+	                    $region_url.setParameter("groupId", "$region.getGroup().getGroupId()")
+	                    $region_url.setParameter("privateLayout", "false")
+	                    $region_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+						<a href="$region_url">$region.getName()</a>
+					</li>
+				#end
+			</ul>
+		</li>
+		<li>
+			<a href="#">Espaces collaboratifs</span></a>
+		</li>
+		<li>
+			<a href="#">Systèmes d'information</span></a>
+		</li>
 	</ul>
 </nav>

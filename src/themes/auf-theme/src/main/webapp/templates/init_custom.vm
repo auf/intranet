@@ -1,6 +1,7 @@
 #*
 This file allows you to override and define new Velocity variables.
 *#
+
 #set ($overrideDbPrefs = "true")
 #macro (embedPortletUsing, $portletId, $requestVars, $preferences)
   #if ($overrideDbPrefs)
@@ -11,3 +12,12 @@ This file allows you to override and define new Velocity variables.
 
   $theme.runtime($portletId, $requestVars, $preferences)
 #end
+
+#set($layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
+
+#set( $aufOrgId = 11172 )
+#set( $regionOrgId = 11228 )
+#set( $poleSupportOrgId = 11204 )
+#set( $poleStrategicOrgId = 11176 )
+
+#set( $homeURL = "/" )
