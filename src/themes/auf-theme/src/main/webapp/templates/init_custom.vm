@@ -21,3 +21,5 @@ This file allows you to override and define new Velocity variables.
 #set( $poleStrategicOrgId = 11176 )
 
 #set( $homeURL = "/" )
+
+#set ( $weatherPlace = $aufTool.getUserWeatherLocation($user_id) )

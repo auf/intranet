@@ -62,9 +62,15 @@ $theme.include($body_top_include)
      	<!-- colonne gauche -->
         <div class="gauche">
 
-          $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
-			    $theme.runtime("58", "", $velocityPortletPreferences.toString())
-			    $velocityPortletPreferences.reset()
+        $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+	    $theme.runtime("58", "", $velocityPortletPreferences.toString())
+	    $velocityPortletPreferences.reset()
+	    
+	    $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
+	    
+	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
+		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
+        $velocityPortletPreferences.reset()
             
         </div>
         
