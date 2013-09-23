@@ -2,7 +2,9 @@ package com.savoirfairelinux.liferay.client;
 
 public enum Template {
 
-	AUFNOUVELLE(Structure.AUFNOUVELLE, "AUF-nouvelle", "");
+	AUFNOUVELLE(Structure.AUFNOUVELLE, "AUF-nouvelle", ""),
+	AUFEVENEMENTHAUTE(Structure.AUFEVENEMENT, "AUF-evenement-haute", ""),
+	AUFEVENEMENTBASSE(Structure.AUFEVENEMENT, "AUF-evenement-basse", "");
     
     
     private final Structure structure;
