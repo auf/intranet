@@ -71,6 +71,10 @@ $theme.include($body_top_include)
 	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
+        
+        $theme.runtime("101_INSTANCE_eFzcOQLPj6zh", "", "")
+        
+        $theme.runtime("101_INSTANCE_VORUZ3haQRVY", "", "")
             
         </div>
         
