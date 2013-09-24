@@ -12,7 +12,7 @@ case "$1" in
 		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateTemplates
 		;;
 	all)
-		#mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateCategories
+		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateCategories
 		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateStructures
 		mvn exec:java -Dexec.mainClass=com.savoirfairelinux.liferay.client.UpdateTemplates
 		;;

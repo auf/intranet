@@ -34,6 +34,15 @@ public class Configuration
 			instance = new Configuration();
 		return instance;
 	}
+	
+	public String[] getCategories()
+	{
+		String categoriesStr = properties.getProperty("categories", "");
+		if (Validator.isNotNull(categoriesStr))
+			return categoriesStr.split(",");
+		else
+			return null;
+	}
 
 	public String[] getTemplates()
 	{
