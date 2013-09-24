@@ -2,7 +2,7 @@ package com.savoirfairelinux.liferay.client;
 
 public enum Structure {
 
-    AUFNOUVELLE("AUF-nouvelle", ""),
+	AUFACTUALITE("AUF-actualite", ""),
     AUFEVENEMENT("AUF-evenement", "");
     
     private final String name;
