@@ -3,6 +3,7 @@ package com.savoirfairelinux.liferay.client;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import com.liferay.client.soap.portal.service.ServiceContext;
 import com.liferay.client.soap.portlet.asset.model.AssetCategorySoap;
@@ -77,6 +78,7 @@ public class UpdateCategories
 					if (existingCategories.length > 0) {
 						category = existingCategories[0];
 					}
+
 					
 					if (category == null) {
 						System.out.println("ADDING CATEGORY:" + categoryName);

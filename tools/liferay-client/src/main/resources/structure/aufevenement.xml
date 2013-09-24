@@ -3,5 +3,4 @@
     <dynamic-element name="start" type="text" index-type="" repeatable="false"/>
     <dynamic-element name="end" type="text" index-type="" repeatable="false"/>
     <dynamic-element name="description" type="text_area" index-type="" repeatable="false"/>
-    <dynamic-element name="attachments" type="document_library" index-type="" repeatable="true"/>
 </root>
