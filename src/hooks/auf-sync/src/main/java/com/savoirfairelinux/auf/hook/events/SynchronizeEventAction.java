@@ -1,5 +1,8 @@
 package com.savoirfairelinux.auf.hook.events;
 
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -10,18 +13,19 @@ import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.PrefsPropsUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.User;
-import com.liferay.portal.model.UserConstants;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
-import com.liferay.portal.service.UserLocalService;
 import com.liferay.portal.service.UserLocalServiceUtil;
-import com.liferay.portlet.UserAttributes;
-import com.liferay.portlet.usersadmin.util.UsersAdmin;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
+
 
 public class SynchronizeEventAction extends Action {
 	
@@ -90,28 +94,59 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setScreenName(aufEmploye.getLogin());
 			liferayUser.setStatus(0); //0 = active
 			
-			try {
-				String name = aufEmploye.getImplantation().getRegion().getName();
-				long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
-				if (orgId != 0) {
-					UserLocalServiceUtil.addOrganizationUsers(orgId, new long[] {liferayUser.getUserId()});
+			//if no picture exists yet, try to find one
+			if (liferayUser.getPortraitId() == 0) {
+				String filePath = "/opt/liferay-portal/auf/images/d-0340-" + aufEmploye.getId() +"-photo.jpg";
+				if (FileUtil.exists(filePath)) {
+					byte[] image = null;
+					try {
+						image = FileUtil.getBytes(new File(filePath));
+						RenderedImage portrait = ImageToolUtil.read(image).getRenderedImage();
+						if (portrait.getHeight() > PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_HEIGHT) || portrait.getWidth() > PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_WIDTH)) {
+							portrait = ImageToolUtil.scale(portrait, PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_HEIGHT), PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_WIDTH));
+							image = ImageToolUtil.getBytes(portrait, ImageToolUtil.read(image).getType());
+						}
+					} catch (IOException e) {
+						//the image could not be read
+					} catch (SystemException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						if ((image != null) && (image.length > 0)) {
+							UserLocalServiceUtil.updatePortrait(liferayUser.getUserId(), image);
+						}							 
+					} catch (PortalException e) {
+						e.printStackTrace();
+					} catch (SystemException e) {
+						e.printStackTrace();
+					}
 				}
-			} catch (PortalException e) {
-				e.printStackTrace();
-			} catch (SystemException e) {
-				e.printStackTrace();
+				
+				try {
+					String name = aufEmploye.getImplantation().getRegion().getName();
+					long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
+					if (orgId != 0) {
+						UserLocalServiceUtil.addOrganizationUsers(orgId, new long[] {liferayUser.getUserId()});
+					}
+				} catch (PortalException e) {
+					e.printStackTrace();
+				} catch (SystemException e) {
+					e.printStackTrace();
+				}
 			}
-
+			
 			try {
 				liferayUser.persist();
 			} catch (SystemException e1) {
 				log.error("Could not persist employe: " + liferayUser);
 				e1.printStackTrace();
 			}
-
+			
 		}
 
 
 	}
+
 
 }
