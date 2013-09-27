@@ -50,7 +50,7 @@
 #set ($portalBeanLocator = $portal.getClass().forName('com.liferay.portal.kernel.bean.PortalBeanLocatorUtil')) 
 #set ($dateFormatFactory = $portalBeanLocator.locate('com.liferay.portal.kernel.util.DateFormatFactoryUtil')) 
 #set ($indexFormat = $dateFormatFactory.getSimpleDateFormat('EEE, dd MMM yyyy hh:mm:ss Z')) 
-#set( $date = $dateTool.toDate("EEE, dd MMM yyyy hh:mm:ss Z", $reserved-article-display-date.getData(), $localeUtil.fromLanguageId("fr_FR")) ) 
+#set( $date = $dateTool.toDate("EEE, dd MMM yyyy hh:mm:ss Z", $reserved-article-display-date.getData(), $localeUtil.fromLanguageId("fr_CA")) ) 
 #set( $formattedDate = $dateTool.format("d MMMM yyyy", $date, $locale) ) 
 #set ($windowState = $request.get('portlet-namespace')) 
 #set($page_url = "@layout_set_friendly_url@") #set($group_id = "@group_id@") 
