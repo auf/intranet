@@ -115,25 +115,26 @@ public class SynchronizeEventAction extends Action {
 					try {
 						if ((image != null) && (image.length > 0)) {
 							UserLocalServiceUtil.updatePortrait(liferayUser.getUserId(), image);
-						}							 
+						}
 					} catch (PortalException e) {
 						e.printStackTrace();
 					} catch (SystemException e) {
 						e.printStackTrace();
 					}
 				}
-				
-				try {
-					String name = aufEmploye.getImplantation().getRegion().getName();
-					long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
-					if (orgId != 0) {
-						UserLocalServiceUtil.addOrganizationUsers(orgId, new long[] {liferayUser.getUserId()});
-					}
-				} catch (PortalException e) {
-					e.printStackTrace();
-				} catch (SystemException e) {
-					e.printStackTrace();
+
+			}
+			
+			try {
+				String name = aufEmploye.getImplantation().getRegion().getName();
+				long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
+				if (orgId != 0) {
+					UserLocalServiceUtil.addOrganizationUsers(orgId, new long[] {liferayUser.getUserId()});
 				}
+			} catch (PortalException e) {
+				e.printStackTrace();
+			} catch (SystemException e) {
+				e.printStackTrace();
 			}
 			
 			try {
