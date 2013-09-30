@@ -62,7 +62,10 @@
 			<a href="#">Espaces collaboratifs</span></a>
 		</li>
 		<li>
-			<a href="#">Systèmes d'information</span></a>
+			#set( $quicklinks_url = $portletURLFactory.create($request, "49", $quickLinksId, "ACTION_PHASE") )
+	        $quicklinks_url.setWindowState("normal")
+	        $quicklinks_url.setPortletMode("view")
+	    	<a href="$quicklinks_url">Systèmes d'information</span></a>
 		</li>
 	</ul>
 </nav>
