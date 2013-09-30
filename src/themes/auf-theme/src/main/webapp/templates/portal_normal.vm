@@ -44,7 +44,10 @@ $theme.include($body_top_include)
             $velocityPortletPreferences.reset()
         </div>
         <div class="ecrire">
-            <a href="/">contacter<br>l’administrateur</a>
+        	#set( $contactPage_url = $portletURLFactory.create($request, "49", $contactPageId, "ACTION_PHASE") )
+	        $contactPage_url.setWindowState("normal")
+	        $contactPage_url.setPortletMode("view")
+            <a href="$contactPage_url">contacter<br>l’administrateur</a>
         </div>
 
     </header>

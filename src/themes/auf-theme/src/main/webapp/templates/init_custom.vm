@@ -25,3 +25,4 @@ This file allows you to override and define new Velocity variables.
 #set ( $weatherPlace = $aufTool.getUserWeatherLocation($user_id) )
 
 #set ( $quickLinksId = 14012 )
+#set ( $contactPageId = 14180 )
