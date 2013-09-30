@@ -12,12 +12,17 @@ import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.User;
+import com.liferay.portal.security.auth.CompanyThreadLocal;
+import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portal.theme.ThemeDisplay;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 
 @Controller
 @RequestMapping("VIEW")
-public class MyAnnuaire {
+public class AufAnnuaire {
 
 	@RenderMapping
 	public String view(Model model) throws Exception {
@@ -55,8 +60,13 @@ public class MyAnnuaire {
 			throw new PortalException("No user found for the email address: "
 					+ email);
 		}
-
+		
+		User liferayUser = UserLocalServiceUtil.getUserByEmailAddress(CompanyThreadLocal.getCompanyId(), email);
+		ThemeDisplay themeDisplay= (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
+		
 		model.addAttribute("user", user);
+		model.addAttribute("userPortraitUrl", liferayUser.getPortraitURL(themeDisplay));
+		
 
 		model.addAttribute("displaySearch", false);
 		model.addAttribute("displayProfile", true);

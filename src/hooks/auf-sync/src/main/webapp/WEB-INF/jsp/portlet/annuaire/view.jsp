@@ -20,8 +20,17 @@
 
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
+<%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
+<%@ page import="com.liferay.portal.model.User" %>
+<%@ page import="com.liferay.portal.security.auth.CompanyThreadLocal" %>
+<%@ page import="com.liferay.portal.service.UserLocalServiceUtil" %>
+<%@ page import="com.liferay.portal.theme.ThemeDisplay" %>
+
 
 <portlet:defineObjects />
+
+
 
 <div class="my-class">
     <portlet:renderURL var="searchURL">
@@ -88,7 +97,11 @@
 
 </c:if>
 
-<c:if test="${displayProfile}">                 
+<c:if test="${displayProfile}">
+
+<%
+
+%>           
 
 	<table>
 		<thead>
@@ -99,6 +112,10 @@
 		</tr>
 		</thead>
 		<tbody>
+		<tr>
+			<td><liferay-ui:message key="heading-portrait" /></td>
+			<td><img alt="${user.lastName}" class="user-logo" src="${userPortraitUrl}" /></td>
+		</tr>
 		<tr>
 			<td><liferay-ui:message key="heading-login" /></td>
 			<td>${user.login}</td>
