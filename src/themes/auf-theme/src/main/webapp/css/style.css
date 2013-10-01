@@ -3,27 +3,27 @@
 /* ----------------- TITRES ET LIENS  ----------------- */
 h1 {
   	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 1.6em;
 	text-transform: uppercase;
 }
 h2 {
   font-size: 32px;
-  font-size: 3.2rem;
+  font-size: 3.2em;
   margin-bottom: 8px;
 }
 h3 {
   font-size: 26px;
-  font-size: 2.6rem;
+  font-size: 2.6em;
   margin-bottom: 6px;
 }
 h4 {
   font-size: 20px;
-  font-size: 2rem;
+  font-size: 2em;
   margin-bottom: 4px;
 }
 small {
   font-size: 12px;
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 a {
   color: #3f3d4b;
@@ -58,7 +58,7 @@ input[type=file] {
   -moz-appearance: none;
   vertical-align: middle;
   font-size: 11px;
-  font-size: 1.1rem;
+  font-size: 1.1em;
   background-color: #ffffff;
   color: #3f3d4b;
   border: 1px solid #00aade;
@@ -96,7 +96,7 @@ body {
   color: #3f3d4b;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.01em;
   letter-spacing: 0.1px;
 }
 
@@ -124,7 +124,7 @@ body {
 
   background: url("../images/titrebox.png") repeat-x scroll 0 0 transparent;
   color: #FFFFFF;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   font-weight: normal;
   height: 33px;
   line-height: 33px;
@@ -145,7 +145,7 @@ header .baseline img{
 
 header .baseline h1{
 	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 1.6em;
 	font-family: Tahoma,Geneva,Kalimati,sans-serif;
 	line-height: 44px;
 	font-weight: bold;
@@ -168,7 +168,7 @@ header .ecrire a{
 	padding-right: 26px;
 	background: url(../images/write.png) right no-repeat;
 	font-size: 11px;
-	font-size: 1.1rem;
+	font-size: 1.1em;
 	font-weight: bold;
 	line-height: 1.1em;
 }
@@ -197,7 +197,7 @@ nav ul li a{
 	line-height: 39px;
 	border-right: 1px solid #bfbfbf;
 	font-size: 12px;
-	font-size: 1.2rem;
+	font-size: 1.2em;
 	font-weight: bold;
 }
 
@@ -237,7 +237,7 @@ nav ul li ul li a{
 	color: #fff;
 	padding: 1px 4px;
 	font-size: 10px;
-	font-size: 1rem;
+	font-size: 1em;
 	background-color: #00AADE;
 	text-shadow: none;
 	margin-left: 4px;
@@ -252,7 +252,7 @@ nav ul li ul li a{
 #contenu ul{
 	padding: 20px 14px 0px 14px;
 	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 1.3em;
 }
 
 #contenu .gauche ul li, #contenu .droit ul li{
@@ -261,7 +261,7 @@ nav ul li ul li a{
 
 p{
 	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 1.3em;
 }
 
 /* ---------- Partie gauche ------------ */
@@ -276,7 +276,7 @@ p{
 
 .gauche h4{ 
 	font-size: 11px;
-	font-size: 1.13rem;
+	font-size: 1.13em;
 	font-weight: bold;
 	margin-bottom: 3px;
 }
@@ -288,7 +288,7 @@ p{
 
 .gauche .poste{ 
 	font-size: 11px;
-	font-size: 1.1rem;
+	font-size: 1.1em;
 }
 
 .gauche .desc{
@@ -323,7 +323,7 @@ p{
 	color: #FFFFFF;
 	padding-left: 14px;
 	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 1.3em;
 }
 
 #contenu ul li.doc{background-image:url(../images/icon.png); background-position:0px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;} 
@@ -352,7 +352,7 @@ p{
 
 .centre h4{ 
 	font-size: 12px;
-	font-size: 1.2rem;
+	font-size: 1.2em;
 	font-weight: bold;
 	margin-bottom: 4px;
 }
@@ -379,14 +379,14 @@ p{
 
 .centre .date{
 	font-size: 11px;
-	font-size: 1.1rem;
+	font-size: 1.1em;
 	color: #3f3d4b;
 	margin-bottom: 2px;
 }
 
 .centre .date2{
 	font-size: 11px;
-	font-size: 1.1rem;
+	font-size: 1.1em;
 	color: #3f3d4b;
 	margin-bottom: 2px;
 	padding-left: 26px;
@@ -463,7 +463,7 @@ p{
 
 .droit h4{ 
 	font-size: 12px;
-	font-size: 1.2rem;
+	font-size: 1.2em;
 	font-weight: bold;
 	margin-bottom: 3px;
 }
@@ -475,7 +475,7 @@ p{
 
 .droit  .poste{ 
 	font-size: 11px;
-	font-size: 1.1rem;
+	font-size: 1.1em;
 }
 
 .droit .desc{
@@ -603,7 +603,7 @@ nav ul li ul {
 }
 
 nav ul li ul li a{
-	font-size: 1.1rem;
+	font-size: 1.1em;
 	font-size: 11px;
 	padding-left: 60px;
 }
