@@ -194,6 +194,21 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 		searchContainer.setTotal(total);
 	}
 	else if (!groupByClass) {
+		if (displayStyle.equals("auf-activities")) {
+			//then autoselect all groups
+			List<Group> groups = GroupLocalServiceUtil.getGroups(-1, -1);
+			long[] allGroupIds = new long[groups.size()];
+			for (int i=0; i<groups.size(); i++) {
+				if (groups.get(i).isControlPanel()) {
+					continue;
+				}
+	
+				if (groups.get(i).isCommunity() || groups.get(i).isOrganization()) {
+					allGroupIds[i] = groups.get(i).getGroupId();
+				}
+			}
+			assetEntryQuery.setGroupIds(allGroupIds);
+		}
 		assetEntryQuery.setClassNameIds(classNameIds);
 
 		total = AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
