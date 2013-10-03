@@ -42,14 +42,26 @@ public class AufEmploye {
 	@ManyToOne
 	@JoinColumn(name="implantation")
     private AufImplantation implantation;
+	
+	@ManyToOne
+	@JoinColumn(name="implantation_physique")
+    private AufImplantation physicalImplantation;
+	
+	@ManyToOne
+	@JoinColumn(name="service")
+    private AufService service;
     
     public String getLastName(){
-    	return lastName;
+    	return lastName.toUpperCase();
     }
 
     public String getFirstName() {
 		return firstName;
 	}
+    
+    public String getFullName() {
+    	return getGenderTitle() + " " + getLastName() + " " + getFirstName();
+    }
 
 	public String getEmail() {
 		return email;
@@ -76,13 +88,42 @@ public class AufEmploye {
 		if (gender.equals("m")) return "male";
 		return "female";
 	}
+	
+	public String getGenderTitle() {
+		if (gender.equals("m")) return "M.";
+		return "Mme";
+	}
 
 	public String getPostDesc() {
 		return postDesc;
 	}
+	
+	public String getServiceName() {
+		return getService().getName();
+	}
+	
+	public String getImplantationName() {
+		return getImplantation().getName();
+	}
+	
+	public String getImplantationCity() {
+		return getImplantation().getCity();
+	}
+	
+	public String getImplantationRegionName() {
+		return getImplantation().getRegion().getName();
+	}
 
-	public String getTelPost() {
-		return telPost;
+	public String getTelephone() {
+		return getPhysicalImplantation().getTelephone() + telPost;
+	}
+	
+	public String getTelecopier() {
+		return getPhysicalImplantation().getFax();
+	}
+	
+	public String getPostalAddress() {
+		return getPhysicalImplantation().getPostalAddress();
 	}
 
 	public String getTelIp() {
@@ -99,6 +140,14 @@ public class AufEmploye {
 
 	public AufImplantation getImplantation() {
 		return implantation;
+	}
+	
+	public AufImplantation getPhysicalImplantation() {
+		return physicalImplantation;
+	}
+	
+	public AufService getService() {
+		return service;
 	}
 
 }

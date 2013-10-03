@@ -1,5 +1,6 @@
 package com.savoirfairelinux.auf.portlet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.portlet.RenderRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.portlet.bind.annotation.RenderMapping;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -62,10 +64,31 @@ public class AufAnnuaire {
 		}
 		
 		User liferayUser = UserLocalServiceUtil.getUserByEmailAddress(CompanyThreadLocal.getCompanyId(), email);
+		
+		List<Group> userSites = new ArrayList<Group>();
+		for (Group site : liferayUser.getMySites()) {
+		  if (site.isRegularSite() || site.isOrganization()) {
+			  userSites.add(site);
+		  }
+		}
+		
 		ThemeDisplay themeDisplay= (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
 		
 		model.addAttribute("user", user);
+		model.addAttribute("userSites", userSites);
 		model.addAttribute("userPortraitUrl", liferayUser.getPortraitURL(themeDisplay));
+
+		if (liferayUser.getExpandoBridge().hasAttribute("projets")) {
+			model.addAttribute("userProjects", liferayUser.getExpandoBridge().getAttribute("projets").toString());
+		} else {
+			model.addAttribute("userProjects", "NO PROJECTS FIELD FOUND");
+		}
+			
+		if (liferayUser.getExpandoBridge().hasAttribute("interets")) {
+			model.addAttribute("userInterests", liferayUser.getExpandoBridge().getAttribute("interets").toString());
+		} else {
+			model.addAttribute("userInterests", "NO INTEREST FIELD FOUND");
+		}
 		
 
 		model.addAttribute("displaySearch", false);
