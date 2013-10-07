@@ -1,6 +1,5 @@
 package com.savoirfairelinux.auf.hook.db;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,31 +8,30 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ref_region")
+@Table(name = "ref_pays")
 @NamedQueries({
-    @NamedQuery(name = "AufRegion.findAll", query = "SELECT r FROM AufRegion r WHERE r.active=1 ORDER BY r.name"),
+    @NamedQuery(name = "AufCountry.findAll", query = "SELECT c FROM AufCountry c WHERE c.active=1 ORDER BY c.name"),
 })
-public class AufRegion {
-	
+public class AufCountry {
     @Id
     private Long id;
     
     @Column(name = "nom")
     private String name;
-    
     @Column(name = "actif")
-    private Integer active;
-    
-    public long getId() {
-    	return id;
-    }
+    private long active;
+    @Column(name = "code")
+    private String code;
+
+	public Long getId() {
+		return id;
+	}
 
 	public String getName() {
 		return name;
 	}
 	
-	public boolean isActive() {
-		return (active == 1) ? true : false;
+	public String getCode() {
+		return code;
 	}
-
 }

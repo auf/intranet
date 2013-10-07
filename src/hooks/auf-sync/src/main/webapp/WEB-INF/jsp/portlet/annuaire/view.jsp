@@ -86,32 +86,30 @@
 		
 		<c:if test="${displaySearch}">
 
-			<table>
-				<thead>
-				<tr>
-					<th><liferay-ui:message key="heading-login" /></th>
-					<th><liferay-ui:message key="heading-firstname" /></th>
-					<th><liferay-ui:message key="heading-lastname" /></th>
-					<th><liferay-ui:message key="heading-email" /></th>
-				</tr>
-				</thead>
-				<tbody>
-				<c:forEach var="user" items="${users}">
-				<tr>
-					<td>
-						<portlet:renderURL var="url">
-			                <portlet:param name="action" value="viewPerson" />
-			                <portlet:param name="idEmploye" value="${user.email}" />
-			            </portlet:renderURL>
-			            <a href="${url}">${user.login}</a>
-			        </td>
-					<td>${user.lastName}</td>
-					<td>${user.firstName}</td>
-					<td>${user.email}</td>
-				</tr>
+			<h2><span>${users.size()}</span> employés correspondent à votre recherche</h2>
+            
+            <div class="box_centre">
+	            <c:forEach var="user" items="${users}">
+					<div class="news">
+                        <div class="photo"><img src="${user.getPortraitUrl()}" width="50" height="50"></div>
+                        <div class="desc">
+                        	<portlet:renderURL var="url">
+				                <portlet:param name="action" value="viewPerson" />
+				                <portlet:param name="idEmploye" value="${user.getEmploye().getEmail()}" />
+				            </portlet:renderURL>
+                            <h4><a href="${url}">${user.getEmploye().getFullName()}</a></h4>
+                            <p class="date">${user.getEmploye().getPostDesc()}</p>
+                            <p class="date">${user.getEmploye().getImplantationName()}</p>
+                            <p class="date">${user.getEmploye().getImplantationCity()}</p>
+                    	</div>
+                    	<div class="desc">
+                            <p class="date">${user.getEmploye().getEmail()}</p>
+                            <p class="date">${user.getEmploye().getTelIp()}</p>
+                            <p class="date">${user.getEmploye().getTelIpNomade()}</p>
+                    	</div>
+                    </div>
 				</c:forEach>
-				</tbody>
-			</table>
+            </div>
 		
 		</c:if>
 

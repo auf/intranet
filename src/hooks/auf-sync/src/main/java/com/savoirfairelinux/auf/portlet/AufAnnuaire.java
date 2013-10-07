@@ -1,6 +1,7 @@
 package com.savoirfairelinux.auf.portlet;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.portlet.RenderRequest;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
+import com.liferay.portal.NoSuchUserException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -19,7 +21,10 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.savoirfairelinux.auf.hook.db.AufCountry;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
+import com.savoirfairelinux.auf.hook.db.AufImplantation;
+import com.savoirfairelinux.auf.hook.db.AufRegion;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 
 @Controller
@@ -30,18 +35,69 @@ public class AufAnnuaire {
 	public String view(Model model) throws Exception {
 		model.addAttribute("displaySearch", false);
 		model.addAttribute("displayProfile", false);
-
+		
+		initializeSearchFields(model);
+		
 		return "view";
+	}
+
+	private void initializeSearchFields(Model model) {
+		List<AufImplantation> implantations = AnnuaireUtil.getAllImplantations();
+		model.addAttribute("implantations", implantations);
+		
+		List<AufCountry> countries = AnnuaireUtil.getAllCountries();
+		model.addAttribute("countries", countries);
+		
+		List<AufRegion> regions = AnnuaireUtil.getAllRegions();
+		model.addAttribute("regions", regions);
+		
+		List<String> cities = AnnuaireUtil.getAllCities();
+		model.addAttribute("cities", cities);
+		
+		List<String> types = AnnuaireUtil.getAllTypes();
+		model.addAttribute("types", types);
 	}
 
 	@RenderMapping(params = "action=searchPerson")
 	public String search(Model model, RenderRequest request,
 			RenderResponse response) throws Exception {
-		String search = ParamUtil.getString(request, "search", "");
+		String name = ParamUtil.getString(request, "name", null);
+		if (name.equals("")) name = null;
+		long implantation = ParamUtil.getLong(request, "implantation", -1);
+		String type = ParamUtil.getString(request, "type", null);
+		if (type.equals("")) type = null;
+		String city = ParamUtil.getString(request, "city", null);
+		if (city.equals("")) city = null;
+		String country = ParamUtil.getString(request, "country", null);
+		if (country.equals("")) country = null;
+		long region = ParamUtil.getLong(request, "region", -1);
 
-		List<AufEmploye> users = AnnuaireUtil.getUsersLike(search);
+		//List<AufEmploye> employees = AnnuaireUtil.getUsersLike(search);
+		List<AufEmploye> employees;
+		if (request.getParameter("search").equals("tous")) {
+			employees = AnnuaireUtil.getAllData();
+		} else {
+			employees = AnnuaireUtil.getUsers(name, implantation, type, city, country, region);
+		}
 
-		model.addAttribute("size", users.size());
+		model.addAttribute("size", employees.size());
+		
+		initializeSearchFields(model);
+		
+		//initialize list with user portraits
+		List<AufCombinedUser> users = new LinkedList<AufCombinedUser>();
+		ThemeDisplay themeDisplay= (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
+		
+		for (AufEmploye e : employees) {
+			if ((e != null) && (e.getEmail()!= null)) {
+				try {
+					User liferayUser = UserLocalServiceUtil.getUserByEmailAddress(CompanyThreadLocal.getCompanyId(), e.getEmail());
+					users.add(new AufCombinedUser(e, liferayUser.getPortraitURL(themeDisplay)));
+				} catch (NoSuchUserException ex) {
+					System.out.println("MISSED USER");
+				}
+			}
+		}
 		model.addAttribute("users", users);
 
 		model.addAttribute("displaySearch", true);

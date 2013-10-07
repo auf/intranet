@@ -13,7 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ref_implantation")
 @NamedQueries({
-    @NamedQuery(name = "AufImplantation.findAll", query = "SELECT i FROM AufImplantation i"),
+	@NamedQuery(name = "AufImplantation.findAll", query = "SELECT i FROM AufImplantation i WHERE i.active=1 AND i.status=1 ORDER BY i.name"),
+	@NamedQuery(name = "AufImplantation.findAllCities", query = "SELECT DISTINCT(i.city) FROM AufImplantation i WHERE i.active=1 AND i.status=1 ORDER BY i.city"),
+	@NamedQuery(name = "AufImplantation.findAllTypes", query = "SELECT DISTINCT(i.type) FROM AufImplantation i WHERE i.active=1 AND i.status=1 ORDER BY i.type"),    
 })
 public class AufImplantation {
 	
@@ -22,8 +24,16 @@ public class AufImplantation {
     
     @Column(name = "nom")
     private String name;
+    @Column(name = "actif")
+    private long active;
+    @Column(name = "statut")
+    private long status;
     @Column(name = "adresse_physique_ville")
     private String city;
+    @Column(name = "adresse_physique_pays")
+    private String country;
+    @Column(name = "type")
+    private String type;
     @Column(name = "telephone")
     private String telephone;
     @Column(name = "fax")
@@ -64,6 +74,10 @@ public class AufImplantation {
 
 	public String getFax() {
 		return fax;
+	}
+	
+	public long getId() {
+		return id;
 	}
 
 	public String getPostalAddress() {

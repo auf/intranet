@@ -13,9 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ref_employe")
 @NamedQueries({
-    @NamedQuery(name = "AufEmploye.findAll", query = "SELECT e FROM AufEmploye e"),
-    @NamedQuery(name = "AufEmploye.findLikeName", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.firstName) LIKE :param"),
-    @NamedQuery(name = "AufEmploye.findByEmail", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.email) = :email"),
+    @NamedQuery(name = "AufEmploye.findAll", query = "SELECT e FROM AufEmploye e WHERE e.active=1"),
+    @NamedQuery(name = "AufEmploye.findLikeName", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.firstName) LIKE :param AND e.active=1"),
+    @NamedQuery(name = "AufEmploye.findByEmail", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.email) = :email AND e.active=1")
 })
 public class AufEmploye {
 	
@@ -24,6 +24,8 @@ public class AufEmploye {
     
     @Column(name = "nom")
     private String lastName;
+    @Column(name = "actif")
+    private long active;
     @Column(name = "prenom")
     private String firstName;
 	@Column(name = "courriel")
@@ -61,6 +63,10 @@ public class AufEmploye {
     
     public String getFullName() {
     	return getGenderTitle() + " " + getLastName() + " " + getFirstName();
+    }
+    
+    public String getStuff(String text) {
+    	return "YES" + text;
     }
 
 	public String getEmail() {
@@ -149,5 +155,6 @@ public class AufEmploye {
 	public AufService getService() {
 		return service;
 	}
+
 
 }
