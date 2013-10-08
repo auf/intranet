@@ -9,6 +9,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.liferay.portal.DuplicateUserScreenNameException;
 import com.liferay.portal.kernel.events.Action;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -59,7 +60,7 @@ public class SynchronizeEventAction extends Action {
 							aufEmploye.getEmail(),
 							0,
 							"",
-							new Locale("fr"),
+							new Locale("fr_CA"),
 							aufEmploye.getFirstName(),
 							"",
 							aufEmploye.getLastName(),
@@ -77,9 +78,15 @@ public class SynchronizeEventAction extends Action {
 							false,
 							null);
 					
-				} catch (Exception ex) {
+				} catch (DuplicateUserScreenNameException e) {
+					log.error("AufEmploye : " + aufEmploye.toString());
+					e.printStackTrace();
+				} catch (PortalException e) {
 					log.error("User could not be created");
-					ex.printStackTrace();
+					e.printStackTrace();
+				} catch (SystemException e) {
+					log.error("User could not be created");
+					e.printStackTrace();
 				}
 			} catch (SystemException e1) {
 				e1.printStackTrace();

@@ -83,11 +83,13 @@ public class AufEmploye {
 	public String toString() {
 		String ln = getLastName();
 		if (ln==null) ln="";
+		String fn = getFirstName();
+		if (fn==null) fn="";
 		String l = getLogin();
 		if (l==null) l="";
 		String e = getEmail();
 		if (e==null) e="@";
-		return "User: " + l + " - " + ln + " - " + e;
+		return "User: " + l + " - " + ln + " " + fn + " - " + e;
 	}
 
 	public String getGender() {
