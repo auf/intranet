@@ -97,8 +97,7 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setEmailAddress(aufEmploye.getEmail()); //has to be unique in the DB because of indexes
 			liferayUser.setCompanyId(companyId);
 			liferayUser.setFirstName(aufEmploye.getFirstName());
-			liferayUser.setLastName(aufEmploye.getLastName());				
-			liferayUser.setScreenName(aufEmploye.getLogin());
+			liferayUser.setLastName(aufEmploye.getLastName());
 			liferayUser.setStatus(0); //0 = active
 			
 			//if no picture exists yet, try to find one
