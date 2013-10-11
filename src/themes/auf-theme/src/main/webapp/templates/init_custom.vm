@@ -15,14 +15,33 @@ This file allows you to override and define new Velocity variables.
 
 #set($layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
 
-#set( $aufOrgId = 10501 )
-#set( $regionOrgId = 10557 )
-#set( $poleSupportOrgId = 11204 )
-#set( $poleStrategicOrgId = 11176 )
+#set( $aufOrgId = 10801 )
+#set( $regionOrgId = 10901 )
+#set( $poleSupportOrgId = 10833 )
+#set( $poleStrategicOrgId = 10805 )
 
 #set( $homeURL = "/" )
 
 #set ( $weatherPlace = $aufTool.getUserWeatherLocation($user_id) )
 
-#set ( $quickLinksId = 14012 )
-#set ( $contactPageId = 14180 )
+#set ( $quickLinksId = 14404 )
+#set ( $contactPageId = 14422 )
+
+
+
+#* ***********************************************
+Local (dev)
+
+#set( $aufOrgId = 10601 )
+#set( $regionOrgId = 10657 )
+#set( $poleSupportOrgId = 10633 )
+#set( $poleStrategicOrgId = 10605 )
+
+#set( $homeURL = "/" )
+
+#set ( $weatherPlace = $aufTool.getUserWeatherLocation($user_id) )
+
+#set ( $quickLinksId = 14459 )
+#set ( $contactPageId = 14515 )
+*************************************************
+*#

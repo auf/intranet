@@ -60,6 +60,21 @@
 		</li>
 		<li>
 			<a href="#">Espaces collaboratifs</span></a>
+			<ul class="child-menu">
+				#set( $sites = $aufTool.getCollaborationSites($user_id) )
+				#foreach ($site in $sites)
+					<li>
+			            #set( $site_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
+	                    $site_url.setWindowState("normal")
+	                    $site_url.setPortletMode("view")
+	                    $site_url.setParameter("struts_action", "/my_places/view")
+	                    $site_url.setParameter("groupId", "$site.getGroupId()")
+	                    $site_url.setParameter("privateLayout", "false")
+	                    $site_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+						<a href="$site_url">$site.getName()</a>
+					</li>
+				#end
+			</ul>
 		</li>
 		<li>
 			#set( $quicklinks_url = $portletURLFactory.create($request, "49", $quickLinksId, "ACTION_PHASE") )

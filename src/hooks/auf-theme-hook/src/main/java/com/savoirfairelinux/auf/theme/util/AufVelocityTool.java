@@ -8,6 +8,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.Address;
+import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Organization;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
@@ -41,6 +42,30 @@ public class AufVelocityTool
 		{
 			log.error("Cannot get regions for organization " + organizationId);
 			return new ArrayList<Organization>();
+		}
+	}
+	
+	public List<Group> getCollaborationSites(long userId)
+	{
+		try
+		{
+			User liferayUser = UserLocalServiceUtil.getUser(userId);
+			
+			List<Group> userSites = new ArrayList<Group>();
+			for (Group site : liferayUser.getMySites()) {
+			  if (site.isRegularSite() || site.isOrganization()) {
+				  userSites.add(site);
+			  }
+			}
+			return userSites;
+		} catch (PortalException e) {
+			log.error("Cannot get sites for user " + userId);
+			e.printStackTrace();
+			return new ArrayList<Group>();
+		} catch (SystemException e) {
+			log.error("Cannot get sites for user " + userId);
+			e.printStackTrace();
+			return new ArrayList<Group>();
 		}
 	}
 	
