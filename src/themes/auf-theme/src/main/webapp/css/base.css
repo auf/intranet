@@ -103,65 +103,70 @@ ul ul {
 }
 
 /* line 87, ../sass/base.scss */
+nav ul ul {
+  list-style-type: none;
+}
+
+/* line 91, ../sass/base.scss */
 ol ol {
   list-style-type: upper-roman;
 }
 
-/* line 91, ../sass/base.scss */
+/* line 95, ../sass/base.scss */
 dl dd {
   margin-left: 1em;
 }
 
-/* line 95, ../sass/base.scss */
+/* line 99, ../sass/base.scss */
 th {
   font-weight: bold;
 }
 
-/* line 99, ../sass/base.scss */
+/* line 103, ../sass/base.scss */
 caption {
   margin-bottom: 0.5em;
   text-align: center;
 }
 
-/* line 104, ../sass/base.scss */
+/* line 108, ../sass/base.scss */
 p {
   margin-bottom: 1em;
 }
 
 /* ---------- Links ---------- */
 /* ---------- Headers ---------- */
-/* line 121, ../sass/base.scss */
+/* line 125, ../sass/base.scss */
 h1 {
   font-size: 1.8em;
 }
 
-/* line 125, ../sass/base.scss */
+/* line 129, ../sass/base.scss */
 h2 {
   font-size: 1.6em;
 }
 
-/* line 129, ../sass/base.scss */
+/* line 133, ../sass/base.scss */
 h3 {
   font-size: 1.4em;
 }
 
-/* line 133, ../sass/base.scss */
+/* line 137, ../sass/base.scss */
 h1, h2, h3 {
   margin: 1em 0;
 }
 
-/* line 137, ../sass/base.scss */
+/* line 141, ../sass/base.scss */
 h4, h5, h6 {
   font-size: 1.1em;
 }
 
-/* line 141, ../sass/base.scss */
+/* line 145, ../sass/base.scss */
 h1, h2, h3, h4, h5, h6, strong {
   font-weight: bold;
 }
 
 /* ---------- Logo ---------- */
-/* line 147, ../sass/base.scss */
+/* line 151, ../sass/base.scss */
 .logo {
   display: inline-block;
   line-height: 1;
@@ -169,13 +174,13 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 /* ---------- HTML Editor ---------- */
-/* line 155, ../sass/base.scss */
+/* line 159, ../sass/base.scss */
 body.html-editor {
   background: #FFF;
   color: #000;
 }
 
-/* line 160, ../sass/base.scss */
+/* line 164, ../sass/base.scss */
 .html-editor.portlet-message-boards blockquote {
   background: #eef0f2 url(../images/message_boards/quoteleft.png) no-repeat 5px 5px;
   border: 1px solid #777;
@@ -183,7 +188,7 @@ body.html-editor {
   padding: 5px 45px;
 }
 
-/* line 167, ../sass/base.scss */
+/* line 171, ../sass/base.scss */
 .html-editor.portlet-message-boards blockquote:after {
   background: url(../images/message_boards/quoteright.png) no-repeat 50%;
   bottom: 5px;
@@ -196,13 +201,13 @@ body.html-editor {
   z-index: 999;
 }
 
-/* line 179, ../sass/base.scss */
+/* line 183, ../sass/base.scss */
 .html-editor.portlet-message-boards blockquote cite {
   display: block;
   font-weight: bold;
 }
 
-/* line 184, ../sass/base.scss */
+/* line 188, ../sass/base.scss */
 .html-editor.portlet-message-boards pre {
   background: #F9F9F9;
   border: 1px solid #777;
@@ -210,66 +215,66 @@ body.html-editor {
 }
 
 /* ---------- Text formatting ---------- */
-/* line 192, ../sass/base.scss */
+/* line 196, ../sass/base.scss */
 b, strong {
   font-weight: bold;
 }
 
-/* line 196, ../sass/base.scss */
+/* line 200, ../sass/base.scss */
 i, em {
   font-style: italic;
 }
 
-/* line 200, ../sass/base.scss */
+/* line 204, ../sass/base.scss */
 code, pre {
   font-family: "Courier New", Courier, monospace;
   white-space: pre;
 }
 
-/* line 205, ../sass/base.scss */
+/* line 209, ../sass/base.scss */
 .important {
   font-weight: bold;
 }
 
 /* ---------- Main content body ---------- */
-/* line 211, ../sass/base.scss */
+/* line 215, ../sass/base.scss */
 .portal-iframe #main-content {
   width: 100%;
 }
 
 /* ---------- Alerts and popups ---------- */
-/* line 217, ../sass/base.scss */
+/* line 221, ../sass/base.scss */
 .alert-background {
   background: #000;
 }
 
-/* line 221, ../sass/base.scss */
+/* line 225, ../sass/base.scss */
 .popup-alert-notice {
   background-color: #FFC;
   border-bottom-color: #FC0;
 }
 
-/* line 226, ../sass/base.scss */
+/* line 230, ../sass/base.scss */
 .popup-alert-warning {
   background-color: #FDD;
   border-bottom-color: #F00;
 }
 
 /* ---------- Portal add content ---------- */
-/* line 233, ../sass/base.scss */
+/* line 237, ../sass/base.scss */
 .portal-add-content {
   background: #FFF;
   text-align: left;
   z-index: 20;
 }
 
-/* line 239, ../sass/base.scss */
+/* line 243, ../sass/base.scss */
 .portal-add-content a {
   text-decoration: none;
 }
 
 /* ---------- Loading animation ---------- */
-/* line 245, ../sass/base.scss */
+/* line 249, ../sass/base.scss */
 .loading-animation {
   background: url(../images/progress_bar/loading_animation.gif) no-repeat top center;
   margin-top: 10px;
@@ -278,13 +283,13 @@ code, pre {
 }
 
 /* ---------- Separator ---------- */
-/* line 254, ../sass/base.scss */
+/* line 258, ../sass/base.scss */
 hr, .separator {
   border-top: 1px dotted #BFBFBF;
 }
 
 /* ---------- Update Manager ---------- */
-/* line 260, ../sass/base.scss */
+/* line 264, ../sass/base.scss */
 .update-available {
   margin-top: 10px;
   padding: 2px;
@@ -292,7 +297,7 @@ hr, .separator {
 }
 
 /* ---------- Text highlighting ---------- */
-/* line 268, ../sass/base.scss */
+/* line 272, ../sass/base.scss */
 .highlight {
   background: #FFC;
   font-weight: bold;

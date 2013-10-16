@@ -194,7 +194,6 @@ header .ecrire a{
 nav ul li a{
 	display: block;
 	padding: 0px 30px;
-	height: 39px;
 	line-height: 39px;
 	border-right: 1px solid #bfbfbf;
 	font-size: 12px;
@@ -203,11 +202,11 @@ nav ul li a{
 }
 
 nav ul li .active{
-	background: url(../images/menu_active.png) repeat-x;
+	background: url(../images/menu_active.png) repeat;
 }
 
 nav ul li :hover{
-	background: url(../images/menu_active.png) repeat-x;
+	background: url(../images/menu_active.png) repeat;
 }
 
 nav ul li:hover > ul{
