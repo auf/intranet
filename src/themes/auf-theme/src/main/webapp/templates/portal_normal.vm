@@ -12,8 +12,8 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    #js ("$javascript_folder/jquery-1.9.1.min.js")
+    #js ("$javascript_folder/jquery-ui.js")
     <script>
         $(function() {
             $( "#tabs" ).tabs();
@@ -70,12 +70,16 @@ $theme.include($body_top_include)
 	    $velocityPortletPreferences.reset()
 	    
 	    $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
-	    
+	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
+        $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Météo")
 	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
         
-        $theme.runtime("101_INSTANCE_eFzcOQLPj6zh", "", "")
+        $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
+        $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Prochains événements")
+		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $velocityPortletPreferences.toString())
+        $velocityPortletPreferences.reset()
         
         $theme.runtime("101_INSTANCE_VORUZ3haQRVY", "", "")
             
