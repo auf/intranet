@@ -7,12 +7,7 @@
 <portlet:defineObjects />
 
 <div class="my-class">
-	<div class="ariane">Accueil &gt; Annuaire des employés</div>
-	
-	<h1>Annuaire des employés</h1>
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat sagittis neque, ac vulputate urna dapibus in. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Morbi sed ligula felis, non luctus arcu. Cras eget quam vitae leo volutpat placerat. Nam ut massa eget tellus dapibus tincidunt in vel velit. Curabitur dapibus, ligula ac pretium feugiat, felis orci aliquet nulla, vitae vestibulum odio mauris nec justo. Duis nec augue nec nisl lacinia lacinia ut quis felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-         
+	         
     <portlet:renderURL var="searchUrl">
         <portlet:param name="action" value="searchPerson" />
         <portlet:param name="search" value="default" />
