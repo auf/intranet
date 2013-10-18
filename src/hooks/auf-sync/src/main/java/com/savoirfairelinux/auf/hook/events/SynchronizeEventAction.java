@@ -3,6 +3,8 @@ package com.savoirfairelinux.auf.hook.events;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,6 +19,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -36,6 +39,11 @@ public class SynchronizeEventAction extends Action {
 	public void run(HttpServletRequest req, HttpServletResponse res)
 			throws ActionException {
 
+		synchronizeUsers();
+
+	}
+
+	public static void synchronizeUsers() {
 		List<AufEmploye> results = AnnuaireUtil.getAllData();	
 			
 		for(AufEmploye aufEmploye : results) {
@@ -48,6 +56,7 @@ public class SynchronizeEventAction extends Action {
 			} catch (PortalException portalException) {
 				// this exception is thrown if no user can be found
 				// create new user
+				boolean errorCreatingUser = true;
 				try {
 					liferayUser = UserLocalServiceUtil.addUser(
 							UserLocalServiceUtil.getDefaultUserId(companyId),
@@ -77,6 +86,7 @@ public class SynchronizeEventAction extends Action {
 							null,
 							false,
 							null);
+					errorCreatingUser = false;
 					
 				} catch (DuplicateUserScreenNameException e) {
 					log.error("AufEmploye : " + aufEmploye.toString());
@@ -88,6 +98,7 @@ public class SynchronizeEventAction extends Action {
 					log.error("User could not be created");
 					e.printStackTrace();
 				}
+				if (errorCreatingUser) continue;
 			} catch (SystemException e1) {
 				e1.printStackTrace();
 				return;
@@ -99,10 +110,19 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setFirstName(aufEmploye.getFirstName());
 			liferayUser.setLastName(aufEmploye.getLastName());
 			liferayUser.setStatus(0); //0 = active
+
 			
 			//if no picture exists yet, try to find one
 			if (liferayUser.getPortraitId() == 0) {
-				String filePath = "/opt/liferay-portal/auf/images/d-0340-" + aufEmploye.getId() +"-photo.jpg";
+				String portraitPath = "/opt/liferay-portal/auf/images";
+				try {
+					portraitPath = PrefsPropsUtil.getString("auf.portrait.path");
+				} catch (SystemException e1) {
+					log.info("auf.portrait.path was not set");
+					e1.printStackTrace();
+				}
+				String filePath = portraitPath + "/d-0340-" + aufEmploye.getId() +"-photo.jpg";
+				
 				if (FileUtil.exists(filePath)) {
 					byte[] image = null;
 					try {
@@ -127,6 +147,8 @@ public class SynchronizeEventAction extends Action {
 					} catch (SystemException e) {
 						e.printStackTrace();
 					}
+				} else {
+					log.info("No portrait was found for:" + aufEmploye.getId());
 				}
 
 			}
@@ -151,8 +173,6 @@ public class SynchronizeEventAction extends Action {
 			}
 			
 		}
-
-
 	}
 
 

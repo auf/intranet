@@ -63,6 +63,9 @@ public class StartupAction extends SimpleAction {
 				addOrganization(region.getName(), poleRegions);
 			}
 		}
+		
+		log.info("Synchronizing Users");
+		SynchronizeEventAction.synchronizeUsers();
 
 	}
 
