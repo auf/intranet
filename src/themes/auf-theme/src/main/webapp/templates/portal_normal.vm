@@ -39,9 +39,7 @@ $theme.include($body_top_include)
             <h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
         </div>
         <div class="rechercher">
-            $velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
-			#embedPortletUsing("3", "", $velocityPortletPreferences.toString())
-            $velocityPortletPreferences.reset()
+            $theme.journalContentSearch()
         </div>
         <div class="ecrire">
         	#set( $contactPage_url = $portletURLFactory.create($request, "49", $contactPageId, "ACTION_PHASE") )
