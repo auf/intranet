@@ -110,7 +110,16 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setFirstName(aufEmploye.getFirstName());
 			liferayUser.setLastName(aufEmploye.getLastName());
 			liferayUser.setStatus(0); //0 = active
-
+			
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(DateUtil.newDate());
+			calendar.add(Calendar.SECOND, (-7)*86400);
+			Date lastWeek = calendar.getTime();
+			if (liferayUser.getLastLoginDate() == null || (!liferayUser.getLastLoginDate().after(lastWeek))) {
+				liferayUser.setPassword("Random4ByAFairDice");
+				liferayUser.setPasswordModified(true);
+				liferayUser.setPasswordModifiedDate(DateUtil.newDate());
+			}
 			
 			//if no picture exists yet, try to find one
 			if (liferayUser.getPortraitId() == 0) {
