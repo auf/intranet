@@ -132,6 +132,16 @@ public class SynchronizeEventAction extends Action {
 				}
 				String filePath = portraitPath + "/d-0340-" + aufEmploye.getId() +"-photo.jpg";
 				
+				if (FileUtil.exists(portraitPath)) {
+					log.info("auf.portrait.path=\"" + portraitPath + "\" found");
+					log.info("The directory contains following files");
+					for (String f : FileUtil.listFiles(portraitPath)) {
+						log.info(f);
+					}
+				} else {
+					log.error("auf.portrait.path=\"" + portraitPath + "\" folder not found or not accesible");
+				}
+				
 				if (FileUtil.exists(filePath)) {
 					byte[] image = null;
 					try {
@@ -157,7 +167,7 @@ public class SynchronizeEventAction extends Action {
 						e.printStackTrace();
 					}
 				} else {
-					log.info("No portrait was found for:" + aufEmploye.getId());
+					log.info("No portrait was found for: " + aufEmploye.getId());
 				}
 
 			}
