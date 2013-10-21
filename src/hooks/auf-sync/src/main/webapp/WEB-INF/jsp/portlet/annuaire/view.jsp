@@ -18,9 +18,6 @@
 <c:choose>
 	<c:when test="${displayProfile}">
 		
-		<div class="ariane"><a href="#">Accueil</a> &gt; <a href="#">Annuaire des employés</a> &gt; <a href="#">${user.getFullName()}</a></div>
-
-            
             <div class="box_centre">
              	<div class="news">
                         <div class="photo2"><img src="${userPortraitUrl}"></div>
