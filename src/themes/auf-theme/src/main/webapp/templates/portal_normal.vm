@@ -63,9 +63,7 @@ $theme.include($body_top_include)
      	<!-- colonne gauche -->
         <div class="gauche">
 
-        $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
-	    $theme.runtime("58", "", $velocityPortletPreferences.toString())
-	    $velocityPortletPreferences.reset()
+        
 	    
 	    $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
 	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
@@ -85,16 +83,39 @@ $theme.include($body_top_include)
         
         <!-- partie centrale -->
         <div class="centre">
-        
-          #if ($selectable)
-              $theme.include($content_include)
-          #else
-              $portletDisplay.recycle()
-
-              $portletDisplay.setTitle($the_title)
-
-              $theme.wrapPortlet("portlet.vm", $content_include)
-          #end
+			#if ( $is_signed_in)
+            
+				#if ($selectable)
+					$theme.include($content_include)
+				#else
+					$portletDisplay.recycle()
+				
+					$portletDisplay.setTitle($the_title)
+				
+					$theme.wrapPortlet("portlet.vm", $content_include)
+				#end
+				
+			#else
+				<p>
+				Connecter par <a href="/c/portal/login">ID.auf.org</a>
+				</p>
+				<a href="/c/portal/login"><div id="splash">
+				  <div class="logo">
+				    <img src="https://id.auf.org/static/idauf_48.png" width="48" height="48">
+				    <span>id.auf</span>
+				  </div>
+				  <div class="titre">
+				    <span>L'authentification unifiée de l'AUF</span>
+				  </div>
+				</div></a>
+				<p>
+				ou avec un compte Liferay
+				</p>
+				
+	          	$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+			    $theme.runtime("58", "", $velocityPortletPreferences.toString())
+			    $velocityPortletPreferences.reset()
+			#end
 
         </div>
 
