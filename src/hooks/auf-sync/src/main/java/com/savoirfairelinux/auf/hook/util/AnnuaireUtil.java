@@ -89,7 +89,7 @@ public class AnnuaireUtil {
         return result;
 	}
 
-	public static List<AufEmploye> getUsers(String name, long implantation,
+	public static List<AufEmploye> getUsers(String search, long implantation,
 			String type, String city, String country, long region) {
 		List<AufEmploye> result = new ArrayList<AufEmploye>();
 		
@@ -98,8 +98,16 @@ public class AnnuaireUtil {
 		queryString.append("SELECT e FROM AufEmploye e WHERE ");
 		conditions.add("e.active=1");
 		
-		if (name != null) {
-			conditions.add("(LOWER(e.lastName) LIKE :name OR LOWER(e.firstName) LIKE :name)");
+		if (search != null) {
+			conditions.add("(LOWER(e.lastName) LIKE :search"
+					+ " OR LOWER(e.firstName) LIKE :search"
+					+ " OR LOWER(e.postDesc) LIKE :search"
+					+ " OR LOWER(e.telPost) LIKE :search"
+					+ " OR LOWER(e.telIp) LIKE :search"
+					+ " OR LOWER(e.telIpNomade) LIKE :search"
+					+ " OR LOWER(e.implantation.name) LIKE :search"
+					+ " OR LOWER(e.implantation.city) LIKE :search"
+					+ " OR LOWER(e.service.name) LIKE :search)");
 		}
 		if (implantation != -1) {
 			conditions.add("e.physicalImplantation.id = :implantation");
@@ -123,8 +131,8 @@ public class AnnuaireUtil {
 	    }
 		TypedQuery<AufEmploye> query = instance.entityManager.createQuery(queryString.toString(), AufEmploye.class);
 		
-		if (name != null) {
-			query = query.setParameter("name", "%" + name.toLowerCase() + "%");
+		if (search != null) {
+			query = query.setParameter("search", "%" + search.toLowerCase() + "%");
 		}
 		if (implantation != -1) {
 			query = query.setParameter("implantation", implantation);
