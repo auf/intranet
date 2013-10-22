@@ -21,7 +21,7 @@
         Recherche <aui:input type="text" name="name" label="" placeholder="Recherche des personnes"/> <liferay-ui:icon image="search" cssClass="searchIcon"  url="#" />
         <a href="#" onclick="$('#auf-annuaire-advanced-search').toggle();">Avancée</a>
         
-        <aui:button value="Rechercher" name="search" type="submit" style="display:none;" />
+        <aui:button value="Rechercher" name="search" type="submit"/>
 	           
 	    <aui:button value="Tous" name="search" type="submit" onclick="form.action='${tousUrl}';"/>
 		
