@@ -9,9 +9,13 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.Address;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.Organization;
+import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
+import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 
 public class AufVelocityTool
@@ -99,6 +103,72 @@ public class AufVelocityTool
 			//no addresses were found
 		}
 		return "Paris, France";
+	}
+	
+	public String getEventSetting(long groupId) {
+		// template asset publisher configuration
+		final String AUF_EVENT_TEMPLATE_PAGE = "/auf-event-template-page"; 
+		Layout l = null;
+		try {
+			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_EVENT_TEMPLATE_PAGE);
+		} catch (PortalException e) {
+			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found!");
+			e.printStackTrace();
+		} catch (SystemException e) {
+			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found!");
+			e.printStackTrace();
+		}
+		
+		if (l == null) return "";
+		
+		try {
+			long plid = l.getPlid();
+			List<PortletPreferences> portlets = PortletPreferencesLocalServiceUtil.getPortletPreferences(0, 3, plid);
+			for (PortletPreferences p : portlets) {
+				if (p.getPortletId().startsWith("101") 
+						&& (!p.getPortletId().equals("101_INSTANCE_VORUZ3haQRVY")) 
+						&& (!p.getPortletId().equals("101_INSTANCE_eFzcOQLPj6zh"))) {
+					return p.getPreferences();
+				}
+			}
+		} catch (SystemException e) {
+			log.error("Preferences for the events could not be retrieved!");
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	public String getActualitySetting(long groupId) {
+		// template asset publisher configuration
+		final String AUF_ACTUALITY_TEMPLATE_PAGE = "/auf-actuality-template-page"; 
+		Layout l = null;
+		try {
+			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_ACTUALITY_TEMPLATE_PAGE);
+		} catch (PortalException e) {
+			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found!");
+			e.printStackTrace();
+		} catch (SystemException e) {
+			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found!");
+			e.printStackTrace();
+		}
+		
+		if (l == null) return "";
+		
+		try {
+			long plid = l.getPlid();
+			List<PortletPreferences> portlets = PortletPreferencesLocalServiceUtil.getPortletPreferences(0, 3, plid);
+			for (PortletPreferences p : portlets) {
+				if (p.getPortletId().startsWith("101") 
+						&& (!p.getPortletId().equals("101_INSTANCE_VORUZ3haQRVY")) 
+						&& (!p.getPortletId().equals("101_INSTANCE_eFzcOQLPj6zh"))) {
+					return p.getPreferences();
+				}
+			}
+		} catch (SystemException e) {
+			log.error("Preferences for the events could not be retrieved!");
+			e.printStackTrace();
+		}
+		return "";
 	}
 
 }
