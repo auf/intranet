@@ -44,7 +44,26 @@ public class SynchronizeEventAction extends Action {
 	}
 
 	public static void synchronizeUsers() {
-		List<AufEmploye> results = AnnuaireUtil.getAllData();	
+		List<AufEmploye> results = AnnuaireUtil.getAllData();
+		
+		String portraitPath = "/opt/liferay-portal/auf/images";
+		try {
+			portraitPath = PrefsPropsUtil.getString("auf.portrait.path");
+		} catch (SystemException e1) {
+			log.info("auf.portrait.path was not set");
+			e1.printStackTrace();
+		}
+		
+		if (FileUtil.exists(portraitPath)) {
+			File portraitFolder = new File(portraitPath);
+			log.info("auf.portrait.path=\"" + portraitPath + "\" found - " + portraitFolder.canRead() + " - " + portraitFolder.canExecute());
+			log.info("The directory contains following files");
+			for (File f : portraitFolder.listFiles()) {
+				log.info(f.getName() + " - " + f.canRead());
+			}
+		} else {
+			log.error("auf.portrait.path=\"" + portraitPath + "\" folder not found or not accesible");
+		}
 			
 		for(AufEmploye aufEmploye : results) {
 			if (aufEmploye.getLogin() == null) continue;
@@ -121,57 +140,6 @@ public class SynchronizeEventAction extends Action {
 				liferayUser.setPasswordModifiedDate(DateUtil.newDate());
 			}
 			
-			//if no picture exists yet, try to find one
-			if (liferayUser.getPortraitId() == 0) {
-				String portraitPath = "/opt/liferay-portal/auf/images";
-				try {
-					portraitPath = PrefsPropsUtil.getString("auf.portrait.path");
-				} catch (SystemException e1) {
-					log.info("auf.portrait.path was not set");
-					e1.printStackTrace();
-				}
-				String filePath = portraitPath + "/d-0340-" + aufEmploye.getId() +"-photo.jpg";
-				
-				if (FileUtil.exists(portraitPath)) {
-					log.info("auf.portrait.path=\"" + portraitPath + "\" found");
-					log.info("The directory contains following files");
-					for (String f : FileUtil.listFiles(portraitPath)) {
-						log.info(f);
-					}
-				} else {
-					log.error("auf.portrait.path=\"" + portraitPath + "\" folder not found or not accesible");
-				}
-				
-				if (FileUtil.exists(filePath)) {
-					byte[] image = null;
-					try {
-						image = FileUtil.getBytes(new File(filePath));
-						RenderedImage portrait = ImageToolUtil.read(image).getRenderedImage();
-						if (portrait.getHeight() > PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_HEIGHT) || portrait.getWidth() > PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_WIDTH)) {
-							portrait = ImageToolUtil.scale(portrait, PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_HEIGHT), PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_WIDTH));
-							image = ImageToolUtil.getBytes(portrait, ImageToolUtil.read(image).getType());
-						}
-					} catch (IOException e) {
-						//the image could not be read
-					} catch (SystemException e) {
-						e.printStackTrace();
-					}
-					
-					try {
-						if ((image != null) && (image.length > 0)) {
-							UserLocalServiceUtil.updatePortrait(liferayUser.getUserId(), image);
-						}
-					} catch (PortalException e) {
-						e.printStackTrace();
-					} catch (SystemException e) {
-						e.printStackTrace();
-					}
-				} else {
-					log.info("No portrait was found for: " + aufEmploye.getId());
-				}
-
-			}
-			
 			try {
 				String name = aufEmploye.getImplantation().getRegion().getName();
 				long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
@@ -189,6 +157,48 @@ public class SynchronizeEventAction extends Action {
 			} catch (SystemException e1) {
 				log.error("Could not persist employe: " + liferayUser);
 				e1.printStackTrace();
+			}
+			
+			//if no picture exists yet, try to find one
+			if (liferayUser.getPortraitId() == 0) {
+				
+				File filePath = new File(portraitPath + "/d-0340-" + aufEmploye.getId() +"-photo.jpg");
+				
+				if (filePath.exists()) {
+					byte[] image = null;
+					try {
+						image = FileUtil.getBytes(filePath);
+						log.info("read file : " + filePath.getAbsolutePath());
+						RenderedImage portrait = ImageToolUtil.read(image).getRenderedImage();
+						if (portrait.getHeight() > PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_HEIGHT) || portrait.getWidth() > PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_WIDTH)) {
+							portrait = ImageToolUtil.scale(portrait, PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_HEIGHT), PrefsPropsUtil.getInteger(PropsKeys.USERS_IMAGE_MAX_WIDTH));
+							image = ImageToolUtil.getBytes(portrait, ImageToolUtil.read(image).getType());
+							log.info("image data scaled down");
+						}
+					} catch (IOException e) {
+						//the image could not be read
+						log.error("the image could not be read");
+						e.printStackTrace();
+					} catch (SystemException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						if ((image != null) && (image.length > 0)) {
+							UserLocalServiceUtil.updatePortrait(liferayUser.getUserId(), image);
+							log.info("added portrait : " + aufEmploye.getId());
+						} else {
+							log.info("portrait image was not valid");
+						}
+					} catch (PortalException e) {
+						e.printStackTrace();
+					} catch (SystemException e) {
+						e.printStackTrace();
+					}
+				} else {
+					log.info("No portrait was found for: " + aufEmploye.getId());
+				}
+
 			}
 			
 		}
