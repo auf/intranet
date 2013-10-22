@@ -63,7 +63,15 @@ $theme.include($body_top_include)
      	<!-- colonne gauche -->
         <div class="gauche">
 
-        
+		#if ( $is_signed_in)
+        <div class="profil">					
+        	<div class="photo"><img src="$user.getPortraitURL($themeDisplay))"></div>
+            <div class="desc">
+            	<h5>$user.getFullName()</h5>
+                <p class="setting"><a href="$themeDisplay.getURLMyAccount().toString()">Setting</a></p>
+             </div>
+        </div>
+	    #end
 	    
 	    $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
 	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
