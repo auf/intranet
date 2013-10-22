@@ -72,12 +72,9 @@ $theme.include($body_top_include)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
         
-        $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
-        $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Prochains événements")
-		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $velocityPortletPreferences.toString())
-        $velocityPortletPreferences.reset()
+		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufOrgId))
         
-        $theme.runtime("101_INSTANCE_VORUZ3haQRVY", "", "")
+        #embedPortletUsing("101_INSTANCE_VORUZ3haQRVY", "", $aufTool.getActualitySetting($aufOrgId))
             
         </div>
         
