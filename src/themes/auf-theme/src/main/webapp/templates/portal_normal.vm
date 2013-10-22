@@ -38,17 +38,8 @@ $theme.include($body_top_include)
             <img alt="$logo_description" src="/auf-theme/images/logo.jpg">
             <h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
         </div>
-        <div class="rechercher">   
-			<form id="search-form" name="ctem_3_fm" method="get" action="$current_language_path/search?p_p_id=3&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_3_struts_action=%2Fsearch%2Fsearch">
-			  <input type="hidden" value="3" name="p_p_id">
-			  <input type="hidden" value="0" name="p_p_lifecycle">
-			  <input type="hidden" value="maximized" name="p_p_state">
-			  <input type="hidden" value="view" name="p_p_mode">
-			  <input type="hidden" value="/search/search" name="_3_struts_action">
-			  <input type="hidden" value="$live_group_id" name="_3_groupId">
-			  <input  type="text" value="" size="30" name="_3_keywords">
-			  <input align="absmiddle" border="0" type="image" title="Search" src="$images_folder/common/search.png">
-			</form>
+        <div class="rechercher">
+            $theme.journalContentSearch()
         </div>
         <div class="ecrire">
         	#set( $contactPage_url = $portletURLFactory.create($request, "49", $contactPageId, "ACTION_PHASE") )
