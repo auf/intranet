@@ -3,6 +3,7 @@ package com.savoirfairelinux.auf.theme.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.liferay.portal.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -111,10 +112,9 @@ public class AufVelocityTool
 		Layout l = null;
 		try {
 			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_EVENT_TEMPLATE_PAGE);
-		} catch (PortalException e) {
+		} catch (NoSuchLayoutException e) {
 			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found!");
-			e.printStackTrace();
-		} catch (SystemException e) {
+		} catch (Exception e) {
 			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found!");
 			e.printStackTrace();
 		}
@@ -144,10 +144,9 @@ public class AufVelocityTool
 		Layout l = null;
 		try {
 			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_ACTUALITY_TEMPLATE_PAGE);
-		} catch (PortalException e) {
+		} catch (NoSuchLayoutException e) {
 			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found!");
-			e.printStackTrace();
-		} catch (SystemException e) {
+		} catch (Exception e) {
 			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found!");
 			e.printStackTrace();
 		}
