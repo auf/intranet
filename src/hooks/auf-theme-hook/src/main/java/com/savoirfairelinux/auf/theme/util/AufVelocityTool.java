@@ -113,9 +113,9 @@ public class AufVelocityTool
 		try {
 			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_EVENT_TEMPLATE_PAGE);
 		} catch (NoSuchLayoutException e) {
-			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found!");
+			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found! Was looking in group " + groupId);
 		} catch (Exception e) {
-			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found!");
+			log.error(AUF_EVENT_TEMPLATE_PAGE + " not found! Was looking in group " + groupId);
 			e.printStackTrace();
 		}
 		
@@ -145,9 +145,9 @@ public class AufVelocityTool
 		try {
 			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_ACTUALITY_TEMPLATE_PAGE);
 		} catch (NoSuchLayoutException e) {
-			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found!");
+			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found! Was looking in group " + groupId);
 		} catch (Exception e) {
-			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found!");
+			log.error(AUF_ACTUALITY_TEMPLATE_PAGE + " not found! Was looking in group " + groupId);
 			e.printStackTrace();
 		}
 		
