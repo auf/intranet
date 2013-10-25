@@ -56,22 +56,10 @@
 #set($page_url = "@layout_set_friendly_url@") #set($group_id = "@group_id@") 
 #set($instance_id = $request.get('portlet-namespace'))
 
-#set($url = $request.get('attributes').get('CURRENT_URL'))
-#set($returnUrl = $httpUtil.getParameter($url, "redirect", false))
-#set($returnUrl = $httpUtil.decodeURL($returnUrl))
-
-
-
-
 <div class="news">
 	<div class="photo"><img src="$image.getData()" width="50" height="50"></div>
 	<div class="desc">
-		<h4>$reserved-article-title.data</h4>
+		<h4><a href="$request.get('attributes').get('viewFullContentURLString')">$reserved-article-title.data</a></h4>
 		<p class="date"> $dateTool.format( "d MMMM yyyy", $indexFormat.parse($reserved-article-modified-date.data)) - par $reserved-article-author-name.data</p>
 	</div>
-	$content.getData()
 </div>
-
-#if(!($returnUrl == ""))
-<p><a href="$returnUrl">retour</a></p>
-#end

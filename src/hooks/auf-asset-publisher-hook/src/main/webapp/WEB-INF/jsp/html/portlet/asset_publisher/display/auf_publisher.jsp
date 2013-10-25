@@ -3,4 +3,5 @@
 <% 
 preferences.setValue("showAssetTitle", "false");
 %>
+<% request.setAttribute(WebKeys.JOURNAL_TEMPLATE_ID, "AUFACTUALITEAPERCU"); %>
 <liferay-util:include page="/html/portlet/asset_publisher/display/full_content_custom_link.jsp"/>

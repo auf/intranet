@@ -3,7 +3,9 @@ package com.savoirfairelinux.liferay.client;
 public enum Template {
 
 	AUFACTUALITE(Structure.AUFACTUALITE, "AUF-actualite", ""),
-	AUFEVENEMENT(Structure.AUFEVENEMENT, "AUF-evenement", "");
+	AUFEVENEMENT(Structure.AUFEVENEMENT, "AUF-evenement", ""),
+	AUFACTUALITEAPERCU(Structure.AUFACTUALITE, "AUF-actualite-apercu", ""),
+	AUFEVENEMENTAPERCU(Structure.AUFEVENEMENT, "AUF-evenement-apercu", "");
     
     
     private final Structure structure;

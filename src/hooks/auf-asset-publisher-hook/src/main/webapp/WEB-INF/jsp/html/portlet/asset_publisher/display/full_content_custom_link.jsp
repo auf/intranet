@@ -159,7 +159,6 @@ request.setAttribute("view.jsp-showIconLabel", true);
 	}
 
 	PortletURL viewFullContentURL = liferayPortletResponse.createLiferayPortletURL(newPlid, portletDisplayId, PortletRequest.RENDER_PHASE, false);
-	viewFullContentURL.setWindowState(WindowState.MAXIMIZED);
 	/* ****************** END ********************** */
 
 	//PortletURL viewFullContentURL = renderResponse.createRenderURL();
@@ -180,7 +179,7 @@ request.setAttribute("view.jsp-showIconLabel", true);
 	viewFullContentURLString = HttpUtil.setParameter(viewFullContentURLString, "redirect", currentURL);
 	
 	/* **** Added to overwrite the link target ****** */
-    renderRequest.setAttribute("viewFullContentURLString", viewFullContentURLString);
+	renderRequest.setAttribute("viewFullContentURLString", viewFullContentURLString);
     /* ****************** END ********************** */
 	%>
 
