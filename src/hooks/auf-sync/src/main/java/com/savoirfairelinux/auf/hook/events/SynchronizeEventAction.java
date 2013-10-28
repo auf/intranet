@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
+import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
@@ -56,10 +57,10 @@ public class SynchronizeEventAction extends Action {
 		
 		if (FileUtil.exists(portraitPath)) {
 			File portraitFolder = new File(portraitPath);
-			log.info("auf.portrait.path=\"" + portraitPath + "\" found - " + portraitFolder.canRead() + " - " + portraitFolder.canExecute());
-			log.info("The directory contains following files");
+			log.debug("auf.portrait.path=\"" + portraitPath + "\" found - " + portraitFolder.canRead() + " - " + portraitFolder.canExecute());
+			log.debug("The directory contains following files");
 			for (File f : portraitFolder.listFiles()) {
-				log.info(f.getName() + " - " + f.canRead());
+				log.debug(f.getName() + " - " + f.canRead());
 			}
 		} else {
 			log.error("auf.portrait.path=\"" + portraitPath + "\" folder not found or not accesible");
@@ -69,6 +70,14 @@ public class SynchronizeEventAction extends Action {
 			if (aufEmploye.getLogin() == null) continue;
 			
 			long companyId = CompanyThreadLocal.getCompanyId();
+			try {
+				companyId = CompanyLocalServiceUtil.getCompanyByWebId("intranet.auf.org").getCompanyId();
+			} catch (PortalException e2) {
+				e2.printStackTrace();
+			} catch (SystemException e2) {
+				e2.printStackTrace();
+			}
+			
 			User liferayUser = null;
 			try {
 				liferayUser = UserLocalServiceUtil.getUserByEmailAddress(companyId, aufEmploye.getEmail());
@@ -129,6 +138,7 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setFirstName(aufEmploye.getFirstName());
 			liferayUser.setLastName(aufEmploye.getLastName());
 			liferayUser.setStatus(0); //0 = active
+			liferayUser.setPasswordReset(false);
 			
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(DateUtil.newDate());
@@ -196,7 +206,7 @@ public class SynchronizeEventAction extends Action {
 						e.printStackTrace();
 					}
 				} else {
-					log.info("No portrait was found for: " + aufEmploye.getId());
+					log.debug("No portrait was found for: " + aufEmploye.getId());
 				}
 
 			}

@@ -5,6 +5,14 @@
 	<portlet>
 	    <portlet-name>auf-sync</portlet-name>
 		<icon>/icon.png</icon>
+		<scheduler-entry>
+			<scheduler-event-listener-class>com.savoirfairelinux.auf.hook.events.CronScheduler</scheduler-event-listener-class>
+			<trigger>
+				<cron>
+					<cron-trigger-value>0 0/1 * * * ?</cron-trigger-value>
+				</cron>
+			</trigger>
+		</scheduler-entry>
 		<instanceable>false</instanceable>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<header-portlet-javascript>/js/jquery-1.10.2.min.js</header-portlet-javascript>
