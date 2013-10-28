@@ -363,7 +363,7 @@ p {
 }
 
 /* line 319, ../sass/style-original.scss */
-.box h2, .auf-portlet-title, .portlet-boundary .portlet-title {
+.box h2, .auf-portlet-title {
   height: 33px;
   line-height: 33px;
   background: url(../images/titrebox.png) repeat-x;
@@ -842,42 +842,4 @@ p {
   header .ecrire a {
     display: none;
   }
-}
-/* corrections liferay */
-/* line 4, ../sass/style.scss */
-#contenu .lfr-actions, #contenu .centre .lfr-actions {
-  padding: 0;
-}
-
-/* line 8, ../sass/style.scss */
-#container-full footer {
-  font-size: 0.7em;
-}
-
-/* line 13, ../sass/style.scss */
-.gauche .profil .setting {
-  line-height: 18px;
-  height: 18px;
-}
-/* line 17, ../sass/style.scss */
-.gauche .profil h5 {
-  font-weight: bold;
-}
-
-/* line 23, ../sass/style.scss */
-.portlet-boundary .portlet-title {
-  padding-left: 0;
-  font-size: 1em;
-  text-transform: capitalize;
-  font-weight: normal;
-}
-/* line 31, ../sass/style.scss */
-.portlet-boundary .portlet-title span:first-child {
-  display: none;
-}
-
-/* line 38, ../sass/style.scss */
-.portlet-static-end.weather-portlet .portlet-body > .portlet > .portlet-content > .portlet-content-container .portlet-body {
-  height: 50px;
-  overflow: hidden;
 }
