@@ -3,3 +3,4 @@ liferay-portal*
 license-*
 mount
 *.sql
+/*.dump
