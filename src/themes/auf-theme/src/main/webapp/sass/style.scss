@@ -106,7 +106,7 @@ body {
   width: 100%;
   margin: 0px;
   -webkit-box-shadow: 0px 0px 13px 2px #e4e4e4;
-  box-shadow: 0px 0px 13px 2px #e4e4e4; 
+  box-shadow: 0px 0px 13px 2px #e4e4e4;
 }
 
 /* ----------------- ENTETE ----------------- */
@@ -186,11 +186,11 @@ header .ecrire a{
   border-left: 1px solid #bfbfbf;
   border-right: 1px solid #bfbfbf;
  }
- 
+
  nav ul li {
  	float: left;
 }
- 
+
 nav ul li a{
 	display: block;
 	padding: 0px 30px;
@@ -232,8 +232,8 @@ nav ul li ul li a{
 	position: relative;
 }
 
-.notifications:after { 
-	content:attr(data-notification); 
+.notifications:after {
+	content:attr(data-notification);
 	color: #fff;
 	padding: 1px 4px;
 	font-size: 10px;
@@ -265,7 +265,7 @@ p{
 }
 
 /* ---------- Partie gauche ------------ */
-.gauche { 
+.gauche {
 	background-color: #dfdfdf;
 	width:21%;
 	display: table-cell;
@@ -274,7 +274,7 @@ p{
 	vertical-align: top;
 }
 
-.gauche h4{ 
+.gauche h4{
 	font-size: 11px;
 	font-size: 1.13em;
 	font-weight: bold;
@@ -286,7 +286,7 @@ p{
 	overflow: hidden;
 }
 
-.gauche .poste{ 
+.gauche .poste{
 	font-size: 11px;
 	font-size: 1.1em;
 }
@@ -295,13 +295,13 @@ p{
 	overflow: hidden;
 }
 
-.gauche .photo { 
+.gauche .photo {
 	float: left;
 	max-width: 50px;
 	margin-right: 10px;
 }
 
-.gauche .photo img{ 
+.gauche .photo img{
 	height: auto;
     max-width: 100%;
 	border: 1px solid #c3c3c3;
@@ -326,14 +326,14 @@ p{
 	font-size: 1.3em;
 }
 
-#contenu ul li.doc{background-image:url(../images/icon.png); background-position:0px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;} 
+#contenu ul li.doc{background-image:url(../images/icon.png); background-position:0px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;}
 #contenu ul li.page{background-image:url(../images/icon.png); background-position:-30px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;}
 #contenu ul li.actu{background-image:url(../images/icon.png); background-position:-60px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;}
 #contenu ul li.event{background-image:url(../images/icon.png); background-position:-90px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;}
 #contenu ul li.video{background-image:url(../images/icon.png); background-position:-120px 0px; background-repeat:no-repeat; width: 30px; height: 18px; padding-left: 30px;}
 
 /* ---------- Partie centre ------------ */
-.centre { 
+.centre {
 	background: url(../images/fond_main.png) repeat;
 	display: table-cell;
 	width:58%;
@@ -350,7 +350,7 @@ p{
 	margin-bottom: 20px;
 }
 
-.centre h4{ 
+.centre h4{
 	font-size: 12px;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -392,13 +392,13 @@ p{
 	padding-left: 26px;
 }
 
-.centre .photo { 
+.centre .photo {
 	float: left;
 	max-width: 50px;
 	margin-right: 10px;
 }
 
-.centre .photo img{ 
+.centre .photo img{
 	height: auto;
     max-width: 100%;
 	border: 1px solid #c3c3c3;
@@ -441,18 +441,18 @@ p{
  float: left;
  margin-right: 18px;
  }
- 
+
 .right_align{
  float: right;
  margin-left: 18px;
  }
- 
+
 .center{
  	margin: 0 auto 14px auto !important;
-} 
+}
 
 /* ---------- Partie droite ------------ */
-.droit { 
+.droit {
 	background-color: #DFDFDF;
     border-left: 1px solid #BFBFBF;
     border-right: 1px solid #BFBFBF;
@@ -461,7 +461,7 @@ p{
 	vertical-align: top;
 }
 
-.droit h4{ 
+.droit h4{
 	font-size: 12px;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -473,7 +473,7 @@ p{
 	overflow: hidden;
 }
 
-.droit  .poste{ 
+.droit  .poste{
 	font-size: 11px;
 	font-size: 1.1em;
 }
@@ -482,13 +482,13 @@ p{
 	overflow: hidden;
 }
 
-.droit .photo { 
+.droit .photo {
 	float: left;
     margin-right: 10px;
     max-width: 50px;
 }
 
-.droit .photo img{ 
+.droit .photo img{
 	height: auto;
     max-width: 100%;
 }
@@ -558,7 +558,7 @@ p{
     vertical-align: top;
     width: 100%;
 }
-  
+
 }
 /* End Tablet Media Query */
 /* ==========================================================================
@@ -568,7 +568,7 @@ p{
   /* Mobile Grid
     * For stacking full width columns, please use the new class .mobile-full
     * New mobile columns have been added*/
-  
+
 nav ul{
 	overflow: hidden;
 }
@@ -670,4 +670,13 @@ header .ecrire a {
 	display:none;
 }
 
+}
+/* corrections liferay */
+
+#contenu .lfr-actions, #contenu .centre .lfr-actions {
+    padding:0;
+}
+
+#container-full footer {
+    font-size:0.7em;
 }

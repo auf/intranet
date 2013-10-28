@@ -843,3 +843,13 @@ p {
     display: none;
   }
 }
+/* corrections liferay */
+/* line 676, ../sass/style.scss */
+#contenu .lfr-actions, #contenu .centre .lfr-actions {
+  padding: 0;
+}
+
+/* line 680, ../sass/style.scss */
+#container-full footer {
+  font-size: 0.7em;
+}
