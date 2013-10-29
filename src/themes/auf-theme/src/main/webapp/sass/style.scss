@@ -1,4 +1,9 @@
 @import "style-original.scss";
+@mixin img-reset{
+    border:none;
+    margin:0;
+    padding:0 5px;
+}
 
 /* corrections liferay */
 #contenu .lfr-actions,
@@ -11,6 +16,24 @@
         margin-bottom:0;
         background:none;
         padding-left:0;
+
+        img {
+            @include img-reset;
+        }
+    }
+}
+
+.taglib-icon, .taglib-icon-help, .browse-folder, .asset-title {
+    img {
+        @include img-reset;
+    }
+}
+
+.lfr-menu-list {
+    li {
+        a {
+            font-size:1.9em;
+        }
     }
 }
 
@@ -26,8 +49,41 @@
     position:static;
 }
 
-.gauche {
+.portlet-boundary {
+    .portlet-title {
+        @extend .auf-portlet-title;
 
+        // font-size:1em;
+        text-transform: capitalize;
+        font-weight: normal;
+
+        span:first-child {
+            display:none;
+        }
+    }
+
+    .portlet-title-text {
+        color:#fff !important;
+    }
+
+    .portlet-body {
+        .portlet-content{
+            padding:0;
+        }
+    }
+
+    .asset-full-content {
+        .asset-content {
+            margin:0;
+        }
+    }
+
+    .separator, .final-separator {
+        display:none;
+    }
+}
+
+.gauche {
     /* profil */
     .profil {
         .setting {
@@ -49,37 +105,61 @@
     }
 }
 
-.portlet-boundary {
-    .portlet-title {
-        @extend .auf-portlet-title;
 
-        // font-size:1em;
-        text-transform: capitalize;
-        font-weight: normal;
+#contenu .centre {
+    font-size:12px;
 
-        span:first-child {
-            display:none;
+    .portlet-boundary {
+        .portlet-title {
+            text-transform: uppercase;
+            padding:0;
+            background:none;
+            color: rgb(63, 61, 75);
+            font-weight: bold;
         }
 
         .portlet-title-text {
-            color:#fff !important;
+            color: rgb(63, 61, 75) !important;
         }
     }
 
-    .portlet-body {
-        .portlet-content{
-            padding:0;
+    select.aui-paginator-rows-per-page {
+        width:auto;
+    }
+
+    .lfr-component {
+        margin:0;
+        padding:0;
+
+        li {
+            background:none;
+            padding-left:0;
+            margin-bottom:0;
+
+            &.folder {
+                background:none;
+                margin-bottom:0;
+                padding-left:0;
+            }
         }
     }
 
-    .asset-full-content {
-        .asset-content {
-            margin:0;
-        }
-    }
+    .portlet-asset-publisher {
+        .portlet-content-container {
+            .portlet-body {
+                @extend .auf-box-centre;
 
-    .separator, .final-separator {
-        display:none;
+                .asset-activities {
+                    @extend .news2;
+
+                    .asset-title {
+                        margin-top:0;
+                        margin-bottom:0;
+                        border:none;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -88,4 +168,25 @@
         height:50px;
         overflow:hidden;
     }
+}
+
+#contenu .aui-field-wrapper-content {
+    .aui-field-label, .inline-label {
+        display: inline-block;
+        float: none;
+        line-height: 1em;
+        font-weight: bold;
+        margin-right: 0;
+        text-align: left;
+        width: auto;
+        font-size: 1.2rem;
+    }
+}
+
+#contenu input.aui-button-input {
+    text-shadow:none !important;
+}
+
+.aui-dialog-content, .aui-dialog-iframe-popup {
+    font-size:12px !important;
 }

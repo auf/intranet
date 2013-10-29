@@ -661,7 +661,7 @@ p {
 }
 
 /* line 538, ../sass/style-original.scss */
-.centre .box_centre {
+.centre .box_centre, .auf-box-centre {
   background-color: #fcfcfc;
   padding: 0px 10px;
   border: 1px solid #dfdfdf;
@@ -670,7 +670,7 @@ p {
 }
 
 /* line 546, ../sass/style-original.scss */
-.centre .box_centre2 {
+.centre .box_centre2, .auf-box-centre-2 {
   background-color: #fcfcfc;
   padding: 10px;
   border: 1px solid #dfdfdf;

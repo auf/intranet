@@ -604,14 +604,14 @@ p {
 }
 
 /* line 489, ../sass/style-original.scss */
-.news2 {
+.news2, #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities {
   padding: 10px 0px 10px 0px;
   overflow: hidden;
   border-bottom: 1px solid #dfdfdf;
 }
 
 /* line 495, ../sass/style-original.scss */
-.news:last-child, .news2:last-child {
+.news:last-child, .news2:last-child, #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities:last-child {
   border-bottom: none;
 }
 
@@ -661,7 +661,7 @@ p {
 }
 
 /* line 538, ../sass/style-original.scss */
-.centre .box_centre {
+.centre .box_centre, .auf-box-centre, #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body {
   background-color: #fcfcfc;
   padding: 0px 10px;
   border: 1px solid #dfdfdf;
@@ -670,7 +670,7 @@ p {
 }
 
 /* line 546, ../sass/style-original.scss */
-.centre .box_centre2 {
+.centre .box_centre2, .auf-box-centre-2 {
   background-color: #fcfcfc;
   padding: 10px;
   border: 1px solid #dfdfdf;
@@ -1087,14 +1087,14 @@ p {
   }
 }
 /* corrections liferay */
-/* line 6, ../sass/style.scss */
+/* line 11, ../sass/style.scss */
 #contenu .lfr-actions,
 #contenu .gauche .lfr-actions,
 #contenu .centre .lfr-actions {
   padding: 0;
   margin-bottom: 0;
 }
-/* line 10, ../sass/style.scss */
+/* line 15, ../sass/style.scss */
 #contenu .lfr-actions li,
 #contenu .gauche .lfr-actions li,
 #contenu .centre .lfr-actions li {
@@ -1102,35 +1102,40 @@ p {
   background: none;
   padding-left: 0;
 }
+/* line 20, ../sass/style.scss */
+#contenu .lfr-actions li img,
+#contenu .gauche .lfr-actions li img,
+#contenu .centre .lfr-actions li img {
+  border: none;
+  margin: 0;
+  padding: 0 5px;
+}
 
-/* line 17, ../sass/style.scss */
+/* line 27, ../sass/style.scss */
+.taglib-icon img, .taglib-icon-help img, .browse-folder img, .asset-title img {
+  border: none;
+  margin: 0;
+  padding: 0 5px;
+}
+
+/* line 34, ../sass/style.scss */
+.lfr-menu-list li a {
+  font-size: 1.9em;
+}
+
+/* line 40, ../sass/style.scss */
 .lfr-meta-actions {
   overflow: hidden;
 }
 
-/* line 21, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 #container-full footer {
   font-size: 0.7em;
 }
 
-/* line 25, ../sass/style.scss */
+/* line 48, ../sass/style.scss */
 .auf-navigation li {
   position: static;
-}
-
-/* line 29, ../sass/style.scss */
-.gauche {
-  /* profil */
-  /* evenements */
-}
-/* line 33, ../sass/style.scss */
-.gauche .profil .setting {
-  line-height: 18px;
-  height: 18px;
-}
-/* line 37, ../sass/style.scss */
-.gauche .profil h5 {
-  font-weight: bold;
 }
 
 /* line 53, ../sass/style.scss */
@@ -1142,8 +1147,8 @@ p {
 .portlet-boundary .portlet-title span:first-child {
   display: none;
 }
-/* line 64, ../sass/style.scss */
-.portlet-boundary .portlet-title .portlet-title-text {
+/* line 65, ../sass/style.scss */
+.portlet-boundary .portlet-title-text {
   color: #fff !important;
 }
 /* line 70, ../sass/style.scss */
@@ -1159,8 +1164,89 @@ p {
   display: none;
 }
 
-/* line 87, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
+.gauche {
+  /* profil */
+  /* evenements */
+}
+/* line 89, ../sass/style.scss */
+.gauche .profil .setting {
+  line-height: 18px;
+  height: 18px;
+}
+/* line 93, ../sass/style.scss */
+.gauche .profil h5 {
+  font-weight: bold;
+}
+
+/* line 109, ../sass/style.scss */
+#contenu .centre {
+  font-size: 12px;
+}
+/* line 113, ../sass/style.scss */
+#contenu .centre .portlet-boundary .portlet-title {
+  text-transform: uppercase;
+  padding: 0;
+  background: none;
+  color: #3f3d4b;
+  font-weight: bold;
+}
+/* line 121, ../sass/style.scss */
+#contenu .centre .portlet-boundary .portlet-title-text {
+  color: #3f3d4b !important;
+}
+/* line 126, ../sass/style.scss */
+#contenu .centre select.aui-paginator-rows-per-page {
+  width: auto;
+}
+/* line 130, ../sass/style.scss */
+#contenu .centre .lfr-component {
+  margin: 0;
+  padding: 0;
+}
+/* line 134, ../sass/style.scss */
+#contenu .centre .lfr-component li {
+  background: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+/* line 139, ../sass/style.scss */
+#contenu .centre .lfr-component li.folder {
+  background: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+/* line 155, ../sass/style.scss */
+#contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities .asset-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+/* line 167, ../sass/style.scss */
 .portlet-static-end.weather-portlet .portlet-body > .portlet > .portlet-content > .portlet-content-container .portlet-body {
   height: 50px;
   overflow: hidden;
+}
+
+/* line 174, ../sass/style.scss */
+#contenu .aui-field-wrapper-content .aui-field-label, #contenu .aui-field-wrapper-content .inline-label {
+  display: inline-block;
+  float: none;
+  line-height: 1em;
+  font-weight: bold;
+  margin-right: 0;
+  text-align: left;
+  width: auto;
+  font-size: 1.2rem;
+}
+
+/* line 186, ../sass/style.scss */
+#contenu input.aui-button-input {
+  text-shadow: none !important;
+}
+
+/* line 190, ../sass/style.scss */
+.aui-dialog-content, .aui-dialog-iframe-popup {
+  font-size: 12px !important;
 }
