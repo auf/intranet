@@ -17,23 +17,19 @@
 <%@ include file="/init.jsp" %>
 
 <form name="<portlet:namespace />fm" onSubmit="submitForm(document.<portlet:namespace />fm, 'http://openweathermap.org/find?q=', false); return false;" target="_blank">
-<p>MODIFIER MOI</p>
-<table class="lfr-table">
-
 <%
 for (String zip : zips) {
 	Weather weather = WeatherUtil.getWeather(zip);
 
 	if (weather != null) {
 %>
-
-		<tr>
-			<td>
-				<a href="http://www.openweathermap.org/city/<%= HtmlUtil.escapeURL(weather.getCityId()) %>" style="font-size: xx-small; font-weight: bold;" target="_blank"><%= HtmlUtil.escape(weather.getZip()) %></a>
-			</td>
-			<td align="right">
-				<span style="font-size: xx-small;">
-
+	<div class="rect">
+		<div class="photo2">
+			<img alt="" src="<%= weather.getIconURL() %>" />
+		</div>
+		<div class="desc">
+			<h4><%= HtmlUtil.escape(weather.getZip()) %></h4>
+			<p class="poste">
 				<c:if test="<%= fahrenheit %>">
 					<%= weather.getCurrentTemp() %> &deg;F
 				</c:if>
@@ -41,34 +37,14 @@ for (String zip : zips) {
 				<c:if test="<%= !fahrenheit %>">
 					<%= Math.round((.5555555555 * (weather.getCurrentTemp() + 459.67)) - 273.15) %> &deg;C
 				</c:if>
-
-				</span>
-			</td>
-			<td align="right">
-				<img alt="" src="<%= weather.getIconURL() %>" />
-			</td>
-		</tr>
-
+			</p>
+		</div>
+	</div>
 <%
 	}
 }
 %>
-
-</table>
-
-<br />
-
-<liferay-ui:message key="city-or-zip-code" />
-
-<input name="q" size="23" type="text" />
-
-<input type="submit" value="<liferay-ui:message key="search" />" />
-
 </form>
-
-<br />
-
-<liferay-ui:message key="powered-by" /> <a href="http://www.openweathermap.org" target="_blank">Open Weather Map</a>
 
 <c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
 	<aui:script>
