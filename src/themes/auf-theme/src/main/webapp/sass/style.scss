@@ -161,6 +161,19 @@
             }
         }
     }
+
+    .auf-no-background {
+        .portlet-content-container {
+            .portlet-body {
+                background-color: transparent;
+                padding: 0;
+                border: none;
+                margin-bottom: 0;
+                overflow: hidden;
+
+            }
+        }
+    }
 }
 
 .portlet-static-end.weather-portlet {

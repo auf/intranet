@@ -83,30 +83,30 @@ viewURL = _checkViewURL(assetEntry, viewInContext, viewURL, currentURL, themeDis
 
 <c:if test="<%= show %>">
 	<div class="news2 asset-activities">
-			<h4 class="asset-title">
-				<c:choose>
-					<c:when test="<%= Validator.isNotNull(viewURL) %>">
-						<a href="<%= viewURL %>"><img alt="" src="<%= assetRenderer.getIconPath(renderRequest) %>" /> <%= HtmlUtil.escape(title) %></a>
-					</c:when>
-					<c:otherwise>
-						<img alt="" src="<%= assetRenderer.getIconPath(renderRequest) %>" /> <%= HtmlUtil.escape(title) %>
-					</c:otherwise>
-				</c:choose>
-			</h4>
-			<p class="date2">
-				<c:choose>
-					<c:when test="<%= isModified %>">
-						<liferay-ui:message key="auf-activties-modified" />
-					</c:when>
-					<c:otherwise>
-						<liferay-ui:message key="auf-activties-created" />
-					</c:otherwise>
-				</c:choose>
-				<liferay-ui:message
-					arguments="<%= new String[] {LanguageUtil.getTimeDescription(pageContext, (System.currentTimeMillis() - assetEntry.getModifiedDate().getTime()), true), userName} %>" key="x-ago-by-x"
-				/>
-			</p>
-
-
+		<h4 class="asset-title">
+			<c:choose>
+				<c:when test="<%= Validator.isNotNull(viewURL) %>">
+					<a href="<%= viewURL %>"><img alt="" src="<%= assetRenderer.getIconPath(renderRequest) %>" />
+						<%= HtmlUtil.escape(title) %>
+					</a>
+				</c:when>
+				<c:otherwise>
+					<img alt="" src="<%= assetRenderer.getIconPath(renderRequest) %>" /> <%= HtmlUtil.escape(title) %>
+				</c:otherwise>
+			</c:choose>
+		</h4>
+		<p class="date2">
+			<c:choose>
+				<c:when test="<%= isModified %>">
+					<liferay-ui:message key="auf-activties-modified" />
+				</c:when>
+				<c:otherwise>
+					<liferay-ui:message key="auf-activties-created" />
+				</c:otherwise>
+			</c:choose>
+			<liferay-ui:message
+				arguments="<%= new String[] {LanguageUtil.getTimeDescription(pageContext, (System.currentTimeMillis() - assetEntry.getModifiedDate().getTime()), true), userName} %>" key="x-ago-by-x"
+			/>
+		</p>
 	</div>
 </c:if>
