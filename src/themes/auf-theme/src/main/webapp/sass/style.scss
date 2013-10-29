@@ -1,8 +1,21 @@
 @import "style-original.scss";
 
 /* corrections liferay */
-#contenu .lfr-actions, #contenu .centre .lfr-actions {
+#contenu .lfr-actions,
+#contenu .gauche .lfr-actions,
+#contenu .centre .lfr-actions {
     padding:0;
+    margin-bottom:0;
+
+    li {
+        margin-bottom:0;
+        background:none;
+        padding-left:0;
+    }
+}
+
+.lfr-meta-actions {
+    overflow:hidden;
 }
 
 #container-full footer {

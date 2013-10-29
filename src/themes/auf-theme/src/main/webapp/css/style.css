@@ -844,39 +844,55 @@ p {
   }
 }
 /* corrections liferay */
-/* line 4, ../sass/style.scss */
-#contenu .lfr-actions, #contenu .centre .lfr-actions {
+/* line 6, ../sass/style.scss */
+#contenu .lfr-actions,
+#contenu .gauche .lfr-actions,
+#contenu .centre .lfr-actions {
   padding: 0;
+  margin-bottom: 0;
+}
+/* line 10, ../sass/style.scss */
+#contenu .lfr-actions li,
+#contenu .gauche .lfr-actions li,
+#contenu .centre .lfr-actions li {
+  margin-bottom: 0;
+  background: none;
+  padding-left: 0;
 }
 
-/* line 8, ../sass/style.scss */
+/* line 17, ../sass/style.scss */
+.lfr-meta-actions {
+  overflow: hidden;
+}
+
+/* line 21, ../sass/style.scss */
 #container-full footer {
   font-size: 0.7em;
 }
 
-/* line 13, ../sass/style.scss */
+/* line 26, ../sass/style.scss */
 .gauche .profil .setting {
   line-height: 18px;
   height: 18px;
 }
-/* line 17, ../sass/style.scss */
+/* line 30, ../sass/style.scss */
 .gauche .profil h5 {
   font-weight: bold;
 }
 
-/* line 23, ../sass/style.scss */
+/* line 36, ../sass/style.scss */
 .portlet-boundary .portlet-title {
   padding-left: 0;
   font-size: 1em;
   text-transform: capitalize;
   font-weight: normal;
 }
-/* line 31, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 .portlet-boundary .portlet-title span:first-child {
   display: none;
 }
 
-/* line 38, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .portlet-static-end.weather-portlet .portlet-body > .portlet > .portlet-content > .portlet-content-container .portlet-body {
   height: 50px;
   overflow: hidden;

@@ -88,9 +88,9 @@ $theme.include($body_top_include)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
 
-		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufOrgId))
+		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
 
-        #embedPortletUsing("101_INSTANCE_VORUZ3haQRVY", "", $aufTool.getActualitySetting($aufOrgId))
+        #embedPortletUsing("101_INSTANCE_VORUZ3haQRVY", "", $aufTool.getActualitySetting($aufSiteId))
 
         </div>
 
