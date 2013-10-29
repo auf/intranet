@@ -174,12 +174,17 @@
             }
         }
     }
-}
 
-.portlet-static-end.weather-portlet {
-    .portlet-body > .portlet > .portlet-content > .portlet-content-container .portlet-body {
-        height:50px;
-        overflow:hidden;
+    .auf-box-centre-with-padding {
+        padding:15px 10px !important;
+
+        label {
+            width:auto;
+        }
+
+        .ctrls {
+            padding-top:30px;
+        }
     }
 }
 
@@ -203,3 +208,4 @@
 .aui-dialog-content, .aui-dialog-iframe-popup {
     font-size:12px !important;
 }
+

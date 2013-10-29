@@ -1230,14 +1230,20 @@ p {
   margin-bottom: 0;
   overflow: hidden;
 }
-
-/* line 180, ../sass/style.scss */
-.portlet-static-end.weather-portlet .portlet-body > .portlet > .portlet-content > .portlet-content-container .portlet-body {
-  height: 50px;
-  overflow: hidden;
+/* line 178, ../sass/style.scss */
+#contenu .centre .auf-box-centre-with-padding {
+  padding: 15px 10px !important;
+}
+/* line 181, ../sass/style.scss */
+#contenu .centre .auf-box-centre-with-padding label {
+  width: auto;
+}
+/* line 185, ../sass/style.scss */
+#contenu .centre .auf-box-centre-with-padding .ctrls {
+  padding-top: 30px;
 }
 
-/* line 187, ../sass/style.scss */
+/* line 192, ../sass/style.scss */
 #contenu .aui-field-wrapper-content .aui-field-label, #contenu .aui-field-wrapper-content .inline-label {
   display: inline-block;
   float: none;
@@ -1249,12 +1255,12 @@ p {
   font-size: 1.2rem;
 }
 
-/* line 199, ../sass/style.scss */
+/* line 204, ../sass/style.scss */
 #contenu input.aui-button-input {
   text-shadow: none !important;
 }
 
-/* line 203, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 .aui-dialog-content, .aui-dialog-iframe-popup {
   font-size: 12px !important;
 }

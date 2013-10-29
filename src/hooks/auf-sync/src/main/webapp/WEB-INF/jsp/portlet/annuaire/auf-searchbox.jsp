@@ -6,8 +6,7 @@
 
 <portlet:defineObjects />
 
-<div class="my-class">
-	         
+<div class="auf-auf-sync-search-form">
     <portlet:renderURL var="searchUrl">
         <portlet:param name="action" value="searchPerson" />
         <portlet:param name="search" value="default" />
@@ -17,16 +16,18 @@
         <portlet:param name="search" value="tous" />
     </portlet:renderURL>
     <aui:form action="${searchUrl}" method="post" name="fm">
- 		<div>      
-        Recherche <aui:input type="text" name="name" label="" placeholder="Recherche des personnes"/> <liferay-ui:icon image="search" cssClass="searchIcon"  url="#" />
-        <a href="#" onclick="$('#auf-annuaire-advanced-search').toggle();">Avancée</a>
-        
-        <aui:button value="Rechercher" name="search" type="submit"/>
-	           
-	    <aui:button value="Tous" name="search" type="submit" onclick="form.action='${tousUrl}';"/>
-		
+ 		<div class="box_centre auf-box-centre-with-padding">
+            <label for="">Recherchez un employé</label>
+            <aui:input type="text" name="name" label="" placeholder="Recherche des personnes"/>
+            <div class="clearfix"></div>
+            <!-- <liferay-ui:icon image="search" cssClass="searchIcon"  url="#" /> -->
+            <div class="ctrls">
+                <aui:button value="Avancée" type="button"
+                    onclick="$('#auf-annuaire-advanced-search').toggle();" />
+                <aui:button value="Rechercher" name="search" type="submit"/>
+        	    <aui:button value="Tous" name="search" type="submit" onclick="form.action='${tousUrl}';"/>
+            </div>
         </div>
-        
         <div class="box_centre" id="auf-annuaire-advanced-search" style="display:none;">
 	    	<div class="rechercher">
 	    		<aui:select name="implantation" label="Implantation:" id="id_implantation" showEmptyOption="<%= true %>" >
@@ -35,7 +36,7 @@
 			        </c:forEach>
 			    </aui:select>
 	    	</div>
-	
+
 			<div class="rechercher">
 				<aui:select name="type" label="Type d'implantation:" id="id_type" showEmptyOption="<%= true %>" >
 			        <c:forEach items="${types}" var="type">
@@ -43,7 +44,7 @@
 			        </c:forEach>
 			    </aui:select>
 			</div>
-			
+
 			<div class="rechercher">
 				<aui:select name="city" label="Ville:" id="id_ville" showEmptyOption="<%= true %>" >
 			        <c:forEach items="${cities}" var="city">
@@ -51,7 +52,7 @@
 			        </c:forEach>
 			    </aui:select>
 			</div>
-			
+            <div class="clearfix"></div>
 			<div class="rechercher">
 				<aui:select name="country" label="Pays:" id="id_pays" showEmptyOption="<%= true %>" >
 					<c:forEach items="${countries}" var="country">
@@ -59,7 +60,7 @@
 					</c:forEach>
 				</aui:select>
 			</div>
-			
+
 			<div class="rechercher">
 				<aui:select name="region" label="Régions:" id="id_region" showEmptyOption="<%= true %>" >
 					<c:forEach items="${regions}" var="region">
@@ -67,15 +68,15 @@
 					</c:forEach>
 				</aui:select>
 			</div>
-	       
-	       <div class="boutonEnvoi">
-	           <aui:button value="Rechercher" name="search" type="submit" />
-	           <aui:button value="Réinitialiser" type="reset"/>
-	       </div>
-	       
+            <div class="clearfix"></div>
+            <div class="boutonEnvoi">
+               <aui:button value="Rechercher" name="search" type="submit" />
+               <aui:button value="Réinitialiser" type="reset"/>
+            </div>
+
 		</div>
-    </aui:form>     
-    
+    </aui:form>
+
 </div>
 
 <script type="text/javascript">
@@ -90,4 +91,3 @@
     });
 </script>
 
-   

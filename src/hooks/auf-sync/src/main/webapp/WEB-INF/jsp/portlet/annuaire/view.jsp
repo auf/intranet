@@ -17,7 +17,7 @@
 
 <c:choose>
 	<c:when test="${displayProfile}">
-		
+
             <div class="box_centre">
              	<div class="news">
                         <div class="photo2"><img src="${userPortraitUrl}"></div>
@@ -31,7 +31,7 @@
                          </div>
                     </div>
             </div>
-            
+
             <!-- tableau -->
 			<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
                 <ul role="tablist" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
@@ -74,17 +74,17 @@
                 </div>
                </div>
                <!-- fin tableau -->
-               
+
                <p>Pour toute question ou remarque au sujet de cette fiche, vous pouvez prendre contact avec <a href="mailto:odette@auf.org">Odette Tremblay</a></p>
 
 	</c:when>
 	<c:otherwise>
 		<jsp:include page="auf-searchbox.jsp"/>
-		
+
 		<c:if test="${displaySearch}">
 
-			<h2><span>${users.size()}</span> employés correspondent à votre recherche</h2>
-            
+			<h2>Résultats: <span>${users.size()}</span> employés correspondent à votre recherche</h2>
+
             <div class="box_centre">
 	            <c:forEach var="user" items="${users}">
 					<div class="news">
@@ -94,20 +94,20 @@
 				                <portlet:param name="action" value="viewPerson" />
 				                <portlet:param name="idEmploye" value="${user.getEmploye().getEmail()}" />
 				            </portlet:renderURL>
-                            <h4><a href="${url}">${user.getEmploye().getFullName()}</a></h4>
+                            <h4><a href="${url}">${user.getEmploye().getFullName()} (${user.getEmploye().getEmail()})</a></h4>
                             <p class="date">${user.getEmploye().getPostDesc()}</p>
-                            <p class="date">${user.getEmploye().getImplantationName()}</p>
-                            <p class="date">${user.getEmploye().getImplantationCity()}</p>
+                            <p class="date">
+                                ${user.getEmploye().getImplantationName()} - ${user.getEmploye().getImplantationCity()}
+                            </p>
                     	</div>
                     	<div class="desc">
-                            <p class="date">${user.getEmploye().getEmail()}</p>
-                            <p class="date">${user.getEmploye().getTelIp()}</p>
-                            <p class="date">${user.getEmploye().getTelIpNomade()}</p>
+                            <!-- <p class="date">${user.getEmploye().getTelIp()}</p>
+                            <p class="date">${user.getEmploye().getTelIpNomade()}</p> -->
                     	</div>
                     </div>
 				</c:forEach>
             </div>
-		
+
 		</c:if>
 
 	</c:otherwise>
