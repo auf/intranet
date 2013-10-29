@@ -471,12 +471,12 @@ p {
 }
 
 /* line 411, ../sass/style-original.scss */
-.gauche .evenement, .auf-event, .gauche .evenement {
+.gauche .evenement, .auf-event {
   padding: 20px 14px 10px 14px;
 }
 
 /* line 415, ../sass/style-original.scss */
-.gauche .agenda, .auf-event-agenda-icon, .gauche .agenda {
+.gauche .agenda, .auf-event-agenda-icon {
   padding-left: 23px;
   background: url(../images/agenda.png) left no-repeat;
 }
@@ -491,7 +491,7 @@ p {
 }
 
 /* line 428, ../sass/style-original.scss */
-.box h2, .auf-portlet-title, .portlet-boundary .portlet-title {
+.box h2, .auf-portlet-title {
   height: 33px;
   line-height: 33px;
   background: url(../images/titrebox.png) repeat-x;
@@ -604,14 +604,14 @@ p {
 }
 
 /* line 489, ../sass/style-original.scss */
-.news2, #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities {
+.news2 {
   padding: 10px 0px 10px 0px;
   overflow: hidden;
   border-bottom: 1px solid #dfdfdf;
 }
 
 /* line 495, ../sass/style-original.scss */
-.news:last-child, .news2:last-child, #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities:last-child {
+.news:last-child, .news2:last-child {
   border-bottom: none;
 }
 
@@ -661,7 +661,7 @@ p {
 }
 
 /* line 538, ../sass/style-original.scss */
-.centre .box_centre, .auf-box-centre, #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body {
+.centre .box_centre, .auf-box-centre {
   background-color: #fcfcfc;
   padding: 0px 10px;
   border: 1px solid #dfdfdf;
@@ -1085,176 +1085,4 @@ p {
   header .ecrire a {
     display: none;
   }
-}
-/* corrections liferay */
-/* line 11, ../sass/style.scss */
-#contenu .lfr-actions,
-#contenu .gauche .lfr-actions,
-#contenu .centre .lfr-actions {
-  padding: 0;
-  margin-bottom: 0;
-}
-/* line 15, ../sass/style.scss */
-#contenu .lfr-actions li,
-#contenu .gauche .lfr-actions li,
-#contenu .centre .lfr-actions li {
-  margin-bottom: 0;
-  background: none;
-  padding-left: 0;
-}
-/* line 20, ../sass/style.scss */
-#contenu .lfr-actions li img,
-#contenu .gauche .lfr-actions li img,
-#contenu .centre .lfr-actions li img {
-  border: none;
-  margin: 0;
-  padding: 0 5px;
-}
-
-/* line 27, ../sass/style.scss */
-.taglib-icon img, .taglib-icon-help img, .browse-folder img, .asset-title img {
-  border: none;
-  margin: 0;
-  padding: 0 5px;
-}
-
-/* line 34, ../sass/style.scss */
-.lfr-menu-list li a {
-  font-size: 1.9em;
-}
-
-/* line 40, ../sass/style.scss */
-.lfr-meta-actions {
-  overflow: hidden;
-}
-
-/* line 44, ../sass/style.scss */
-#container-full footer {
-  font-size: 0.7em;
-}
-
-/* line 48, ../sass/style.scss */
-.auf-navigation li {
-  position: static;
-}
-
-/* line 53, ../sass/style.scss */
-.portlet-boundary .portlet-title {
-  text-transform: capitalize;
-  font-weight: normal;
-}
-/* line 60, ../sass/style.scss */
-.portlet-boundary .portlet-title span:first-child {
-  display: none;
-}
-/* line 65, ../sass/style.scss */
-.portlet-boundary .portlet-title-text {
-  color: #fff !important;
-}
-/* line 70, ../sass/style.scss */
-.portlet-boundary .portlet-body .portlet-content {
-  padding: 0;
-}
-/* line 76, ../sass/style.scss */
-.portlet-boundary .asset-full-content .asset-content {
-  margin: 0;
-}
-/* line 81, ../sass/style.scss */
-.portlet-boundary .separator, .portlet-boundary .final-separator {
-  display: none;
-}
-
-/* line 86, ../sass/style.scss */
-.gauche {
-  /* profil */
-  /* evenements */
-}
-/* line 89, ../sass/style.scss */
-.gauche .profil .setting {
-  line-height: 18px;
-  height: 18px;
-}
-/* line 93, ../sass/style.scss */
-.gauche .profil h5 {
-  font-weight: bold;
-}
-
-/* line 109, ../sass/style.scss */
-#contenu .centre {
-  font-size: 12px;
-}
-/* line 113, ../sass/style.scss */
-#contenu .centre .portlet-boundary .portlet-title {
-  text-transform: uppercase;
-  padding: 0;
-  background: none;
-  color: #3f3d4b;
-  font-weight: bold;
-}
-/* line 121, ../sass/style.scss */
-#contenu .centre .portlet-boundary .portlet-title-text {
-  color: #3f3d4b !important;
-}
-/* line 126, ../sass/style.scss */
-#contenu .centre select.aui-paginator-rows-per-page {
-  width: auto;
-}
-/* line 130, ../sass/style.scss */
-#contenu .centre .lfr-component {
-  margin: 0;
-  padding: 0;
-}
-/* line 134, ../sass/style.scss */
-#contenu .centre .lfr-component li {
-  background: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-/* line 139, ../sass/style.scss */
-#contenu .centre .lfr-component li.folder {
-  background: none;
-  margin-bottom: 0;
-  padding-left: 0;
-}
-/* line 155, ../sass/style.scss */
-#contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities .asset-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none;
-}
-/* line 167, ../sass/style.scss */
-#contenu .centre .auf-no-background .portlet-content-container .portlet-body {
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  margin-bottom: 0;
-  overflow: hidden;
-}
-
-/* line 180, ../sass/style.scss */
-.portlet-static-end.weather-portlet .portlet-body > .portlet > .portlet-content > .portlet-content-container .portlet-body {
-  height: 50px;
-  overflow: hidden;
-}
-
-/* line 187, ../sass/style.scss */
-#contenu .aui-field-wrapper-content .aui-field-label, #contenu .aui-field-wrapper-content .inline-label {
-  display: inline-block;
-  float: none;
-  line-height: 1em;
-  font-weight: bold;
-  margin-right: 0;
-  text-align: left;
-  width: auto;
-  font-size: 1.2rem;
-}
-
-/* line 199, ../sass/style.scss */
-#contenu input.aui-button-input {
-  text-shadow: none !important;
-}
-
-/* line 203, ../sass/style.scss */
-.aui-dialog-content, .aui-dialog-iframe-popup {
-  font-size: 12px !important;
 }

@@ -46,7 +46,7 @@ $theme.include($body_top_include)
 			  <input type="hidden" value="view" name="p_p_mode">
 			  <input type="hidden" value="/search/search" name="_3_struts_action">
 			  <input  type="text" value="" size="30" name="_3_keywords">
-			  <input align="absmiddle" border="0" type="image" title="Search" src="$images_folder/common/search.png">
+			  <input align="absmiddle" border="0" type="image" title="Search" src="$images_folder/search.png">
 			</form>
         </div>
         <div class="ecrire">
@@ -67,12 +67,12 @@ $theme.include($body_top_include)
 
     <!-- PARTIE CENTRALE -->
     <div id="contenu">
-    
+
      	<!-- colonne gauche -->
         <div class="gauche">
 
 		#if ( $is_signed_in)
-        <div class="profil">					
+        <div class="profil">
         	<div class="photo"><img src="$user.getPortraitURL($themeDisplay))"></div>
             <div class="desc">
             	<h5>$user.getFullName()</h5>
@@ -80,34 +80,34 @@ $theme.include($body_top_include)
              </div>
         </div>
 	    #end
-	    
+
 	    $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
 	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
         $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Météo")
 	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
-        
+
 		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
-        
+
         #embedPortletUsing("101_INSTANCE_VORUZ3haQRVY", "", $aufTool.getActualitySetting($aufSiteId))
-            
+
         </div>
-        
+
         <!-- partie centrale -->
         <div class="centre">
 			#if ( $is_signed_in)
-            
+
 				#if ($selectable)
 					$theme.include($content_include)
 				#else
 					$portletDisplay.recycle()
-				
+
 					$portletDisplay.setTitle($the_title)
-				
+
 					$theme.wrapPortlet("portlet.vm", $content_include)
 				#end
-				
+
 			#else
 				<p>
 				Connecter par <a href="/c/portal/login">ID.auf.org</a>
@@ -124,7 +124,7 @@ $theme.include($body_top_include)
 				<p>
 				ou avec un compte Liferay
 				</p>
-				
+
 	          	$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
 			    $theme.runtime("58", "", $velocityPortletPreferences.toString())
 			    $velocityPortletPreferences.reset()
@@ -136,9 +136,9 @@ $theme.include($body_top_include)
 
     <!-- FOOTER -->
     <footer>
-        
+
         <p><small>&copy; Copyright Your Name Here 2013. All Rights Reserved.</small></p>
-        
+
     </footer>
 
 </div>

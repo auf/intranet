@@ -3,3 +3,6 @@ liferay-portal*
 license-*
 mount
 *.sql
+/*.dump
+/15186567_27504478_27504485-web-form-ee.lpkg
+/15186632_26684512_26684520-weather-ee.lpkg
