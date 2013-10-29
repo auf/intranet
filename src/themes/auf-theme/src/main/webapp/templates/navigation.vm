@@ -1,12 +1,11 @@
-<nav class="$nav_css_class" id="navigation">
-
+<nav class="$nav_css_class auf-navigation" id="navigation">
 	<ul class="main-menu">
 		<li>
             <a href="$homeURL" class="main-menu">Accueil</span></a>
 		</li>
 		<li>
 			<a href="#">Pôles support</span></a>
-			<ul class="child-menu">
+			<ul class="auf-child-menu">
 				#set( $poles = $aufTool.getSubOrganizations($poleSupportOrgId) )
 				#foreach ($pole in $poles)
 					<li>
@@ -24,7 +23,7 @@
 		</li>
 		<li>
 			<a href="#">Pôles strategiques</span></a>
-			<ul class="child-menu">
+			<ul class="auf-child-menu">
 				#set( $poles = $aufTool.getSubOrganizations($poleStrategicOrgId) )
 				#foreach ($pole in $poles)
 					<li>
@@ -42,7 +41,7 @@
 		</li>
 		<li>
 			<a href="#">Régions</span></a>
-			<ul class="child-menu">
+			<ul class="auf-child-menu">
 				#set( $regions = $aufTool.getSubOrganizations($regionOrgId) )
 				#foreach ($region in $regions)
 					<li>
@@ -60,7 +59,7 @@
 		</li>
 		<li>
 			<a href="#">Espaces collaboratifs</span></a>
-			<ul class="child-menu">
+			<ul class="auf-child-menu">
 				#set( $sites = $aufTool.getCollaborationSites($user_id) )
 				#foreach ($site in $sites)
 					<li>
@@ -78,7 +77,7 @@
 		</li>
 		<li>
 			<a href="#">Systèmes d'information</span></a>
-			<ul class="child-menu">
+			<ul class="auf-child-menu">
 				<li>
 		            #set( $quicklinks_url = $portletURLFactory.create($request, "49", $quickLinksId, "ACTION_PHASE") )
 			        $quicklinks_url.setWindowState("normal")
@@ -92,7 +91,7 @@
 			    	<a href="$annuaire_url">Annuaire</span></a>
 				</li>
 			</ul>
-			
+
 		</li>
 	</ul>
 </nav>

@@ -22,13 +22,30 @@
     font-size:0.7em;
 }
 
-.gauche .profil {
-    .setting {
-        line-height: 18px;
-        height: 18px;
+.auf-navigation li {
+    position:static;
+}
+
+.gauche {
+
+    /* profil */
+    .profil {
+        .setting {
+            line-height: 18px;
+            height: 18px;
+        }
+        h5 {
+            font-weight: bold;
+        }
     }
-    h5 {
-        font-weight: bold;
+
+    /* evenements */
+    .evenement {
+        @extend .auf-event;
+    }
+
+    .agenda {
+        @extend .auf-event-agenda-icon;
     }
 }
 
@@ -36,14 +53,33 @@
     .portlet-title {
         @extend .auf-portlet-title;
 
-        padding-left:0;
-        font-size:1em;
+        // font-size:1em;
         text-transform: capitalize;
         font-weight: normal;
 
         span:first-child {
             display:none;
         }
+
+        .portlet-title-text {
+            color:#fff !important;
+        }
+    }
+
+    .portlet-body {
+        .portlet-content{
+            padding:0;
+        }
+    }
+
+    .asset-full-content {
+        .asset-content {
+            margin:0;
+        }
+    }
+
+    .separator, .final-separator {
+        display:none;
     }
 }
 
