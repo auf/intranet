@@ -44,7 +44,7 @@ public class SynchronizeEventAction extends Action {
 
 	}
 
-	public static void synchronizeUsers() {
+	public synchronized static void synchronizeUsers() {
 		List<AufEmploye> results = AnnuaireUtil.getAllData();
 		
 		String portraitPath = "/opt/liferay-portal/auf/images";
