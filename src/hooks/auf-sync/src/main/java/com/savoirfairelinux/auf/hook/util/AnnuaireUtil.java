@@ -129,6 +129,7 @@ public class AnnuaireUtil {
 	        if (i > 0) queryString.append(" AND ");
 	        queryString.append(conditions.get(i));
 	    }
+		queryString.append(" ORDER BY e.lastName, e.firstName ");
 		TypedQuery<AufEmploye> query = instance.entityManager.createQuery(queryString.toString(), AufEmploye.class);
 		
 		if (search != null) {

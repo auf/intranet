@@ -13,9 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ref_employe")
 @NamedQueries({
-    @NamedQuery(name = "AufEmploye.findAll", query = "SELECT e FROM AufEmploye e WHERE e.active=1"),
-    @NamedQuery(name = "AufEmploye.findLikeName", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.firstName) LIKE :param AND e.active=1"),
-    @NamedQuery(name = "AufEmploye.findByEmail", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.email) = :email AND e.active=1")
+    @NamedQuery(name = "AufEmploye.findAll", query = "SELECT e FROM AufEmploye e WHERE e.active=1 ORDER BY e.lastName, e.firstName"),
+    @NamedQuery(name = "AufEmploye.findLikeName", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.firstName) LIKE :param AND e.active=1 ORDER BY e.lastName, e.firstName"),
+    @NamedQuery(name = "AufEmploye.findByEmail", query = "SELECT e FROM AufEmploye e WHERE LOWER(e.email) = :email AND e.active=1 ORDER BY e.lastName, e.firstName")
 })
 public class AufEmploye {
 	
