@@ -17,12 +17,12 @@
     </portlet:renderURL>
     <aui:form action="${searchUrl}" method="post" name="fm">
  		<div class="box_centre auf-box-centre-with-padding">
-            <label for="">Recherchez un employé</label>
+            <label for="">Recherchez un employÃ©</label>
             <aui:input type="text" name="name" label="" placeholder="Recherche des personnes"/>
             <div class="clearfix"></div>
             <!-- <liferay-ui:icon image="search" cssClass="searchIcon"  url="#" /> -->
             <div class="ctrls">
-                <aui:button value="Avancée" type="button"
+                <aui:button value="AvancÃ©e" type="button"
                     onclick="$('#auf-annuaire-advanced-search').toggle();" />
                 <aui:button value="Rechercher" name="search" type="submit"/>
         	    <aui:button value="Tous" name="search" type="submit" onclick="form.action='${tousUrl}';"/>
@@ -62,7 +62,7 @@
 			</div>
 
 			<div class="rechercher">
-				<aui:select name="region" label="Régions:" id="id_region" showEmptyOption="<%= true %>" >
+				<aui:select name="region" label="RÃ©gions:" id="id_region" showEmptyOption="<%= true %>" >
 					<c:forEach items="${regions}" var="region">
 						<aui:option value="${region.getId()}" label="${region.getName()}" selected="${selectedRegion == region}"/>
 					</c:forEach>
@@ -71,7 +71,7 @@
             <div class="clearfix"></div>
             <div class="boutonEnvoi">
                <aui:button value="Rechercher" name="search" type="submit" />
-               <aui:button value="Réinitialiser" type="reset"/>
+               <aui:button value="RÃ©initialiser" type="reset"/>
             </div>
 
 		</div>
