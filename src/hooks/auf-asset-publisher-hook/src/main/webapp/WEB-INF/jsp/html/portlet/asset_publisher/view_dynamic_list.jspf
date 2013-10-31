@@ -14,6 +14,7 @@
  */
 --%>
 
+<%@page import="com.liferay.portal.security.auth.CompanyThreadLocal"%>
 <%
 int end = searchContainer.getEnd();
 int start = searchContainer.getStart();
@@ -35,8 +36,22 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 	if (displayStyle.equals("auf-publisher")) {
 		
 		//then autoselect all groups
-		List<Group> groups = GroupLocalServiceUtil.getGroups(-1, -1);
-		long[] allGroupIds = new long[groups.size()];
+		Long groupId = themeDisplay.getLayout().getGroupId(); 
+		long orgId = GroupLocalServiceUtil.getGroup(groupId).getOrganizationId();
+		
+		java.util.Queue<com.liferay.portal.model.Organization> remainder = new java.util.LinkedList<com.liferay.portal.model.Organization>();
+		remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), orgId));
+		
+		java.util.List<com.liferay.portal.model.Group> groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
+		
+		while (!remainder.isEmpty()) {
+			com.liferay.portal.model.Organization org = remainder.poll();
+			remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), org.getOrganizationId()));
+
+			groups.add(org.getGroup());
+		}
+		
+		long[] allGroupIds = new long[groups.size()+1];
 		for (int i=0; i<groups.size(); i++) {
 			if (groups.get(i).isControlPanel()) {
 				continue;
@@ -46,6 +61,8 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 				allGroupIds[i] = groups.get(i).getGroupId();
 			}
 		}
+		allGroupIds[groups.size()] = groupId;
+		
 		assetEntryQuery.setGroupIds(allGroupIds);
 		
 		AssetVocabulary assetVocabulary = AssetVocabularyLocalServiceUtil.getVocabulary(assetVocabularyId);
