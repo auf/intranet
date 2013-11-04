@@ -37,7 +37,7 @@
             <!-- tableau -->
 		<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
             <ul role="tablist" class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-                <li aria-selected="true" aria-labelledby="ui-id-1" aria-controls="tabs-1" tabindex="0" role="tab" class="ui-state-default ui-corner-top ui-tabs-active ui-state-active"><a id="ui-id-1" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#tabs-1">COORDONNÉES</a></li>
+                <li aria-selected="true" aria-labelledby="ui-id-1" aria-controls="tabs-1" tabindex="0" role="tab" class="ui-state-default ui-corner-top ui-tabs-active ui-state-active"><a id="ui-id-1" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#tabs-1">COORDONN&Eacute;ES</a></li>
                 <li aria-selected="false" aria-labelledby="ui-id-2" aria-controls="tabs-2" tabindex="-1" role="tab" class="ui-state-default ui-corner-top"><a id="ui-id-2" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#tabs-2">PROJETS</a></li>
                 <li aria-selected="false" aria-labelledby="ui-id-3" aria-controls="tabs-3" tabindex="-1" role="tab" class="ui-state-default ui-corner-top"><a id="ui-id-3" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#tabs-3">ESPACES COLLABORATIFS</a></li>
                 <li aria-selected="false" aria-labelledby="ui-id-4" aria-controls="tabs-4" tabindex="-1" role="tab" class="ui-state-default ui-corner-top"><a id="ui-id-4" tabindex="-1" role="presentation" class="ui-tabs-anchor" href="#tabs-4">CENTRES D'INTERETS</a></li>
@@ -46,10 +46,10 @@
                 <div class="news">
                 	<ul>
                     	<li>Courriel : <a href="mailto:${user.getEmail()}">${user.getEmail()}</a></li>
-                        <li>Téléphone IP : ${user.getTelIp()}</li>
-                        <li>Téléphone IP Nomade : ${user.getTelIpNomade()}</li>
-                        <li>Téléphone : ${user.getTelephone()}</li>
-                        <li>Télécopie : ${user.getTelecopier()}</li>
+                        <li>T&eacute;l&eacute;phone IP : ${user.getTelIp()}</li>
+                        <li>T&eacute;l&eacute;phone IP Nomade : ${user.getTelIpNomade()}</li>
+                        <li>T&eacute;l&eacute;phone : ${user.getTelephone()}</li>
+                        <li>T&eacute;l&eacute;copie : ${user.getTelecopier()}</li>
                         <li>
                             Adresse postale : ${user.getPostalAddress()}
                         </li>
@@ -87,7 +87,7 @@
 
 		<c:if test="${displaySearch}">
 
-			<h2>Résultats: <span>${users.size()}</span> employés correspondent à votre recherche</h2>
+			<h2>R&eacute;sultats: <span>${users.size()}</span> employ&eacute;s correspondent &agrave; votre recherche</h2>
 
             <div class="box_centre">
 	            <c:forEach var="user" items="${users}">
