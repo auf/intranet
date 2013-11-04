@@ -97,7 +97,11 @@ $theme.include($body_top_include)
         <!-- partie centrale -->
         <div class="centre">
 			#if ( $is_signed_in)
-
+				
+				$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
+				#embedPortletUsing("73_INSTANCE_3XWoAtbmI9rj", "", $velocityPortletPreferences.toString())
+		        $velocityPortletPreferences.reset()
+				
 				#if ($selectable)
 					$theme.include($content_include)
 				#else
