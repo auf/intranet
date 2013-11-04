@@ -5,6 +5,35 @@
     padding:0 5px;
 }
 
+input[type=submit][class*=aui],
+input[type=button][class*=aui] {
+    text-indent:0 !important;
+    background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0 !important;
+    border: 1px solid;
+    border-color: #C8C9CA #9E9E9E #9E9E9E #C8C9CA;
+    color: #34404F;
+    cursor: pointer;
+    font-weight: bold;
+    overflow: visible;
+    padding: 5px;
+    text-shadow: 1px 1px #FFF;
+    width: auto;
+}
+
+#contenu .centre ul {
+    &.structure-tree {
+        padding:0;
+    }
+
+    li {
+        &.structure-field {
+            background:none;
+            padding:0;
+            margin:0;
+        }
+    }
+}
+
 /* corrections liferay */
 #contenu .lfr-actions,
 #contenu .gauche .lfr-actions,
@@ -26,6 +55,10 @@
 .taglib-icon, .taglib-icon-help, .browse-folder, .asset-title {
     img {
         @include img-reset;
+    }
+
+    .taglib-text {
+        font-size:12px;
     }
 }
 
@@ -207,5 +240,131 @@
 
 .aui-dialog-content, .aui-dialog-iframe-popup {
     font-size:12px !important;
+}
+
+#auf-annuaire-advanced-search {
+    label {
+        color:rgb(63, 61, 75) !important;
+        font-weight: normal;
+    }
+
+    select {
+        border-color:rgb(63, 61, 75);
+    }
+}
+
+/* breadcrumb */
+#contenu .centre .portlet-breadcrumb {
+    @extend .ariane;
+
+    .breadcrumbs {
+        font-weight: normal;
+
+        li {
+            font-size:0.8em;
+            margin:0 5px 0 0;
+
+            &:before {
+                content: ">";
+            }
+
+            &:first-child {
+
+                &:before {
+                    content: "";
+                }
+
+                span {
+                    padding-left:0;
+                }
+            }
+
+            span {
+                padding:0 0 0 5px;
+            }
+        }
+    }
+}
+
+/* porlet navigation */
+#contenu .centre .portlet-navigation {
+    .nav-menu {
+        ul {
+            padding-left:0;
+        }
+
+        li {
+            background:#fff;
+            padding:5px 10px;
+            display:block;
+
+            a {
+                padding-left: 20px;
+                background: url(../images/puce.png) left no-repeat;
+            }
+        }
+    }
+}
+
+/* portlet contenu web */
+#contenu .centre .portlet-journal-content {
+    .journal-content-article {
+        font-size:14px;
+
+        p {
+            color:#3f3d4b;
+        }
+    }
+}
+
+/* portlet pour afficher les membres d'un site */
+#contenu .centre .sfl-members {
+    .news {
+        width:49.25%;
+        margin-left:1.5%;
+        float:left;
+
+        &:nth-child(2n+1) {
+            margin-left:0;
+        }
+    }
+}
+
+/* portlets des derniers documents d'un pôle/région/espaces collaboratifs */
+#contenu .centre .sfl-derniers-documents {
+    .portlet-content-container {
+        ul.title-list {
+            padding:0;
+            margin:0;
+        }
+
+        li.title-list {
+            padding:10px 0;
+            background:none;
+
+            & > span {
+                display:block;
+
+                a {
+                    float:none;
+                }
+            }
+
+            .asset-metadata {
+                margin-left:0;
+            }
+        }
+    }
+
+    .metadata-author {
+        background:none;
+        padding-left:30px;
+    }
+
+    .vertical-separator {
+        display:none;
+    }
+
+
 }
 
