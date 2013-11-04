@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*Feuille de Style 1.0 Intranet AUF - Marc NACHIN*/
 /* ----------------- TITRES ET LIENS  ----------------- */
 /* line 4, ../sass/style-original.scss */
@@ -562,7 +563,7 @@ p {
 }
 
 /* line 453, ../sass/style-original.scss */
-.ariane {
+.ariane, #contenu .centre .portlet-breadcrumb {
   border-bottom: 1px solid #dfdfdf;
   padding-bottom: 16px;
   margin-bottom: 18px;
@@ -1086,15 +1087,42 @@ p {
     display: none;
   }
 }
+/* line 9, ../sass/style.scss */
+input[type=submit][class*=aui],
+input[type=button][class*=aui] {
+  text-indent: 0 !important;
+  background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0 !important;
+  border: 1px solid;
+  border-color: #C8C9CA #9E9E9E #9E9E9E #C8C9CA;
+  color: #34404F;
+  cursor: pointer;
+  font-weight: bold;
+  overflow: visible;
+  padding: 5px;
+  text-shadow: 1px 1px #FFF;
+  width: auto;
+}
+
+/* line 24, ../sass/style.scss */
+#contenu .centre ul.structure-tree {
+  padding: 0;
+}
+/* line 29, ../sass/style.scss */
+#contenu .centre ul li.structure-field {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* corrections liferay */
-/* line 11, ../sass/style.scss */
+/* line 40, ../sass/style.scss */
 #contenu .lfr-actions,
 #contenu .gauche .lfr-actions,
 #contenu .centre .lfr-actions {
   padding: 0;
   margin-bottom: 0;
 }
-/* line 15, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 #contenu .lfr-actions li,
 #contenu .gauche .lfr-actions li,
 #contenu .centre .lfr-actions li {
@@ -1102,7 +1130,7 @@ p {
   background: none;
   padding-left: 0;
 }
-/* line 20, ../sass/style.scss */
+/* line 49, ../sass/style.scss */
 #contenu .lfr-actions li img,
 #contenu .gauche .lfr-actions li img,
 #contenu .centre .lfr-actions li img {
@@ -1111,79 +1139,83 @@ p {
   padding: 0 5px;
 }
 
-/* line 27, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 .taglib-icon img, .taglib-icon-help img, .browse-folder img, .asset-title img {
   border: none;
   margin: 0;
   padding: 0 5px;
 }
+/* line 60, ../sass/style.scss */
+.taglib-icon .taglib-text, .taglib-icon-help .taglib-text, .browse-folder .taglib-text, .asset-title .taglib-text {
+  font-size: 12px;
+}
 
-/* line 34, ../sass/style.scss */
+/* line 67, ../sass/style.scss */
 .lfr-menu-list li a {
   font-size: 1.9em;
 }
 
-/* line 40, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 .lfr-meta-actions {
   overflow: hidden;
 }
 
-/* line 44, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
 #container-full footer {
   font-size: 0.7em;
 }
 
-/* line 48, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
 .auf-navigation li {
   position: static;
 }
 
-/* line 53, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 .portlet-boundary .portlet-title {
   text-transform: capitalize;
   font-weight: normal;
 }
-/* line 60, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 .portlet-boundary .portlet-title span:first-child {
   display: none;
 }
-/* line 65, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 .portlet-boundary .portlet-title-text {
   color: #fff !important;
 }
-/* line 70, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 .portlet-boundary .portlet-body .portlet-content {
   padding: 0;
 }
-/* line 76, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 .portlet-boundary .asset-full-content .asset-content {
   margin: 0;
 }
-/* line 81, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 .portlet-boundary .separator, .portlet-boundary .final-separator {
   display: none;
 }
 
-/* line 86, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 .gauche {
   /* profil */
   /* evenements */
 }
-/* line 89, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 .gauche .profil .setting {
   line-height: 18px;
   height: 18px;
 }
-/* line 93, ../sass/style.scss */
+/* line 126, ../sass/style.scss */
 .gauche .profil h5 {
   font-weight: bold;
 }
 
-/* line 109, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 #contenu .centre {
   font-size: 12px;
 }
-/* line 113, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #contenu .centre .portlet-boundary .portlet-title {
   text-transform: uppercase;
   padding: 0;
@@ -1191,38 +1223,38 @@ p {
   color: #3f3d4b;
   font-weight: bold;
 }
-/* line 121, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 #contenu .centre .portlet-boundary .portlet-title-text {
   color: #3f3d4b !important;
 }
-/* line 126, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 #contenu .centre select.aui-paginator-rows-per-page {
   width: auto;
 }
-/* line 130, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 #contenu .centre .lfr-component {
   margin: 0;
   padding: 0;
 }
-/* line 134, ../sass/style.scss */
+/* line 167, ../sass/style.scss */
 #contenu .centre .lfr-component li {
   background: none;
   padding-left: 0;
   margin-bottom: 0;
 }
-/* line 139, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 #contenu .centre .lfr-component li.folder {
   background: none;
   margin-bottom: 0;
   padding-left: 0;
 }
-/* line 155, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities .asset-title {
   margin-top: 0;
   margin-bottom: 0;
   border: none;
 }
-/* line 167, ../sass/style.scss */
+/* line 200, ../sass/style.scss */
 #contenu .centre .auf-no-background .portlet-content-container .portlet-body {
   background-color: transparent;
   padding: 0;
@@ -1230,20 +1262,20 @@ p {
   margin-bottom: 0;
   overflow: hidden;
 }
-/* line 178, ../sass/style.scss */
+/* line 211, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding {
   padding: 15px 10px !important;
 }
-/* line 181, ../sass/style.scss */
+/* line 214, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding label {
   width: auto;
 }
-/* line 185, ../sass/style.scss */
+/* line 218, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding .ctrls {
   padding-top: 30px;
 }
 
-/* line 192, ../sass/style.scss */
+/* line 225, ../sass/style.scss */
 #contenu .aui-field-wrapper-content .aui-field-label, #contenu .aui-field-wrapper-content .inline-label {
   display: inline-block;
   float: none;
@@ -1255,12 +1287,121 @@ p {
   font-size: 1.2rem;
 }
 
-/* line 204, ../sass/style.scss */
+/* line 237, ../sass/style.scss */
 #contenu input.aui-button-input {
   text-shadow: none !important;
 }
 
-/* line 208, ../sass/style.scss */
+/* line 241, ../sass/style.scss */
 .aui-dialog-content, .aui-dialog-iframe-popup {
   font-size: 12px !important;
+}
+
+/* line 246, ../sass/style.scss */
+#auf-annuaire-advanced-search label {
+  color: #3f3d4b !important;
+  font-weight: normal;
+}
+/* line 251, ../sass/style.scss */
+#auf-annuaire-advanced-search select {
+  border-color: #3f3d4b;
+}
+
+/* breadcrumb */
+/* line 260, ../sass/style.scss */
+#contenu .centre .portlet-breadcrumb .breadcrumbs {
+  font-weight: normal;
+}
+/* line 263, ../sass/style.scss */
+#contenu .centre .portlet-breadcrumb .breadcrumbs li {
+  font-size: 0.8em;
+  margin: 0 5px 0 0;
+}
+/* line 267, ../sass/style.scss */
+#contenu .centre .portlet-breadcrumb .breadcrumbs li:before {
+  content: ">";
+}
+/* line 273, ../sass/style.scss */
+#contenu .centre .portlet-breadcrumb .breadcrumbs li:first-child:before {
+  content: "";
+}
+/* line 277, ../sass/style.scss */
+#contenu .centre .portlet-breadcrumb .breadcrumbs li:first-child span {
+  padding-left: 0;
+}
+/* line 282, ../sass/style.scss */
+#contenu .centre .portlet-breadcrumb .breadcrumbs li span {
+  padding: 0 0 0 5px;
+}
+
+/* porlet navigation */
+/* line 292, ../sass/style.scss */
+#contenu .centre .portlet-navigation .nav-menu ul {
+  padding-left: 0;
+}
+/* line 296, ../sass/style.scss */
+#contenu .centre .portlet-navigation .nav-menu li {
+  background: #fff;
+  padding: 5px 10px;
+  display: block;
+}
+/* line 301, ../sass/style.scss */
+#contenu .centre .portlet-navigation .nav-menu li a {
+  padding-left: 20px;
+  background: url(../images/puce.png) left no-repeat;
+}
+
+/* portlet contenu web */
+/* line 311, ../sass/style.scss */
+#contenu .centre .portlet-journal-content .journal-content-article {
+  font-size: 14px;
+}
+/* line 314, ../sass/style.scss */
+#contenu .centre .portlet-journal-content .journal-content-article p {
+  color: #3f3d4b;
+}
+
+/* portlet pour afficher les membres d'un site */
+/* line 322, ../sass/style.scss */
+#contenu .centre .sfl-members .news {
+  width: 49.25%;
+  margin-left: 1.5%;
+  float: left;
+}
+/* line 327, ../sass/style.scss */
+#contenu .centre .sfl-members .news:nth-child(2n+1) {
+  margin-left: 0;
+}
+
+/* portlets des derniers documents d'un pôle/région/espaces collaboratifs */
+/* line 336, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .portlet-content-container ul.title-list {
+  padding: 0;
+  margin: 0;
+}
+/* line 341, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list {
+  padding: 10px 0;
+  background: none;
+}
+/* line 345, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span {
+  display: block;
+}
+/* line 348, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span a {
+  float: none;
+}
+/* line 353, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list .asset-metadata {
+  margin-left: 0;
+}
+/* line 359, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .metadata-author {
+  background: none;
+  padding-left: 30px;
+}
+/* line 364, ../sass/style.scss */
+#contenu .centre .sfl-derniers-documents .vertical-separator {
+  display: none;
 }
