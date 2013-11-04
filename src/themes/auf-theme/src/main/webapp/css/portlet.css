@@ -78,7 +78,6 @@ body.portlet {
 /* ---------- Borderless portlet ---------- */
 /* line 72, ../sass/portlet.scss */
 .portlet-borderless-container {
-  min-height: 2.5em;
   position: relative;
 }
 
