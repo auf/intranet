@@ -74,6 +74,38 @@ public class AufVelocityTool
 		}
 	}
 	
+	public String respondTest(long randomId) {
+		return "Test";
+	}
+	
+	public boolean isNotUnder(long organisationId, long plid)
+	{
+		try {
+			Layout l = LayoutLocalServiceUtil.getLayout(plid);
+			if (l.getGroup().isGuest()) {
+				return false;
+			}
+			if (l.getGroup().getOrganizationId() == 0) {
+				return true;
+			}
+			Organization currentOrg = OrganizationLocalServiceUtil.getOrganization(l.getGroup().getOrganizationId());
+			
+			Organization possibleParentOrg = OrganizationLocalServiceUtil.getOrganization(organisationId);
+			for (Organization ancestor : currentOrg.getAncestors()) {
+				if (ancestor.equals(possibleParentOrg)) {
+					return false;
+				}
+			}
+		} catch (PortalException e) {
+			log.error("Organisation or page not found : " + organisationId + " / " + plid);
+			return false;
+		} catch (SystemException e) {
+			log.error("Organisation or page not found : " + organisationId + " / " + plid);
+			return false;
+		}
+		return true;
+	}
+	
 	public String getUserWeatherLocation(long userId) {
 		User u = null;
 		try {
