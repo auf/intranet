@@ -369,7 +369,7 @@ header .ecrire a {
 }
 
 /* line 324, ../sass/style-original.scss */
-#contenu ul {
+#contenu ul, .auf-wysiwyg-ul-base {
   padding: 20px 14px 0px 14px;
   font-size: 13px;
   font-size: 1.3rem;
@@ -584,7 +584,7 @@ p {
 }
 
 /* line 472, ../sass/style-original.scss */
-.centre p {
+.centre p, .auf-wysiwyg-p {
   margin-bottom: 20px;
 }
 
@@ -722,13 +722,13 @@ p {
 }
 
 /* line 567, ../sass/style-original.scss */
-#contenu .centre ul {
+#contenu .centre ul, .auf-wysiwyg-ul {
   margin-bottom: 20px;
   padding-top: 6px;
 }
 
 /* line 572, ../sass/style-original.scss */
-#contenu .centre ul li {
+#contenu .centre ul li, .auf-wysiwyg-li {
   margin-bottom: 10px;
   padding-left: 20px;
   background: url(../images/puce.png) left no-repeat;

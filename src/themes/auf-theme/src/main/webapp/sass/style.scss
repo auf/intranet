@@ -6,6 +6,17 @@
     padding:0 5px;
 }
 
+@mixin span-color-reset {
+    &.portlet-title-default {
+        color:#fff;
+    }
+}
+
+/* borderless portlet title color */
+#contenu span {
+    @include span-color-reset;
+}
+
 /*
     le css de Marc est trop général et affecte tous les boutons de liferay.
     J'ai dû forcer le style de base de liferay.
@@ -31,7 +42,7 @@ input[type=button][class*=aui] {
     }
 
     li {
-        &.structure-field {
+        &.structure-field, &.top-link {
             background:none;
             padding:0;
             margin:0;
@@ -320,11 +331,29 @@ input[type=button][class*=aui] {
 /* portlet contenu web */
 #contenu .centre .portlet-journal-content {
     .journal-content-article {
-        font-size:14px;
+        font-size:1.3rem;
 
         p {
             color:#3f3d4b;
         }
+
+        img[style *= "float: left"] {
+            margin:0 1em 1em 0;
+        }
+
+        img[style *= "float: right"] {
+            margin:0 0 1em 1em;
+        }
+
+        ul {
+            overflow: hidden;
+        }
+    }
+
+    span {
+        color:#3f3d4b;
+
+        @include span-color-reset;
     }
 }
 
@@ -374,5 +403,28 @@ input[type=button][class*=aui] {
 
     .vertical-separator {
         display:none;
+    }
+}
+
+
+/* ckeditor */
+body.html-editor {
+    font-size:14px !important;
+
+    p {
+        @extend .auf-wysiwyg-p;
+    }
+
+    ul, ol {
+        @extend .auf-wysiwyg-ul-base;
+        @extend .auf-wysiwyg-ul;
+    }
+
+    ul li {
+        @extend .auf-wysiwyg-li;
+    }
+
+    ol li {
+        list-type: decimal;
     }
 }
