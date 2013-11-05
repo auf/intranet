@@ -102,12 +102,10 @@ $theme.include($body_top_include)
 				#embedPortletUsing("73_INSTANCE_3XWoAtbmI9rj", "", $velocityPortletPreferences.toString())
 		        $velocityPortletPreferences.reset()
 		        
-		        #if ( $aufTool.isNotUnder($regionOrgId, $page.getPlid()) )
-			        $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
-					#embedPortletUsing("71_INSTANCE_arr2uHQblbOr", "", $velocityPortletPreferences.toString())
-			        $velocityPortletPreferences.reset()
-		        #end
-				
+	            $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
+				#embedPortletUsing("71_INSTANCE_arr2uHQblbOr", "", $velocityPortletPreferences.toString())
+		        $velocityPortletPreferences.reset()
+	        
 				#if ($selectable)
 					$theme.include($content_include)
 				#else
