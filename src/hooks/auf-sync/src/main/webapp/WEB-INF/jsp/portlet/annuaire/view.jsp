@@ -66,7 +66,11 @@
                 	<p>${user.getFullName()} participe aux espaces collaboratifs suivants:</p>
                 	<ul>
                 	<c:forEach var="site" items="${userSites}">
-						<li><a href="${site.getFriendlyURL()}">${site.getName()}</a>${site.getDescription()}</li>
+						<li>
+                            <a href="${site.getFriendlyURL()}">
+                                ${site.getName()}
+                            </a>:&nbsp;${site.getDescription()}
+                        </li>
 					</c:forEach>
                     </ul>
                 </div>
