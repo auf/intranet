@@ -370,7 +370,7 @@ header .ecrire a {
 }
 
 /* line 324, ../sass/style-original.scss */
-#contenu ul {
+#contenu ul, .auf-wysiwyg-ul-base, body.html-editor ul, body.html-editor ol {
   padding: 20px 14px 0px 14px;
   font-size: 13px;
   font-size: 1.3rem;
@@ -585,7 +585,7 @@ p {
 }
 
 /* line 472, ../sass/style-original.scss */
-.centre p {
+.centre p, .auf-wysiwyg-p, body.html-editor p {
   margin-bottom: 20px;
 }
 
@@ -723,13 +723,13 @@ p {
 }
 
 /* line 567, ../sass/style-original.scss */
-#contenu .centre ul {
+#contenu .centre ul, .auf-wysiwyg-ul, body.html-editor ul, body.html-editor ol {
   margin-bottom: 20px;
   padding-top: 6px;
 }
 
 /* line 572, ../sass/style-original.scss */
-#contenu .centre ul li {
+#contenu .centre ul li, .auf-wysiwyg-li, body.html-editor ul li {
   margin-bottom: 10px;
   padding-left: 20px;
   background: url(../images/puce.png) left no-repeat;
@@ -1087,11 +1087,21 @@ p {
     display: none;
   }
 }
-/* line 9, ../sass/style.scss */
+/* borderless portlet title color */
+/* line 10, ../sass/style.scss */
+#contenu span.portlet-title-default {
+  color: #fff;
+}
+
+/*
+    le css de Marc est trop général et affecte tous les boutons de liferay.
+    J'ai dû forcer le style de base de liferay.
+*/
+/* line 25, ../sass/style.scss */
 input[type=submit][class*=aui],
 input[type=button][class*=aui] {
-  text-indent: 0 !important;
-  background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0 !important;
+  text-indent: 0;
+  background: #d4d4d4 url(../images/portlet/header_bg.png) repeat-x 0 0;
   border: 1px solid;
   border-color: #C8C9CA #9E9E9E #9E9E9E #C8C9CA;
   color: #34404F;
@@ -1103,26 +1113,26 @@ input[type=button][class*=aui] {
   width: auto;
 }
 
-/* line 24, ../sass/style.scss */
+/* line 40, ../sass/style.scss */
 #contenu .centre ul.structure-tree {
   padding: 0;
 }
-/* line 29, ../sass/style.scss */
-#contenu .centre ul li.structure-field {
+/* line 45, ../sass/style.scss */
+#contenu .centre ul li.structure-field, #contenu .centre ul li.top-link {
   background: none;
   padding: 0;
   margin: 0;
 }
 
 /* corrections liferay */
-/* line 40, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 #contenu .lfr-actions,
 #contenu .gauche .lfr-actions,
 #contenu .centre .lfr-actions {
   padding: 0;
   margin-bottom: 0;
 }
-/* line 44, ../sass/style.scss */
+/* line 60, ../sass/style.scss */
 #contenu .lfr-actions li,
 #contenu .gauche .lfr-actions li,
 #contenu .centre .lfr-actions li {
@@ -1130,7 +1140,7 @@ input[type=button][class*=aui] {
   background: none;
   padding-left: 0;
 }
-/* line 49, ../sass/style.scss */
+/* line 65, ../sass/style.scss */
 #contenu .lfr-actions li img,
 #contenu .gauche .lfr-actions li img,
 #contenu .centre .lfr-actions li img {
@@ -1139,83 +1149,83 @@ input[type=button][class*=aui] {
   padding: 0 5px;
 }
 
-/* line 56, ../sass/style.scss */
+/* line 72, ../sass/style.scss */
 .taglib-icon img, .taglib-icon-help img, .browse-folder img, .asset-title img {
   border: none;
   margin: 0;
   padding: 0 5px;
 }
-/* line 60, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 .taglib-icon .taglib-text, .taglib-icon-help .taglib-text, .browse-folder .taglib-text, .asset-title .taglib-text {
   font-size: 12px;
 }
 
-/* line 67, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 .lfr-menu-list li a {
   font-size: 1.9em;
 }
 
-/* line 73, ../sass/style.scss */
+/* line 89, ../sass/style.scss */
 .lfr-meta-actions {
   overflow: hidden;
 }
 
-/* line 77, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 #container-full footer {
   font-size: 0.7em;
 }
 
-/* line 81, ../sass/style.scss */
+/* line 97, ../sass/style.scss */
 .auf-navigation li {
   position: static;
 }
 
-/* line 86, ../sass/style.scss */
+/* line 102, ../sass/style.scss */
 .portlet-boundary .portlet-title {
   text-transform: capitalize;
   font-weight: normal;
 }
-/* line 93, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 .portlet-boundary .portlet-title span:first-child {
   display: none;
 }
-/* line 98, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 .portlet-boundary .portlet-title-text {
   color: #fff !important;
 }
-/* line 103, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 .portlet-boundary .portlet-body .portlet-content {
   padding: 0;
 }
-/* line 109, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 .portlet-boundary .asset-full-content .asset-content {
   margin: 0;
 }
-/* line 114, ../sass/style.scss */
+/* line 130, ../sass/style.scss */
 .portlet-boundary .separator, .portlet-boundary .final-separator {
   display: none;
 }
 
-/* line 119, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 .gauche {
   /* profil */
   /* evenements */
 }
-/* line 122, ../sass/style.scss */
+/* line 138, ../sass/style.scss */
 .gauche .profil .setting {
   line-height: 18px;
   height: 18px;
 }
-/* line 126, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 .gauche .profil h5 {
   font-weight: bold;
 }
 
-/* line 142, ../sass/style.scss */
+/* line 158, ../sass/style.scss */
 #contenu .centre {
   font-size: 12px;
 }
-/* line 146, ../sass/style.scss */
+/* line 162, ../sass/style.scss */
 #contenu .centre .portlet-boundary .portlet-title {
   text-transform: uppercase;
   padding: 0;
@@ -1223,38 +1233,38 @@ input[type=button][class*=aui] {
   color: #3f3d4b;
   font-weight: bold;
 }
-/* line 154, ../sass/style.scss */
+/* line 170, ../sass/style.scss */
 #contenu .centre .portlet-boundary .portlet-title-text {
   color: #3f3d4b !important;
 }
-/* line 159, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 #contenu .centre select.aui-paginator-rows-per-page {
   width: auto;
 }
-/* line 163, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 #contenu .centre .lfr-component {
   margin: 0;
   padding: 0;
 }
-/* line 167, ../sass/style.scss */
+/* line 183, ../sass/style.scss */
 #contenu .centre .lfr-component li {
   background: none;
   padding-left: 0;
   margin-bottom: 0;
 }
-/* line 172, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 #contenu .centre .lfr-component li.folder {
   background: none;
   margin-bottom: 0;
   padding-left: 0;
 }
-/* line 188, ../sass/style.scss */
+/* line 204, ../sass/style.scss */
 #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body .asset-activities .asset-title {
   margin-top: 0;
   margin-bottom: 0;
   border: none;
 }
-/* line 200, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 #contenu .centre .auf-no-background .portlet-content-container .portlet-body {
   background-color: transparent;
   padding: 0;
@@ -1262,20 +1272,20 @@ input[type=button][class*=aui] {
   margin-bottom: 0;
   overflow: hidden;
 }
-/* line 211, ../sass/style.scss */
+/* line 227, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding {
   padding: 15px 10px !important;
 }
-/* line 214, ../sass/style.scss */
+/* line 230, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding label {
   width: auto;
 }
-/* line 218, ../sass/style.scss */
+/* line 234, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding .ctrls {
   padding-top: 30px;
 }
 
-/* line 225, ../sass/style.scss */
+/* line 241, ../sass/style.scss */
 #contenu .aui-field-wrapper-content .aui-field-label, #contenu .aui-field-wrapper-content .inline-label {
   display: inline-block;
   float: none;
@@ -1287,121 +1297,156 @@ input[type=button][class*=aui] {
   font-size: 1.2rem;
 }
 
-/* line 237, ../sass/style.scss */
+/* line 253, ../sass/style.scss */
 #contenu input.aui-button-input {
   text-shadow: none !important;
 }
 
-/* line 241, ../sass/style.scss */
+/* line 257, ../sass/style.scss */
 .aui-dialog-content, .aui-dialog-iframe-popup {
   font-size: 12px !important;
 }
 
-/* line 246, ../sass/style.scss */
+/* line 262, ../sass/style.scss */
 #auf-annuaire-advanced-search label {
   color: #3f3d4b !important;
   font-weight: normal;
 }
-/* line 251, ../sass/style.scss */
+/* line 267, ../sass/style.scss */
 #auf-annuaire-advanced-search select {
   border-color: #3f3d4b;
 }
 
+/* line 273, ../sass/style.scss */
+.ui-state-active a {
+  font-weight: bold;
+}
+
 /* breadcrumb */
-/* line 260, ../sass/style.scss */
+/* line 282, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs {
   font-weight: normal;
 }
-/* line 263, ../sass/style.scss */
+/* line 285, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li {
   font-size: 0.8em;
   margin: 0 5px 0 0;
 }
-/* line 267, ../sass/style.scss */
+/* line 289, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li:before {
   content: ">";
 }
-/* line 273, ../sass/style.scss */
+/* line 295, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li:first-child:before {
   content: "";
 }
-/* line 277, ../sass/style.scss */
+/* line 299, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li:first-child span {
   padding-left: 0;
 }
-/* line 282, ../sass/style.scss */
+/* line 304, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li span {
   padding: 0 0 0 5px;
 }
 
 /* porlet navigation */
-/* line 292, ../sass/style.scss */
+/* line 314, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu ul {
   padding-left: 0;
 }
-/* line 296, ../sass/style.scss */
+/* line 318, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu li {
   background: #fff;
   padding: 5px 10px;
   display: block;
 }
-/* line 301, ../sass/style.scss */
+/* line 323, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu li a {
   padding-left: 20px;
   background: url(../images/puce.png) left no-repeat;
 }
 
 /* portlet contenu web */
-/* line 311, ../sass/style.scss */
+/* line 333, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article {
-  font-size: 14px;
+  font-size: 1.3rem;
 }
-/* line 314, ../sass/style.scss */
+/* line 336, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article p {
   color: #3f3d4b;
 }
+/* line 340, ../sass/style.scss */
+#contenu .centre .portlet-journal-content .journal-content-article img[style*="float: left"] {
+  margin: 0 1em 1em 0;
+}
+/* line 344, ../sass/style.scss */
+#contenu .centre .portlet-journal-content .journal-content-article img[style*="float: right"] {
+  margin: 0 0 1em 1em;
+}
+/* line 348, ../sass/style.scss */
+#contenu .centre .portlet-journal-content .journal-content-article ul {
+  overflow: hidden;
+}
+/* line 353, ../sass/style.scss */
+#contenu .centre .portlet-journal-content span {
+  color: #3f3d4b;
+}
+/* line 10, ../sass/style.scss */
+#contenu .centre .portlet-journal-content span.portlet-title-default {
+  color: #fff;
+}
 
 /* portlet pour afficher les membres d'un site */
-/* line 322, ../sass/style.scss */
+/* line 362, ../sass/style.scss */
 #contenu .centre .sfl-members .news {
   width: 49.25%;
   margin-left: 1.5%;
   float: left;
 }
-/* line 327, ../sass/style.scss */
+/* line 367, ../sass/style.scss */
 #contenu .centre .sfl-members .news:nth-child(2n+1) {
   margin-left: 0;
 }
 
 /* portlets des derniers documents d'un pôle/région/espaces collaboratifs */
-/* line 336, ../sass/style.scss */
+/* line 376, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container ul.title-list {
   padding: 0;
   margin: 0;
 }
-/* line 341, ../sass/style.scss */
+/* line 381, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list {
   padding: 10px 0;
   background: none;
 }
-/* line 345, ../sass/style.scss */
+/* line 385, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span {
   display: block;
 }
-/* line 348, ../sass/style.scss */
+/* line 388, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span a {
   float: none;
 }
-/* line 353, ../sass/style.scss */
+/* line 393, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list .asset-metadata {
   margin-left: 0;
 }
-/* line 359, ../sass/style.scss */
+/* line 399, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .metadata-author {
   background: none;
   padding-left: 30px;
 }
-/* line 364, ../sass/style.scss */
+/* line 404, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .vertical-separator {
   display: none;
+}
+
+/* ckeditor */
+/* line 411, ../sass/style.scss */
+body.html-editor {
+  font-size: 14px !important;
+}
+/* line 427, ../sass/style.scss */
+body.html-editor ol li {
+  list-type: decimal;
 }
