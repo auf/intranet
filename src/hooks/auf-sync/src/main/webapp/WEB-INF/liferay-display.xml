@@ -4,5 +4,6 @@
 <display>
 	<category name="AUF">
 		<portlet id="auf-sync" />
+		<portlet id="auf-user-list" />
 	</category>
 </display>

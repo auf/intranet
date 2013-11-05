@@ -1,4 +1,4 @@
-package com.savoirfairelinux.auf.portlet;
+package com.savoirfairelinux.auf.portlet.annuaire;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -26,6 +26,7 @@ import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.db.AufImplantation;
 import com.savoirfairelinux.auf.hook.db.AufRegion;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
+import com.savoirfairelinux.auf.portlet.AufCombinedUser;
 
 @Controller
 @RequestMapping("VIEW")

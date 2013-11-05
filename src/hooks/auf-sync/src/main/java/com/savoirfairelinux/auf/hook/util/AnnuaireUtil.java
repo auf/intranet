@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import com.liferay.portal.model.User;
 import com.savoirfairelinux.auf.hook.db.AufCountry;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.db.AufImplantation;
@@ -151,6 +152,23 @@ public class AnnuaireUtil {
 			query = query.setParameter("region", region);
 		}
 		result = query.getResultList();
+        return result;
+	}
+
+	public static List<AufEmploye> getUsers(List<User> users) {
+		List<AufEmploye> result = new ArrayList<AufEmploye>();
+		List<String> emails = new ArrayList<String>();
+		
+		for (User u : users) {
+			emails.add(u.getEmailAddress().toLowerCase());
+		}
+		
+		if (emails.size() > 0) {
+			result = instance.entityManager.createNamedQuery("AufEmploye.findByEmails", AufEmploye.class)
+            		.setParameter("emails", emails)
+                    .getResultList();
+		}
+
         return result;
 	}
 
