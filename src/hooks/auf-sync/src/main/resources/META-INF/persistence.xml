@@ -3,7 +3,6 @@
   <persistence-unit name="AufDatabase" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>java:/comp/env/jdbc/auf</jta-data-source>
-    <class>com.savoirfairelinux.auf.hook.db.AufEmployeeTable</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties><property name="eclipselink.jpa.uppercase-column-names" value="true"/></properties> <!-- IMPORTANT on MySQL with lowercase columns -->
   </persistence-unit>

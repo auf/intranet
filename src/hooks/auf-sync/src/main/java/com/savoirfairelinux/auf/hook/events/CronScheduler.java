@@ -12,6 +12,7 @@ public class CronScheduler implements MessageListener {
 
 	public void receive(Message arg0) throws MessageListenerException {
 		log.debug("Running the user synchroinsation scheduler");
+		//log.error("No actual code running, just debugging");
 		SynchronizeEventAction.synchronizeUsers();
 		log.debug("User synchroinsation scheduler finished");
 	}
