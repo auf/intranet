@@ -1397,56 +1397,56 @@ input[type=button][class*=aui] {
 }
 
 /* portlet pour afficher les membres d'un site */
-/* line 362, ../sass/style.scss */
+/* line 363, ../sass/style.scss */
 #contenu .centre .sfl-members .news, #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
   width: 49.25%;
   margin-left: 1.5%;
   float: left;
 }
-/* line 367, ../sass/style.scss */
+/* line 368, ../sass/style.scss */
 #contenu .centre .sfl-members .news:nth-child(2n+1), #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news:nth-child(2n+1) {
   margin-left: 0;
 }
 
 /* portlets des derniers documents d'un pôle/région/espaces collaboratifs */
-/* line 376, ../sass/style.scss */
+/* line 378, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container ul.title-list {
   padding: 0;
   margin: 0;
 }
-/* line 381, ../sass/style.scss */
+/* line 383, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list {
   padding: 10px 0;
   background: none;
 }
-/* line 385, ../sass/style.scss */
+/* line 387, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span {
   display: block;
 }
-/* line 388, ../sass/style.scss */
+/* line 390, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span a {
   float: none;
 }
-/* line 393, ../sass/style.scss */
+/* line 395, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list .asset-metadata {
   margin-left: 0;
 }
-/* line 399, ../sass/style.scss */
+/* line 401, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .metadata-author {
   background: none;
   padding-left: 30px;
 }
-/* line 404, ../sass/style.scss */
+/* line 406, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .vertical-separator {
   display: none;
 }
 
 /* ckeditor */
-/* line 411, ../sass/style.scss */
+/* line 413, ../sass/style.scss */
 body.html-editor {
   font-size: 14px !important;
 }
-/* line 427, ../sass/style.scss */
+/* line 429, ../sass/style.scss */
 body.html-editor ol li {
   list-type: decimal;
 }
