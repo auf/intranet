@@ -228,8 +228,30 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 	else if (!groupByClass) {
 		if (displayStyle.equals("auf-activities") || displayStyle.equals("auf-event-list") || displayStyle.equals("auf-actuality-list")) {
 			//then autoselect all groups
-			List<Group> groups = GroupLocalServiceUtil.getGroups(-1, -1);
-			long[] allGroupIds = new long[groups.size()];
+			List<Group> groups;
+			long[] allGroupIds;
+			if (displayStyle.equals("auf-activities")) {
+				long groupId = themeDisplay.getLayout().getGroupId(); 
+				long orgId = GroupLocalServiceUtil.getGroup(groupId).getOrganizationId();
+				
+				java.util.Queue<com.liferay.portal.model.Organization> remainder = new java.util.LinkedList<com.liferay.portal.model.Organization>();
+				remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), orgId));
+				
+				groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
+				
+				while (!remainder.isEmpty()) {
+					com.liferay.portal.model.Organization org = remainder.poll();
+					remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), org.getOrganizationId()));
+
+					groups.add(org.getGroup());
+				}
+				
+				allGroupIds = new long[groups.size()+1];
+				allGroupIds[groups.size()] = groupId;
+			} else {
+				groups = GroupLocalServiceUtil.getGroups(-1, -1);
+				allGroupIds = new long[groups.size()];
+			}
 			for (int i=0; i<groups.size(); i++) {
 				if (groups.get(i).isControlPanel()) {
 					continue;
@@ -239,6 +261,7 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 					allGroupIds[i] = groups.get(i).getGroupId();
 				}
 			}
+			
 			assetEntryQuery.setGroupIds(allGroupIds);
 		}
 		assetEntryQuery.setClassNameIds(classNameIds);
