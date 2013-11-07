@@ -358,7 +358,7 @@ input[type=button][class*=aui] {
 }
 
 /* portlet pour afficher les membres d'un site */
-#contenu .centre .sfl-members {
+#contenu .centre .sfl-members, #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ {
     .news {
         width:49.25%;
         margin-left:1.5%;
