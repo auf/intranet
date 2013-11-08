@@ -11,4 +11,11 @@ Some vagrant/liferays labs.
 * Start Vagrant: vagrant up
 
 if needed you can mount the /opt/liferay filesystem:
- mount -O soft,timeo=5,retrans=5,actimeo=10,retry=5 -o nolock 10.0.0.x:/opt/liferay-portal mount/
+
+    mount -O soft,timeo=5,retrans=5,actimeo=10,retry=5 -o nolock 10.0.0.x:/opt/liferay-portal mount/
+
+## PermGen Space error
+
+$ vi /opt/liferay-portal/tomcat/bin/setenv.bat
+
+Modifier le paramètre *-XX:MaxPermSize=256m* pour *-XX:MaxPermSize=512m*
