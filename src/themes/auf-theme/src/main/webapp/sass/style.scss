@@ -359,7 +359,8 @@ input[type=button][class*=aui] {
 
 /* portlet pour afficher les membres d'un site */
 #contenu .centre {
-    .sfl-members, .portlet-boundary_aufuserlist_WAR_aufsync_ {
+    .sfl-members,
+    .portlet-boundary_aufuserlist_WAR_aufsync_ {
         .news {
             width:49.25%;
             margin-left:1.5%;
@@ -428,5 +429,49 @@ body.html-editor {
 
     ol li {
         list-type: decimal;
+    }
+}
+
+@media only screen and (min-width: 940px) and (max-width: 981px) {
+    #contenu .centre {
+        .sfl-members,
+        .portlet-boundary_aufuserlist_WAR_aufsync_ {
+            .news {
+                width:100%;
+                margin-left:0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 762px) and (max-width: 939px) {
+    .auf-navigation > ul > li {
+      float: none;
+    }
+
+    #contenu .centre {
+        .sfl-members,
+        .portlet-boundary_aufuserlist_WAR_aufsync_ {
+            .news {
+                width:100%;
+                margin-left:0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 761px) {
+    .auf-navigation > ul > li {
+      float: none;
+    }
+
+    #contenu .centre {
+        .sfl-members,
+        .portlet-boundary_aufuserlist_WAR_aufsync_ {
+            .news {
+                width:100%;
+                margin-left:0;
+            }
+        }
     }
 }

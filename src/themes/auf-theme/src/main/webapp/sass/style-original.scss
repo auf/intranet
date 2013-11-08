@@ -710,43 +710,43 @@ p{
    ========================================================================== */
 @media only screen and (min-width: 762px) and (max-width: 939px) {
 
-#tabs ul li {
-  float: none;
-  padding: 8px !important;
-  border-bottom: 1px solid #DFDFDF;
-  border-right: none !important;
-}
-
-#tabs ul li a {
+  #tabs ul li {
     float: none;
-  padding: 0px;
-}
+    padding: 8px !important;
+    border-bottom: 1px solid #DFDFDF;
+    border-right: none !important;
+  }
 
-#tabs ul li:last-child {
-    border-bottom: medium none;
-}
+  #tabs ul li a {
+      float: none;
+    padding: 0px;
+  }
 
-#contenu {
-  display: block;
-}
+  #tabs ul li:last-child {
+      border-bottom: medium none;
+  }
 
-.droit {
+  #contenu {
     display: block;
-    vertical-align: top;
-    width: 100%;
-}
+  }
 
-#tabs h5 {
-    font-size: 14px;
-    font-size: 1.4rem;
-    margin: 16px 0px 12px 0px;
-}
+  .droit {
+      display: block;
+      vertical-align: top;
+      width: 100%;
+  }
 
-#tabs .news ul li{
-  border-bottom: none;
-  margin: 0 !important;
-  padding-left: 20px !important;
-}
+  #tabs h5 {
+      font-size: 14px;
+      font-size: 1.4rem;
+      margin: 16px 0px 12px 0px;
+  }
+
+  #tabs .news ul li{
+    border-bottom: none;
+    margin: 0 !important;
+    padding-left: 20px !important;
+  }
 
 }
 /* End Tablet Media Query */
@@ -754,124 +754,124 @@ p{
 /* -- Mobile Devices (Layout, Modifications, etc)
    ========================================================================== */
 @media only screen and (max-width: 761px) {
-  /* Mobile Grid
-    * For stacking full width columns, please use the new class .mobile-full
-    * New mobile columns have been added*/
+    /* Mobile Grid
+      * For stacking full width columns, please use the new class .mobile-full
+      * New mobile columns have been added*/
 
-nav ul{
-  overflow: hidden;
-}
-
-nav ul li {
-    float: none;
-  border-bottom: 1px solid #DFDFDF;
-}
-
-#tabs ul li {
-  float: none;
-  padding: 8px !important;
-  border-bottom: 1px solid #DFDFDF;
-  border-right: none !important;
-}
-
-#tabs ul li a {
-    float: none;
-  padding: 0px;
-}
-
-#tabs .news ul li{
-  border-bottom: none;
-  margin: 0 !important;
-  padding-left: 20px !important;
-}
-
-#container-full nav{
-  height: auto;
-}
-
-nav ul li ul li{
-  border: none;
-}
-
-nav ul li ul {
-  position: static;
-}
-
-nav ul li ul li a{
-  font-size: 1.1rem;
-  font-size: 11px;
-  padding-left: 60px;
-}
-
-header .baseline {
-    float: none;
-    height: 44px;
-    margin: 12px 0 0 10px;
-    width: 33%;
-}
-
-#container-full header {
+  nav ul{
     overflow: hidden;
-  height: auto;
-}
+  }
 
-#contenu {
-  display: block;
-}
+  nav ul li {
+      float: none;
+    border-bottom: 1px solid #DFDFDF;
+  }
 
-.droit {
-    display: block;
-    vertical-align: top;
-    width: 100%;
-}
-
-.gauche {
-    display: block;
-    vertical-align: top;
-    width: 100%;
-}
-
-.gauche .tohid {
-    display: none;
-}
-
-#tabs ul li:last-child {
-    border-bottom: medium none;
-}
-
-#tabs h5 {
-    font-size: 14px;
-    font-size: 1.4rem;
-    margin: 16px 0px 12px 0px;
-}
-
-header .baseline {
+  #tabs ul li {
     float: none;
-    height: 44px;
-    margin: 12px 0 0 10px;
-    width: 100%;
-}
+    padding: 8px !important;
+    border-bottom: 1px solid #DFDFDF;
+    border-right: none !important;
+  }
 
-nav ul li a {
-    border-right: none;
-}
+  #tabs ul li a {
+      float: none;
+    padding: 0px;
+  }
 
-nav ul li:last-child {
-    border-bottom: medium none;
-}
+  #tabs .news ul li{
+    border-bottom: none;
+    margin: 0 !important;
+    padding-left: 20px !important;
+  }
 
-input[type="text"]{
-  width: 250px;
-}
+  #container-full nav{
+    height: auto;
+  }
 
-header .rechercher {
-    float: none;
-    margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-}
+  nav ul li ul li{
+    border: none;
+  }
 
-header .ecrire a {
-  display:none;
-}
+  nav ul li ul {
+    position: static;
+  }
+
+  nav ul li ul li a{
+    font-size: 1.1rem;
+    font-size: 11px;
+    padding-left: 60px;
+  }
+
+  header .baseline {
+      float: none;
+      height: 44px;
+      margin: 12px 0 0 10px;
+      width: 33%;
+  }
+
+  #container-full header {
+      overflow: hidden;
+    height: auto;
+  }
+
+  #contenu {
+    display: block;
+  }
+
+  .droit {
+      display: block;
+      vertical-align: top;
+      width: 100%;
+  }
+
+  .gauche {
+      display: block;
+      vertical-align: top;
+      width: 100%;
+  }
+
+  .gauche .tohid {
+      display: none;
+  }
+
+  #tabs ul li:last-child {
+      border-bottom: medium none;
+  }
+
+  #tabs h5 {
+      font-size: 14px;
+      font-size: 1.4rem;
+      margin: 16px 0px 12px 0px;
+  }
+
+  header .baseline {
+      float: none;
+      height: 44px;
+      margin: 12px 0 0 10px;
+      width: 100%;
+  }
+
+  nav ul li a {
+      border-right: none;
+  }
+
+  nav ul li:last-child {
+      border-bottom: medium none;
+  }
+
+  input[type="text"]{
+    width: 250px;
+  }
+
+  header .rechercher {
+      float: none;
+      margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+
+  header .ecrire a {
+    display:none;
+  }
 }
