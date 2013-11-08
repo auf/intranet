@@ -535,15 +535,17 @@ p{
   margin-bottom: 0px;
 }
 
-.centre .box_centre, .auf-box-centre {
+/* .centre .box_centre, */
+.auf-box-centre {
   background-color: #fcfcfc;
-  padding: 0px 10px;
+  padding: 10px;
   border: 1px solid #dfdfdf;
   margin-bottom: 30px;
   overflow: hidden;
 }
 
-.centre .box_centre2, .auf-box-centre-2 {
+/*.centre .box_centre2,*/
+.auf-box-centre-2 {
   background-color: #fcfcfc;
   padding: 10px;
   border: 1px solid #dfdfdf;
@@ -573,6 +575,10 @@ p{
   margin-bottom: 10px;
   padding-left: 20px;
   background: url(../images/puce.png) left no-repeat;
+
+  &:last-child {
+    margin-bottom:0;
+  }
 }
 
 #contenu .centre #tabs .news ul li{
