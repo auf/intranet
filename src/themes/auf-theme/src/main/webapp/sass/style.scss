@@ -17,6 +17,14 @@
     @include span-color-reset;
 }
 
+// navigation niveau 2
+
+ul {
+    &.level-2 {
+        margin-bottom:0;
+    }
+}
+
 /*
     le css de Marc est trop général et affecte tous les boutons de liferay.
     J'ai dû forcer le style de base de liferay.
@@ -193,24 +201,25 @@ input[type=button][class*=aui] {
         }
     }
 
-    .portlet-asset-publisher {
-        .portlet-content-container {
-            .portlet-body {
-                @extend .auf-box-centre;
+    // .portlet-asset-publisher {
+    .portlet-content-container {
+        .portlet-body {
+            @extend .auf-box-centre;
 
-                .asset-activities {
-                    @extend .news2;
+            .asset-activities {
+                @extend .news2;
 
-                    .asset-title {
-                        margin-top:0;
-                        margin-bottom:0;
-                        border:none;
-                    }
+                .asset-title {
+                    margin-top:0;
+                    margin-bottom:0;
+                    border:none;
                 }
             }
         }
     }
 
+    .portlet-navigation,
+    .portlet-asset-publisher,
     .auf-no-background {
         .portlet-content-container {
             .portlet-body {
@@ -313,6 +322,7 @@ input[type=button][class*=aui] {
     .nav-menu {
         ul {
             padding-left:0;
+            padding-right:0;
         }
 
         li {
@@ -359,7 +369,8 @@ input[type=button][class*=aui] {
 
 /* portlet pour afficher les membres d'un site */
 #contenu .centre {
-    .sfl-members, .portlet-boundary_aufuserlist_WAR_aufsync_ {
+    .sfl-members,
+    .portlet-boundary_aufuserlist_WAR_aufsync_ {
         .news {
             width:49.25%;
             margin-left:1.5%;
@@ -428,5 +439,100 @@ body.html-editor {
 
     ol li {
         list-type: decimal;
+    }
+}
+
+/* page de résultat de recherche */
+#contenu .portlet-search {
+
+    .portlet-icon-back {
+        color: #3f3d4b;
+    }
+
+    .search-layout .search-layout-content {
+        .menu {
+            .search-facet {
+                .facet-value{
+                    font-size:1em;
+                    background:none;
+                    padding-left:0;
+
+                    &.current-term a {
+                        color: #018bb6;
+                    }
+
+                    img {
+                        margin:0;
+                        padding:0;
+                        display:none;
+                    }
+                }
+            }
+        }
+
+        ul.modified {
+            padding:0;
+        }
+    }
+
+    .results-grid {
+        border:none;
+    }
+
+    .results-header {
+        th {
+            background: url(../images/titrebox.png) repeat-x;
+            border-color: #dfdfdf;
+        }
+    }
+
+    .results-row {
+        td {
+            border-color: #dfdfdf;
+        }
+    }
+}
+
+@media only screen and (min-width: 940px) and (max-width: 981px) {
+    #contenu .centre {
+        .sfl-members,
+        .portlet-boundary_aufuserlist_WAR_aufsync_ {
+            .news {
+                width:100%;
+                margin-left:0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 762px) and (max-width: 939px) {
+    .auf-navigation > ul > li {
+      float: none;
+    }
+
+    #contenu .centre {
+        .sfl-members,
+        .portlet-boundary_aufuserlist_WAR_aufsync_ {
+            .news {
+                width:100%;
+                margin-left:0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 761px) {
+    .auf-navigation > ul > li {
+      float: none;
+    }
+
+    #contenu .centre {
+        .sfl-members,
+        .portlet-boundary_aufuserlist_WAR_aufsync_ {
+            .news {
+                width:100%;
+                margin-left:0;
+            }
+        }
     }
 }
