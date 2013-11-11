@@ -1,6 +1,7 @@
 <nav class="$nav_css_class auf-navigation" id="navigation">
 	<ul class="main-menu">
 		<li>
+			#set( $homeURL = $portalUtil.addPreservedParameters($theme_display, $homeURL))
             <a href="$homeURL" class="main-menu">Accueil</span></a>
 		</li>
 		<li>
@@ -9,13 +10,8 @@
 				#set( $poles = $aufTool.getSubOrganizations($poleSupportOrgId) )
 				#foreach ($pole in $poles)
 					<li>
-			            #set( $pole_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
-	                    $pole_url.setWindowState("normal")
-	                    $pole_url.setPortletMode("view")
-	                    $pole_url.setParameter("struts_action", "/my_places/view")
-	                    $pole_url.setParameter("groupId", "$pole.getGroup().getGroupId()")
-	                    $pole_url.setParameter("privateLayout", "false")
-	                    $pole_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+	                    #set( $pole_url = "/web"+$pole.getGroup().getFriendlyURL() )
+	                    #set( $pole_url = $portalUtil.addPreservedParameters($theme_display, $pole_url))
 						<a href="$pole_url">$pole.getName()</a>
 					</li>
 				#end
@@ -27,13 +23,8 @@
 				#set( $poles = $aufTool.getSubOrganizations($poleStrategicOrgId) )
 				#foreach ($pole in $poles)
 					<li>
-			            #set( $pole_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
-	                    $pole_url.setWindowState("normal")
-	                    $pole_url.setPortletMode("view")
-	                    $pole_url.setParameter("struts_action", "/my_places/view")
-	                    $pole_url.setParameter("groupId", "$pole.getGroup().getGroupId()")
-	                    $pole_url.setParameter("privateLayout", "false")
-	                    $pole_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+	                    #set( $pole_url = "/web"+$pole.getGroup().getFriendlyURL() )
+	                    #set( $pole_url = $portalUtil.addPreservedParameters($theme_display, $pole_url))
 						<a href="$pole_url">$pole.getName()</a>
 					</li>
 				#end
@@ -45,13 +36,9 @@
 				#set( $regions = $aufTool.getSubOrganizations($regionOrgId) )
 				#foreach ($region in $regions)
 					<li>
-			            #set( $region_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
-	                    $region_url.setWindowState("normal")
-	                    $region_url.setPortletMode("view")
-	                    $region_url.setParameter("struts_action", "/my_places/view")
-	                    $region_url.setParameter("groupId", "$region.getGroup().getGroupId()")
-	                    $region_url.setParameter("privateLayout", "false")
-	                    $region_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+	                    #set( $region_url = "/web"+$region.getGroup().getFriendlyURL() )
+	                    #set( $region_url = $portalUtil.addPreservedParameters($theme_display, $region_url))
+
 						<a href="$region_url">$region.getName()</a>
 					</li>
 				#end
@@ -63,13 +50,8 @@
 				#set( $sites = $aufTool.getCollaborationSites($user_id) )
 				#foreach ($site in $sites)
 					<li>
-			            #set( $site_url = $portletURLFactory.create($request, "49", $page.getPlid(), "ACTION_PHASE") )
-	                    $site_url.setWindowState("normal")
-	                    $site_url.setPortletMode("view")
-	                    $site_url.setParameter("struts_action", "/my_places/view")
-	                    $site_url.setParameter("groupId", "$site.getGroupId()")
-	                    $site_url.setParameter("privateLayout", "false")
-	                    $site_url.setParameter("redirect", "$portalUtil.getCurrentURL($request)")
+	                    #set( $site_url = "/web"+$site.getFriendlyURL() )
+	                    #set( $site_url = $portalUtil.addPreservedParameters($theme_display, $site_url))
 						<a href="$site_url">$site.getName()</a>
 					</li>
 				#end
