@@ -117,8 +117,7 @@ public class SynchronizeEventAction extends Action {
 					errorCreatingUser = false;
 					
 				} catch (DuplicateUserScreenNameException e) {
-					log.error("AufEmploye : " + aufEmploye.toString());
-					e.printStackTrace();
+					log.error("User probably changed and can no longer be synced : " + aufEmploye.toString());
 				} catch (PortalException e) {
 					log.error("User could not be created");
 					e.printStackTrace();
