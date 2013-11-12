@@ -16,7 +16,9 @@ public class AufPreAction extends com.liferay.portal.kernel.events.Action
 	public void run(HttpServletRequest request, HttpServletResponse response) throws ActionException
 	{	
 		// theme
-		Map<String, Object> vmVariables = new HashMap<String, Object>();
+		@SuppressWarnings("unchecked")
+		Map<String, Object> vmVariables = (Map<String, Object>) request.getAttribute(WebKeys.VM_VARIABLES);
+		if (vmVariables == null) vmVariables = new HashMap<String, Object>();
 		vmVariables.put("aufSyncTool", AufSyncVelocityTool.getInstance());
 		request.setAttribute(WebKeys.VM_VARIABLES, vmVariables);
 		

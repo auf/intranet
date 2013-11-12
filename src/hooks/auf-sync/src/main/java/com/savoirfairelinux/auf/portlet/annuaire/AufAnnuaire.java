@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,7 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortalUtil;
 import com.savoirfairelinux.auf.hook.db.AufCountry;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.db.AufImplantation;
@@ -147,7 +149,9 @@ public class AufAnnuaire {
 			model.addAttribute("userInterests", "NO INTEREST FIELD FOUND");
 		}
 		
-
+		HttpServletRequest httpRequest = PortalUtil.getOriginalServletRequest(PortalUtil.getHttpServletRequest(request));
+		PortalUtil.addPortletBreadcrumbEntry(httpRequest, "Fiche employé : " + user.getFullName(), PortalUtil.getCurrentURL(request));
+		
 		model.addAttribute("displaySearch", false);
 		model.addAttribute("displayProfile", true);
 		return "view";
