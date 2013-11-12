@@ -110,7 +110,7 @@ public class AufVelocityTool
 	{
 		try {
 			Layout l = LayoutLocalServiceUtil.getLayout(plid);
-			if (l.getGroup().isGuest()) {
+			if ((l.getGroup().isGuest()) && (l.getGroup().getDefaultPublicPlid() == plid)) {
 				return false;
 			}
 		} catch (PortalException e) {
