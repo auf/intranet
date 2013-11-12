@@ -106,6 +106,23 @@ public class AufVelocityTool
 		return true;
 	}
 	
+	public boolean isNotUnderFrontpage(long plid)
+	{
+		try {
+			Layout l = LayoutLocalServiceUtil.getLayout(plid);
+			if (l.getGroup().isGuest()) {
+				return false;
+			}
+		} catch (PortalException e) {
+			log.error("page not found : " + plid);
+			return false;
+		} catch (SystemException e) {
+			log.error("page not found : " + plid);
+			return false;
+		}
+		return true;
+	}
+	
 	public String getUserWeatherLocation(long userId) {
 		User u = null;
 		try {
