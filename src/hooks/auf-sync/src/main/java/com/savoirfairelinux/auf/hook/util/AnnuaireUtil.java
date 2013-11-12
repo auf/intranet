@@ -171,5 +171,20 @@ public class AnnuaireUtil {
 
         return result;
 	}
+	
+	public static String getPostForEmail(String email) {
+		List<AufEmploye> result;
+		
+		result = instance.entityManager.createNamedQuery("AufEmploye.findByEmail", AufEmploye.class)
+        		.setParameter("email", email)
+                .getResultList();
+		
+		if (result != null && result.size()>0) {
+			return result.get(0).getPostDesc();
+		}
+		
+		return "";
+		
+	}
 
 }
