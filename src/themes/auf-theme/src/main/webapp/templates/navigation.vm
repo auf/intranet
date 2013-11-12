@@ -1,4 +1,4 @@
-<nav class="$nav_css_class auf-navigation" id="navigation">
+<nav class="auf-navigation" id="navigation">
 	<ul class="main-menu">
 		<li>
 			#set( $homeURL = $portalUtil.addPreservedParameters($theme_display, $homeURL))
