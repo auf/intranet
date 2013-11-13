@@ -3,4 +3,5 @@
 
 <hook>
     <portal-properties>portal.properties</portal-properties>
+    <custom-jsp-dir>/WEB-INF/jsp</custom-jsp-dir>
 </hook>

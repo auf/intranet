@@ -8,6 +8,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.Address;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
@@ -24,8 +25,15 @@ public class AufVelocityTool
 	private static Log log = LogFactoryUtil.getLog(AufVelocityTool.class);
 	private static AufVelocityTool instance;
 
-	private AufVelocityTool()
-	{
+	private AufVelocityTool() {
+		String breadcrumbString = "<li></li><li><span>auf-display-page</li>";
+		
+		if (breadcrumbString.contains("/auf-display-page\"")) {
+			int adpPos = breadcrumbString.indexOf("/auf-display-page\"");
+			int liStart = breadcrumbString.lastIndexOf("<li", adpPos);
+			int liEnd = breadcrumbString.indexOf("</li>", adpPos);
+			breadcrumbString = breadcrumbString.substring(0, liStart) + breadcrumbString.substring(liEnd);
+		}
 	}
 
 	public static AufVelocityTool getInstance()
