@@ -130,12 +130,22 @@ request.setAttribute("view.jsp-showIconLabel", true);
 	final String AUF_DISPLAY_PAGE = "/auf-display-page"; 
 	Layout l = null;
 	try {
-		l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_DISPLAY_PAGE);
+		l = LayoutLocalServiceUtil.getFriendlyURLLayout(assetEntry.getGroupId(), false, AUF_DISPLAY_PAGE);
 	} catch (com.liferay.portal.NoSuchLayoutException e) {
-		//log.error(AUF_DISPLAY_PAGE + " not found! Was looking in group " + groupId);
+		//the group does not have a proper display page
+		_log.error("No local layout found for group " + assetEntry.getGroupId());
+		try {
+			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_DISPLAY_PAGE);
+		} catch (com.liferay.portal.NoSuchLayoutException se) {
+			_log.error(AUF_DISPLAY_PAGE + " not found! Was looking in group " + groupId);
+			se.printStackTrace();
+		} catch (Exception se) {
+			_log.error(AUF_DISPLAY_PAGE + " not found! Was looking in group " + groupId);
+			se.printStackTrace();
+		}
 	} catch (Exception e) {
-		//log.error(AUF_DISPLAY_PAGE + " not found! Was looking in group " + groupId);
-		//e.printStackTrace();
+		_log.error(AUF_DISPLAY_PAGE + " not found! Was looking in group " + assetEntry.getGroupId());
+		e.printStackTrace();
 	}
 
 	if (l != null) {
