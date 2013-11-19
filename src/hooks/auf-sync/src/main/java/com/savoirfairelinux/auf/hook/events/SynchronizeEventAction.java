@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,7 @@ import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.model.Contact;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.CompanyLocalServiceUtil;
@@ -42,6 +44,18 @@ public class SynchronizeEventAction extends Action {
 
 		synchronizeUsers();
 
+	}
+	
+	private static String generateRandomString() {
+		Random rng = new Random();
+		int length = 12;
+		String characters = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+	    char[] text = new char[length];
+	    for (int i = 0; i < length; i++)
+	    {
+	        text[i] = characters.charAt(rng.nextInt(characters.length()));
+	    }
+	    return new String(text);
 	}
 
 	public synchronized static void synchronizeUsers() {
@@ -139,12 +153,24 @@ public class SynchronizeEventAction extends Action {
 			liferayUser.setStatus(0); //0 = active
 			liferayUser.setPasswordReset(false);
 			
+			try {
+				Contact liferayContact = liferayUser.getContact();
+				liferayContact.setMale(aufEmploye.isMale());
+				//TODO no data available in the reference database
+				//liferayContact.setBirthday(aufEmploye.getBirthday());
+				liferayContact.persist();
+			} catch (PortalException e2) {
+				e2.printStackTrace();
+			} catch (SystemException e2) {
+				e2.printStackTrace();
+			}
+			
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(DateUtil.newDate());
 			calendar.add(Calendar.SECOND, (-7)*86400);
 			Date lastWeek = calendar.getTime();
 			if (liferayUser.getLastLoginDate() == null || (!liferayUser.getLastLoginDate().after(lastWeek))) {
-				liferayUser.setPassword("Random4ByAFairDice");
+				liferayUser.setPassword(generateRandomString());
 				liferayUser.setPasswordModified(true);
 				liferayUser.setPasswordModifiedDate(DateUtil.newDate());
 			}

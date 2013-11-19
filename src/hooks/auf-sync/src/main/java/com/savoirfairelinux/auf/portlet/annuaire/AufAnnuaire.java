@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.model.Organization;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -126,8 +127,15 @@ public class AufAnnuaire {
 		
 		List<Group> userSites = new ArrayList<Group>();
 		for (Group site : liferayUser.getMySites()) {
-		  if (site.isRegularSite() || site.isOrganization()) {
+		  if (site.isRegularSite()) {
 			  userSites.add(site);
+		  }
+		}
+		
+		List<Group> userPoles = new ArrayList<Group>();
+		for (Organization org : liferayUser.getOrganizations()) {
+		  if (org.hasPublicLayouts()) {
+			  userPoles.add(org.getGroup());
 		  }
 		}
 		
@@ -135,6 +143,7 @@ public class AufAnnuaire {
 		
 		model.addAttribute("user", user);
 		model.addAttribute("userSites", userSites);
+		model.addAttribute("userPoles", userPoles);
 		model.addAttribute("userPortraitUrl", liferayUser.getPortraitURL(themeDisplay));
 
 		if (liferayUser.getExpandoBridge().hasAttribute("projets")) {

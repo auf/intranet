@@ -1,6 +1,9 @@
 package com.savoirfairelinux.auf.hook.db;
 
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -157,6 +160,16 @@ public class AufEmploye {
 	
 	public AufService getService() {
 		return service;
+	}
+
+	public boolean isMale() {
+		if (gender.equals("m")) return true;
+		return false;
+	}
+
+	public Date getBirthday() {
+		// TODO Auto-generated method stub
+		return Calendar.getInstance().getTime();
 	}
 
 

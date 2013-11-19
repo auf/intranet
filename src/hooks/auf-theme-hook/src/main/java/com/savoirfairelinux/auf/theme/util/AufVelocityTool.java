@@ -66,7 +66,7 @@ public class AufVelocityTool
 			
 			List<Group> userSites = new ArrayList<Group>();
 			for (Group site : liferayUser.getMySites()) {
-			  if (site.isRegularSite() || site.isOrganization()) {
+			  if (site.isRegularSite()) {
 				  userSites.add(site);
 			  }
 			}

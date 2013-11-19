@@ -63,13 +63,23 @@
             </div>
             <div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-3" id="tabs-3">
             	<div class="news">
-                	<p>${user.getFullName()} participe aux espaces collaboratifs suivants:</p>
+                	<p>${user.getFullName()} participe aux espaces collaboratifs suivants :</p>
                 	<ul>
                 	<c:forEach var="site" items="${userSites}">
 						<li>
                             <a href="${site.getFriendlyURL()}">
-                                ${site.getName()}
-                            </a>:&nbsp;${site.getDescription()}
+                                ${site.getDescriptiveName()}
+                            </a>&nbsp;:&nbsp;${site.getDescription()}
+                        </li>
+					</c:forEach>
+                    </ul>
+                    <p>et aux p&ocirc;les/r&eacute;gions suivants:</p>
+                	<ul>
+                	<c:forEach var="pole" items="${userPoles}">
+						<li>
+                            <a href="${pole.getFriendlyURL()}">
+                                ${pole.getDescriptiveName()}
+                            </a>&nbsp;:&nbsp;${pole.getDescription()}
                         </li>
 					</c:forEach>
                     </ul>

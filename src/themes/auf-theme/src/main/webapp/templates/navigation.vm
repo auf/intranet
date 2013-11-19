@@ -52,7 +52,7 @@
 					<li>
 	                    #set( $site_url = "/web"+$site.getFriendlyURL() )
 	                    #set( $site_url = $portalUtil.addPreservedParameters($theme_display, $site_url))
-						<a href="$site_url">$site.getName()</a>
+						<a href="$site_url">$site.getDescriptiveName()</a>
 					</li>
 				#end
 			</ul>
