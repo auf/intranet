@@ -9,7 +9,7 @@
 			<scheduler-event-listener-class>com.savoirfairelinux.auf.hook.events.CronScheduler</scheduler-event-listener-class>
 			<trigger>
 				<cron>
-					<cron-trigger-value>0 0/2 * * * ?</cron-trigger-value>
+					<cron-trigger-value>0 0 0/12 * * ?</cron-trigger-value>
 				</cron>
 			</trigger>
 		</scheduler-entry>
