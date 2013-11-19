@@ -126,7 +126,7 @@ public class AufAnnuaire {
 		User liferayUser = UserLocalServiceUtil.getUserByEmailAddress(CompanyThreadLocal.getCompanyId(), email);
 		
 		List<Group> userSites = new ArrayList<Group>();
-		for (Group site : liferayUser.getMySites()) {
+		for (Group site : liferayUser.getGroups()) {
 		  if (site.isRegularSite()) {
 			  userSites.add(site);
 		  }
@@ -141,7 +141,7 @@ public class AufAnnuaire {
 		
 		ThemeDisplay themeDisplay= (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
 		
-		model.addAttribute("user", user);
+		model.addAttribute("userAnnuaire", user);
 		model.addAttribute("userSites", userSites);
 		model.addAttribute("userPoles", userPoles);
 		model.addAttribute("userPortraitUrl", liferayUser.getPortraitURL(themeDisplay));

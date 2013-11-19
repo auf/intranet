@@ -22,13 +22,13 @@
                 <div class="photo2"><img src="${userPortraitUrl}"></div>
                 <div class="desc">
                     <h1>Identification</h1>
-                    <h2>${user.getFullName()}</h2>
+                    <h2>${userAnnuaire.getFullName()}</h2>
                     <p class="nomarg">
-                        ${user.getPostDesc()}<br>
-                        ${user.getServiceName()}<br>
-                        ${user.getImplantationName()}<br>
-                        ${user.getImplantationCity()}<br>
-                        ${user.getImplantationRegionName()}
+                        ${userAnnuaire.getPostDesc()}<br>
+                        ${userAnnuaire.getServiceName()}<br>
+                        ${userAnnuaire.getImplantationName()}<br>
+                        ${userAnnuaire.getImplantationCity()}<br>
+                        ${userAnnuaire.getImplantationRegionName()}
                     </p>
                  </div>
             </div>
@@ -45,13 +45,13 @@
             <div aria-hidden="false" aria-expanded="true" role="tabpanel" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-1" id="tabs-1">
                 <div class="news">
                 	<ul>
-                    	<li>Courriel : <a href="mailto:${user.getEmail()}">${user.getEmail()}</a></li>
-                        <li>T&eacute;l&eacute;phone IP : ${user.getTelIp()}</li>
-                        <li>T&eacute;l&eacute;phone IP Nomade : ${user.getTelIpNomade()}</li>
-                        <li>T&eacute;l&eacute;phone : ${user.getTelephone()}</li>
-                        <li>T&eacute;l&eacute;copie : ${user.getTelecopier()}</li>
+                    	<li>Courriel : <a href="mailto:${userAnnuaire.getEmail()}">${userAnnuaire.getEmail()}</a></li>
+                        <li>T&eacute;l&eacute;phone IP : ${userAnnuaire.getTelIp()}</li>
+                        <li>T&eacute;l&eacute;phone IP Nomade : ${userAnnuaire.getTelIpNomade()}</li>
+                        <li>T&eacute;l&eacute;phone : ${userAnnuaire.getTelephone()}</li>
+                        <li>T&eacute;l&eacute;copie : ${userAnnuaire.getTelecopier()}</li>
                         <li>
-                            Adresse postale : ${user.getPostalAddress()}
+                            Adresse postale : ${userAnnuaire.getPostalAddress()}
                         </li>
                     </ul>
                 </div>
@@ -63,7 +63,7 @@
             </div>
             <div aria-hidden="true" aria-expanded="false" style="display: none;" role="tabpanel" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-3" id="tabs-3">
             	<div class="news">
-                	<p>${user.getFullName()} participe aux espaces collaboratifs suivants :</p>
+                	<p>${userAnnuaire.getFullName()} participe aux espaces collaboratifs suivants :</p>
                 	<ul>
                 	<c:forEach var="site" items="${userSites}">
 						<li>
