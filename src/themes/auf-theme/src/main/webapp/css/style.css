@@ -1248,35 +1248,36 @@ input[type=button][class*=aui] {
 /* line 178, ../sass/style.scss */
 #contenu .centre .portlet-boundary .portlet-title-text {
   color: #3f3d4b !important;
+  font-size: 16px;
 }
-/* line 183, ../sass/style.scss */
+/* line 184, ../sass/style.scss */
 #contenu .centre select.aui-paginator-rows-per-page {
   width: auto;
 }
-/* line 187, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 #contenu .centre .lfr-component {
   margin: 0;
   padding: 0;
 }
-/* line 191, ../sass/style.scss */
+/* line 192, ../sass/style.scss */
 #contenu .centre .lfr-component li {
   background: none;
   padding-left: 0;
   margin-bottom: 0;
 }
-/* line 196, ../sass/style.scss */
+/* line 197, ../sass/style.scss */
 #contenu .centre .lfr-component li.folder {
   background: none;
   margin-bottom: 0;
   padding-left: 0;
 }
-/* line 212, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 #contenu .centre .portlet-content-container .portlet-body .asset-activities .asset-title {
   margin-top: 0;
   margin-bottom: 0;
   border: none;
 }
-/* line 225, ../sass/style.scss */
+/* line 226, ../sass/style.scss */
 #contenu .centre .portlet-navigation .portlet-content-container .portlet-body,
 #contenu .centre .portlet-asset-publisher .portlet-content-container .portlet-body,
 #contenu .centre .auf-no-background .portlet-content-container .portlet-body {
@@ -1286,20 +1287,20 @@ input[type=button][class*=aui] {
   margin-bottom: 0;
   overflow: hidden;
 }
-/* line 236, ../sass/style.scss */
+/* line 237, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding {
   padding: 15px 10px !important;
 }
-/* line 239, ../sass/style.scss */
+/* line 240, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding label {
   width: auto;
 }
-/* line 243, ../sass/style.scss */
+/* line 244, ../sass/style.scss */
 #contenu .centre .auf-box-centre-with-padding .ctrls {
   padding-top: 30px;
 }
 
-/* line 250, ../sass/style.scss */
+/* line 251, ../sass/style.scss */
 #contenu .aui-field-wrapper-content .aui-field-label, #contenu .aui-field-wrapper-content .inline-label {
   display: inline-block;
   float: none;
@@ -1311,98 +1312,98 @@ input[type=button][class*=aui] {
   font-size: 1.2rem;
 }
 
-/* line 262, ../sass/style.scss */
+/* line 263, ../sass/style.scss */
 #contenu input.aui-button-input {
   text-shadow: none !important;
 }
 
-/* line 266, ../sass/style.scss */
+/* line 267, ../sass/style.scss */
 .aui-dialog-content, .aui-dialog-iframe-popup {
   font-size: 12px !important;
 }
 
-/* line 271, ../sass/style.scss */
+/* line 272, ../sass/style.scss */
 #auf-annuaire-advanced-search label {
   color: #3f3d4b !important;
   font-weight: normal;
 }
-/* line 276, ../sass/style.scss */
+/* line 277, ../sass/style.scss */
 #auf-annuaire-advanced-search select {
   border-color: #3f3d4b;
 }
 
-/* line 282, ../sass/style.scss */
+/* line 283, ../sass/style.scss */
 .ui-state-active a {
   font-weight: bold;
 }
 
 /* breadcrumb */
-/* line 291, ../sass/style.scss */
+/* line 292, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs {
   font-weight: normal;
 }
-/* line 294, ../sass/style.scss */
+/* line 295, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li {
   font-size: 0.8em;
   margin: 0 5px 0 0;
 }
-/* line 298, ../sass/style.scss */
+/* line 299, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li:before {
   content: ">";
 }
-/* line 304, ../sass/style.scss */
+/* line 305, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li:first-child:before {
   content: "";
 }
-/* line 308, ../sass/style.scss */
+/* line 309, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li:first-child span {
   padding-left: 0;
 }
-/* line 313, ../sass/style.scss */
+/* line 314, ../sass/style.scss */
 #contenu .centre .portlet-breadcrumb .breadcrumbs li span {
   padding: 0 0 0 5px;
 }
 
 /* porlet navigation */
-/* line 323, ../sass/style.scss */
+/* line 324, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu ul {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 328, ../sass/style.scss */
+/* line 329, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu li {
   background: #fff;
   padding: 5px 10px;
   display: block;
 }
-/* line 333, ../sass/style.scss */
+/* line 334, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu li a {
   padding-left: 20px;
   background: url(../images/puce.png) left no-repeat;
 }
 
 /* portlet contenu web */
-/* line 343, ../sass/style.scss */
+/* line 344, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article {
   font-size: 1.3rem;
 }
-/* line 346, ../sass/style.scss */
+/* line 347, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article p {
   color: #3f3d4b;
 }
-/* line 350, ../sass/style.scss */
+/* line 351, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article img[style*="float: left"] {
   margin: 0 1em 1em 0;
 }
-/* line 354, ../sass/style.scss */
+/* line 355, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article img[style*="float: right"] {
   margin: 0 0 1em 1em;
 }
-/* line 358, ../sass/style.scss */
+/* line 359, ../sass/style.scss */
 #contenu .centre .portlet-journal-content .journal-content-article ul {
   overflow: hidden;
 }
-/* line 363, ../sass/style.scss */
+/* line 364, ../sass/style.scss */
 #contenu .centre .portlet-journal-content span {
   color: #3f3d4b;
 }
@@ -1412,103 +1413,103 @@ input[type=button][class*=aui] {
 }
 
 /* portlet pour afficher les membres d'un site */
-/* line 374, ../sass/style.scss */
+/* line 375, ../sass/style.scss */
 #contenu .centre .sfl-members .news,
 #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
   width: 49.25%;
   margin-left: 1.5%;
   float: left;
 }
-/* line 379, ../sass/style.scss */
+/* line 380, ../sass/style.scss */
 #contenu .centre .sfl-members .news:nth-child(2n+1),
 #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news:nth-child(2n+1) {
   margin-left: 0;
 }
 
 /* portlets des derniers documents d'un pôle/région/espaces collaboratifs */
-/* line 389, ../sass/style.scss */
+/* line 390, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container ul.title-list {
   padding: 0;
   margin: 0;
 }
-/* line 394, ../sass/style.scss */
+/* line 395, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list {
   padding: 10px 0;
   background: none;
 }
-/* line 398, ../sass/style.scss */
+/* line 399, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span {
   display: block;
 }
-/* line 401, ../sass/style.scss */
+/* line 402, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span a {
   float: none;
 }
-/* line 406, ../sass/style.scss */
+/* line 407, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list .asset-metadata {
   margin-left: 0;
 }
-/* line 412, ../sass/style.scss */
+/* line 413, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .metadata-author {
   background: none;
   padding-left: 30px;
 }
-/* line 417, ../sass/style.scss */
+/* line 418, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .vertical-separator {
   display: none;
 }
 
 /* ckeditor */
-/* line 424, ../sass/style.scss */
+/* line 425, ../sass/style.scss */
 body.html-editor {
   font-size: 14px !important;
 }
-/* line 440, ../sass/style.scss */
+/* line 441, ../sass/style.scss */
 body.html-editor ol li {
   list-type: decimal;
 }
 
 /* page de résultat de recherche */
-/* line 448, ../sass/style.scss */
+/* line 449, ../sass/style.scss */
 #contenu .portlet-search .portlet-icon-back {
   color: #3f3d4b;
 }
-/* line 455, ../sass/style.scss */
+/* line 456, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content .menu .search-facet .facet-value {
   font-size: 1em;
   background: none;
   padding-left: 0;
 }
-/* line 460, ../sass/style.scss */
+/* line 461, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content .menu .search-facet .facet-value.current-term a {
   color: #018bb6;
 }
-/* line 464, ../sass/style.scss */
+/* line 465, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content .menu .search-facet .facet-value img {
   margin: 0;
   padding: 0;
   display: none;
 }
-/* line 473, ../sass/style.scss */
+/* line 474, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content ul.modified {
   padding: 0;
 }
-/* line 478, ../sass/style.scss */
+/* line 479, ../sass/style.scss */
 #contenu .portlet-search .results-grid {
   border: none;
 }
-/* line 483, ../sass/style.scss */
+/* line 484, ../sass/style.scss */
 #contenu .portlet-search .results-header th {
   background: url(../images/titrebox.png) repeat-x;
   border-color: #dfdfdf;
 }
-/* line 490, ../sass/style.scss */
+/* line 491, ../sass/style.scss */
 #contenu .portlet-search .results-row td {
   border-color: #dfdfdf;
 }
 
 @media only screen and (min-width: 940px) and (max-width: 981px) {
-  /* line 500, ../sass/style.scss */
+  /* line 501, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1516,12 +1517,12 @@ body.html-editor ol li {
   }
 }
 @media only screen and (min-width: 762px) and (max-width: 939px) {
-  /* line 509, ../sass/style.scss */
+  /* line 510, ../sass/style.scss */
   .auf-navigation > ul > li {
     float: none;
   }
 
-  /* line 516, ../sass/style.scss */
+  /* line 517, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1529,12 +1530,12 @@ body.html-editor ol li {
   }
 }
 @media only screen and (max-width: 761px) {
-  /* line 525, ../sass/style.scss */
+  /* line 526, ../sass/style.scss */
   .auf-navigation > ul > li {
     float: none;
   }
 
-  /* line 532, ../sass/style.scss */
+  /* line 533, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
