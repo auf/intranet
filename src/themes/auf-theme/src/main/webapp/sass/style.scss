@@ -12,6 +12,25 @@
     }
 }
 
+@mixin mobile-nav {
+    #container-full .auf-navigation {
+        height:auto;
+
+        & > ul > li {
+            float: none;
+
+            .auf-child-menu {
+                position:relative; margin:0;
+
+                li a {
+                    padding-left:60px;
+                    font-size:11px;
+                }
+            }
+        }
+    }
+}
+
 /* borderless portlet title color */
 #contenu span {
     @include span-color-reset;
@@ -507,9 +526,7 @@ body.html-editor {
 }
 
 @media only screen and (min-width: 762px) and (max-width: 939px) {
-    .auf-navigation > ul > li {
-      float: none;
-    }
+    @include mobile-nav;
 
     #contenu .centre {
         .sfl-members,
@@ -522,10 +539,8 @@ body.html-editor {
     }
 }
 
-@media only screen and (max-width: 761px) {
-    .auf-navigation > ul > li {
-      float: none;
-    }
+@media only screen and (max-width: 801px) {
+    @include mobile-nav;
 
     #contenu .centre {
         .sfl-members,

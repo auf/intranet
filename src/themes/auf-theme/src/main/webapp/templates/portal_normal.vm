@@ -45,7 +45,7 @@ $theme.include($body_top_include)
 			  <input type="hidden" value="maximized" name="p_p_state">
 			  <input type="hidden" value="view" name="p_p_mode">
 			  <input type="hidden" value="/search/search" name="_3_struts_action">
-			  <input  type="text" value="" size="30" name="_3_keywords">
+			  <input  type="text" value="" size="30" name="_3_keywords" placeholder="Rechercher dans le site intranet">
 			  <input align="absmiddle" border="0" type="image" title="Search" src="$images_folder/search.png">
 			</form>
         </div>
