@@ -1373,12 +1373,12 @@ input[type=button][class*=aui] {
 #contenu .centre .portlet-navigation .nav-menu li {
   background: #fff;
   padding: 5px 10px;
-  display: block;
+  display: inline-block;
 }
 /* line 353, ../sass/style.scss */
 #contenu .centre .portlet-navigation .nav-menu li a {
-  padding-left: 20px;
-  background: url(../images/puce.png) left no-repeat;
+  padding-left: 0;
+  background: none;
 }
 
 /* portlet contenu web */

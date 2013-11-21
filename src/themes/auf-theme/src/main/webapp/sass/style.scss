@@ -348,11 +348,11 @@ input[type=button][class*=aui] {
         li {
             background:#fff;
             padding:5px 10px;
-            display:block;
+            display:inline-block;
 
             a {
-                padding-left: 20px;
-                background: url(../images/puce.png) left no-repeat;
+                padding-left: 0;
+                background: none;
             }
         }
     }
