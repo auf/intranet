@@ -1,3 +1,14 @@
+var AUF = function(){
+	return {
+		init: function(){
+			this.portlet_activite_image_vide();
+		},
+		portlet_activite_image_vide: function(){
+			$(".news .photo img[src='']").attr("src", "/auf-theme/images/logo.jpg");
+		}
+	}
+}();
+
 AUI().ready(
 
 	/*
@@ -31,5 +42,6 @@ Liferay.on(
 	*/
 
 	function() {
+		AUF.init();
 	}
 );
