@@ -77,7 +77,7 @@ $theme.include($body_top_include)
             <div class="desc">
             	<h5>$user.getFullName()</h5>
             	<p class="poste">$aufSyncTool.getUserPost($user.getEmailAddress())</p>
-                <p class="setting"><a href="$themeDisplay.getURLMyAccount().toString()">Setting</a></p>
+                <p class="setting"><a href="$themeDisplay.getURLMyAccount().toString()">#language('auf-settings')</a></p>
              </div>
         </div>
 	    #end

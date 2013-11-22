@@ -3,5 +3,7 @@
 
 <hook>
     <portal-properties>portal.properties</portal-properties>
+    <language-properties>content/language_fr.properties</language-properties>
+    <language-properties>content/language.properties</language-properties>
     <custom-jsp-dir>/WEB-INF/jsp</custom-jsp-dir>
 </hook>
