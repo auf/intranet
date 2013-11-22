@@ -147,13 +147,21 @@ public class AufAnnuaire {
 		model.addAttribute("userPortraitUrl", liferayUser.getPortraitURL(themeDisplay));
 
 		if (liferayUser.getExpandoBridge().hasAttribute("projets")) {
-			model.addAttribute("userProjects", liferayUser.getExpandoBridge().getAttribute("projets").toString());
+			if (liferayUser.getExpandoBridge().getAttribute("projets") != null) {
+				model.addAttribute("userProjects", liferayUser.getExpandoBridge().getAttribute("projets").toString());
+			} else {
+				model.addAttribute("userProjects", "");
+			}
 		} else {
 			model.addAttribute("userProjects", "NO PROJECTS FIELD FOUND");
 		}
 			
 		if (liferayUser.getExpandoBridge().hasAttribute("interets")) {
-			model.addAttribute("userInterests", liferayUser.getExpandoBridge().getAttribute("interets").toString());
+			if (liferayUser.getExpandoBridge().getAttribute("interets") != null) {
+				model.addAttribute("userInterests", liferayUser.getExpandoBridge().getAttribute("interets").toString());
+			} else {
+				model.addAttribute("userInterests", "");
+			}
 		} else {
 			model.addAttribute("userInterests", "NO INTEREST FIELD FOUND");
 		}
