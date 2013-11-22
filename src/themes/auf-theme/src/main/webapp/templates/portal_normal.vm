@@ -88,11 +88,13 @@ $theme.include($body_top_include)
 	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
-
+		
+		#if ( $is_signed_in)
 		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
 
         #embedPortletUsing("101_INSTANCE_VORUZ3haQRVY", "", $aufTool.getActualitySetting($aufSiteId))
-
+		#end
+		
         </div>
 
         <!-- partie centrale -->
@@ -103,7 +105,9 @@ $theme.include($body_top_include)
 					$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
 					#embedPortletUsing("73_INSTANCE_3XWoAtbmI9rj", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
-
+				#end
+				
+				#if ($aufTool.isNotUnderFrontpageSite($page.getPlid()))
 		            $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
 					#embedPortletUsing("71_INSTANCE_arr2uHQblbOr", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
