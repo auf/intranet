@@ -159,6 +159,12 @@ input[type=button][class*=aui] {
     }
 }
 
+.auf-box-centre-sans-titre {
+    .portlet-body .portlet-content {
+        @extend .auf-box-centre;
+    }
+}
+
 .gauche {
     /* profil */
     .profil {
