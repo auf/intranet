@@ -159,6 +159,12 @@ input[type=button][class*=aui] {
     }
 }
 
+.auf-box-centre-sans-titre {
+    .portlet-body .portlet-content {
+        @extend .auf-box-centre;
+    }
+}
+
 .gauche {
     /* profil */
     .profil {
@@ -281,6 +287,10 @@ input[type=button][class*=aui] {
 
 #contenu input.aui-button-input {
     text-shadow:none !important;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+    text-shadow:none;
+    border:none;
 }
 
 .aui-dialog-content, .aui-dialog-iframe-popup {
@@ -335,6 +345,13 @@ input[type=button][class*=aui] {
             }
         }
     }
+
+    .portlet-content-container {
+        .portlet-body {
+            background:none;
+            border:none;
+        }
+    }
 }
 
 /* porlet navigation */
@@ -346,13 +363,23 @@ input[type=button][class*=aui] {
         }
 
         li {
-            background:#fff;
-            padding:5px 10px;
+            line-height:40px;
+            background-color:#fff;
+            background-position: 10px center;
+            padding:0 10px;
             display:inline-block;
+            border: 1px solid #dfdfdf;
 
             a {
-                padding-left: 0;
-                background: none;
+                padding-left: 15px;
+            }
+
+            &.selected {
+                background-color: #f0f0f0;
+
+                a {
+                    color: #777;
+                }
             }
         }
     }
