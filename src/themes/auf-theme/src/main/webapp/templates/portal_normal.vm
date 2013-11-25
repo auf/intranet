@@ -36,7 +36,7 @@ $theme.include($body_top_include)
 
         <div class="baseline">
             <img alt="$logo_description" src="/auf-theme/images/logo.jpg">
-            <h1><a class="$logo_css_class" href="$site_default_url" title="#language("go-to") $site_name">$site_name</a></h1>
+            <h1><a class="$logo_css_class" href="/" title="#language("go-to") $site_name">Intranet AUF</a></h1>
         </div>
         <div class="rechercher">
             <form id="search-form" name="ctem_3_fm" method="get" action="search?p_p_id=3&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_3_struts_action=%2Fsearch%2Fsearch">
