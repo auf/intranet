@@ -23,6 +23,10 @@ public class AnnuaireUtil {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AufDatabase");
         entityManager = emf.createEntityManager();
     }
+    
+    public static AnnuaireUtil getInstance() {
+    	return instance;
+    }
 
     public static List<AufEmploye> getAllData() {
         List<AufEmploye> result = new ArrayList<AufEmploye>();

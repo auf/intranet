@@ -9,8 +9,9 @@ public class AufSyncVelocityTool
 	private static Log log = LogFactoryUtil.getLog(AufSyncVelocityTool.class);
 	private static AufSyncVelocityTool instance;
 
-	private AufSyncVelocityTool()
-	{
+	private AufSyncVelocityTool() {
+		//FIXME it seems to be too late in the method getUserPst for the initialization of AnnuaireUtil
+		AnnuaireUtil.getInstance();
 	}
 
 	public static AufSyncVelocityTool getInstance()
