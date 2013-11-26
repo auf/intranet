@@ -57,23 +57,5 @@
 				#end
 			</ul>
 		</li>
-		<li>
-			<a href="#">Systèmes d'information</span></a>
-			<ul class="auf-child-menu">
-				<li>
-		            #set( $quicklinks_url = $portletURLFactory.create($request, "49", $quickLinksId, "ACTION_PHASE") )
-			        $quicklinks_url.setWindowState("normal")
-			        $quicklinks_url.setPortletMode("view")
-			    	<a href="$quicklinks_url">Liens rapids</span></a>
-				</li>
-				<li>
-		            #set( $annuaire_url = $portletURLFactory.create($request, "49", $annuaireId, "ACTION_PHASE") )
-			        $annuaire_url.setWindowState("normal")
-			        $annuaire_url.setPortletMode("view")
-			    	<a href="$annuaire_url">Annuaire</span></a>
-				</li>
-			</ul>
-
-		</li>
 	</ul>
 </nav>

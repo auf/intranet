@@ -91,7 +91,15 @@ $theme.include($body_top_include)
 	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
-		
+        
+        $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
+	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
+        $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Systèmes d'information")
+	    $velocityPortletPreferences.setValue("groupId", "10180")
+		$velocityPortletPreferences.setValue("articleId", "14412")
+		#embedPortletUsing("56_INSTANCE_HKyrI8sokkFP", "", $velocityPortletPreferences.toString())
+        $velocityPortletPreferences.reset()
+        
 		#if ( $is_signed_in)
 		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
 
