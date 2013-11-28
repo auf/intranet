@@ -234,5 +234,35 @@ public class AufVelocityTool
 		}
 		return "";
 	}
+	
+	public String getRssSetting(long groupId) {
+		// template asset publisher configuration
+		final String AUF_RSS_TEMPLATE_PAGE = "/auf-flux-rss"; 
+		Layout l = null;
+		try {
+			l = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, AUF_RSS_TEMPLATE_PAGE);
+		} catch (NoSuchLayoutException e) {
+			log.error(AUF_RSS_TEMPLATE_PAGE + " not found! Was looking in group " + groupId);
+		} catch (Exception e) {
+			log.error(AUF_RSS_TEMPLATE_PAGE + " not found! Was looking in group " + groupId);
+			e.printStackTrace();
+		}
+		
+		if (l == null) return "";
+		
+		try {
+			long plid = l.getPlid();
+			List<PortletPreferences> portlets = PortletPreferencesLocalServiceUtil.getPortletPreferences(0, 3, plid);
+			for (PortletPreferences p : portlets) {
+				if (p.getPortletId().startsWith("39")) {
+					return p.getPreferences();
+				}
+			}
+		} catch (SystemException e) {
+			log.error("Preferences for the events could not be retrieved!");
+			e.printStackTrace();
+		}
+		return "";
+	}
 
 }

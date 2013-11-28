@@ -103,8 +103,9 @@ $theme.include($body_top_include)
 		#if ( $is_signed_in)
 		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
 
-        #embedPortletUsing("101_INSTANCE_VORUZ3haQRVY", "", $aufTool.getActualitySetting($aufSiteId))
-		#end
+		#embedPortletUsing("39_INSTANCE_6qyaUAePwIVw", "", $aufTool.getRssSetting($aufSiteId))
+        
+        #end
 		
         </div>
 
