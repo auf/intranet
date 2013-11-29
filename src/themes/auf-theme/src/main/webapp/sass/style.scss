@@ -540,6 +540,38 @@ body.html-editor {
     }
 }
 
+/* demande de Marc redmine#35289 */
+#contenu  {
+    .portlet-wiki,
+    .portlet-message-boards {
+        .top-links {
+            float:none;
+
+            li {
+                img {
+                    display:none;
+                }
+            }
+
+        }
+
+        .top-links-navigation {
+            padding-left:0;
+        }
+
+        /* menu lors de l'édition d'une page */
+        .aui-tabview-list {
+            padding:0;
+
+            li {
+                background:none !important;
+                padding-left:0 !important;
+                margin-bottom:0 !important;
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 940px) and (max-width: 981px) {
     #contenu .centre {
         .sfl-members,
