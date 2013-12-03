@@ -11,7 +11,7 @@ var AUF = function(){
 			var max_employees = 12,
 				employee_selector = ".portlet-boundary_aufuserlist_WAR_aufsync_ .box_centre .news";
 
-			if ( $(".portlet-boundary_aufuserlist_WAR_aufsync_").length > 0 ){
+			if ( $(employee_selector).length > 12 ){
 				/* hide all other employees higher than max_employees */
 				$(employee_selector).slice(max_employees).hide();
 
