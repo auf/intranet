@@ -40,7 +40,7 @@ $theme.include($body_top_include)
         </div>
         <div class="rechercher">
             <form id="search-form" name="ctem_3_fm" method="get" action="search?p_p_id=3&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_3_struts_action=%2Fsearch%2Fsearch">
-			  			  
+
 				<input name="p_p_id" value="3" type="hidden">
 				<input name="p_p_lifecycle" value="0" type="hidden">
 				<input name="p_p_state" value="maximized" type="hidden">
@@ -48,8 +48,8 @@ $theme.include($body_top_include)
 				<input name="_3_struts_action" value="/search/search" type="hidden">
 				<input class="" name="_3_keywords" size="30" title="Rechercher" value="" type="text" placeholder="Rechercher dans le site intranet">
 				<input name="_3_groupId" value="0" type="hidden">
-			   	<input src="$images_folder/search.png" title="Rechercher" type="image" align="absmiddle" border="0"> 
-			   
+			   	<input src="$images_folder/search.png" title="Rechercher" type="image" align="absmiddle" border="0">
+
 			</form>
         </div>
         <div class="ecrire">
@@ -91,11 +91,11 @@ $theme.include($body_top_include)
 	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
-        
-      
-        <section class="portlet">
+
+        <section class="portlet portlet-boundary">
 	        <header class="portlet-topper">
 		        <h1 class="portlet-title">
+                    <span>&nbsp;</span>
 			        <span class="portlet-title-text">Annuaire</span>
 		        </h1>
 	        </header>
@@ -104,7 +104,7 @@ $theme.include($body_top_include)
 			        <div class="portlet-body">
 				        <div class="annuaire-recherche">
 				        	<form id="search-form" name="_aufsync_WAR_aufsync_fm" method="get" action="annuaire?p_p_id=aufsync_WAR_aufsync&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_aufsync_WAR_aufsync_action=searchPerson&_aufsync_WAR_aufsync_search=default">
-			  			  
+
 								<input name="p_p_id" value="aufsync_WAR_aufsync" type="hidden">
 								<input name="p_p_lifecycle" value="0" type="hidden">
 								<input name="p_p_state" value="normal" type="hidden">
@@ -114,16 +114,16 @@ $theme.include($body_top_include)
 								<input class="" name="_aufsync_WAR_aufsync_name" size="30" title="Rechercher" value="" type="text" placeholder="Rechercher une personne...">
 								<input name="p_p_col_id" value="column-1" type="hidden">
 							   	<input name="p_p_col_count" value="1" type="hidden">
-							   	<input src="$images_folder/search.png" title="Rechercher" type="image" align="absmiddle" border="0"> 
-							   
+							   	<input src="$images_folder/search.png" title="Rechercher" type="image" align="absmiddle" border="0">
+
 							</form>
 				        </div>
-			        
+
 			        </div>
 			    </div>
 	        </div>
         </section>
-        
+
         $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
 	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
         $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Systèmes d'information")
@@ -131,14 +131,14 @@ $theme.include($body_top_include)
 		$velocityPortletPreferences.setValue("articleId", "14412")
 		#embedPortletUsing("56_INSTANCE_HKyrI8sokkFP", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
-        
+
 		#if ( $is_signed_in)
 		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
 
 		#embedPortletUsing("39_INSTANCE_6qyaUAePwIVw", "", $aufTool.getRssSetting($aufSiteId))
-        
+
         #end
-		
+
         </div>
 
         <!-- partie centrale -->
@@ -149,9 +149,9 @@ $theme.include($body_top_include)
 					$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
 					#embedPortletUsing("73_INSTANCE_3XWoAtbmI9rj", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
-				
+
 					<h1>$site_name</h1>
-				
+
 		            $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
 					#embedPortletUsing("71_INSTANCE_arr2uHQblbOr", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
