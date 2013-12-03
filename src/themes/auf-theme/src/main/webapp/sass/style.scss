@@ -620,6 +620,12 @@ body.html-editor {
     .separator {display:none;}
 }
 
+.auf-employee-search-portlet + .portlet-journal-content {
+    .portlet-content .portlet-body {
+        padding:20px 14px 10px;
+    }
+}
+
 @media only screen and (min-width: 940px) and (max-width: 981px) {
     #contenu .centre {
         .sfl-members,

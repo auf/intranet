@@ -1625,8 +1625,13 @@ body.html-editor ol li {
   display: none;
 }
 
+/* line 624, ../sass/style.scss */
+.auf-employee-search-portlet + .portlet-journal-content .portlet-content .portlet-body {
+  padding: 20px 14px 10px;
+}
+
 @media only screen and (min-width: 940px) and (max-width: 981px) {
-  /* line 627, ../sass/style.scss */
+  /* line 633, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1653,7 +1658,7 @@ body.html-editor ol li {
     font-size: 11px;
   }
 
-  /* line 641, ../sass/style.scss */
+  /* line 647, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1680,7 +1685,7 @@ body.html-editor ol li {
     font-size: 11px;
   }
 
-  /* line 655, ../sass/style.scss */
+  /* line 661, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;

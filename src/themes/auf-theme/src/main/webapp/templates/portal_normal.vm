@@ -92,7 +92,7 @@ $theme.include($body_top_include)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
 
-        <section class="portlet portlet-boundary">
+        <section class="portlet portlet-boundary auf-employee-search-portlet">
 	        <header class="portlet-topper">
 		        <h1 class="portlet-title">
                     <span>&nbsp;</span>
