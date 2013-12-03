@@ -66,14 +66,14 @@ public class AufAnnuaire {
 	public String search(Model model, RenderRequest request,
 			RenderResponse response) throws Exception {
 		String name = ParamUtil.getString(request, "name", null);
-		if (name.equals("")) name = null;
+		if ((name == null) || name.equals("")) name = null;
 		long implantation = ParamUtil.getLong(request, "implantation", -1);
 		String type = ParamUtil.getString(request, "type", null);
-		if (type.equals("")) type = null;
+		if ((type == null) || type.equals("")) type = null;
 		String city = ParamUtil.getString(request, "city", null);
-		if (city.equals("")) city = null;
+		if ((city == null) || city.equals("")) city = null;
 		String country = ParamUtil.getString(request, "country", null);
-		if (country.equals("")) country = null;
+		if ((country == null) || country.equals("")) country = null;
 		long region = ParamUtil.getLong(request, "region", -1);
 
 		//List<AufEmploye> employees = AnnuaireUtil.getUsersLike(search);

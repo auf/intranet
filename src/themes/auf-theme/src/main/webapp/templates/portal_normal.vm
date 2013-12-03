@@ -92,6 +92,38 @@ $theme.include($body_top_include)
 		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
         $velocityPortletPreferences.reset()
         
+      
+        <section class="portlet">
+	        <header class="portlet-topper">
+		        <h1 class="portlet-title">
+			        <span class="portlet-title-text">Annuaire</span>
+		        </h1>
+	        </header>
+	        <div class="portlet-content">
+		        <div class=" portlet-content-container" style="">
+			        <div class="portlet-body">
+				        <div class="annuaire-recherche">
+				        	<form id="search-form" name="_aufsync_WAR_aufsync_fm" method="get" action="annuaire?p_p_id=aufsync_WAR_aufsync&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_aufsync_WAR_aufsync_action=searchPerson&_aufsync_WAR_aufsync_search=default">
+			  			  
+								<input name="p_p_id" value="aufsync_WAR_aufsync" type="hidden">
+								<input name="p_p_lifecycle" value="0" type="hidden">
+								<input name="p_p_state" value="normal" type="hidden">
+								<input name="p_p_mode" value="view" type="hidden">
+								<input name="_aufsync_WAR_aufsync_action" value="searchPerson" type="hidden">
+								<input name="_aufsync_WAR_aufsync_search" value="default" type="hidden">
+								<input class="" name="_aufsync_WAR_aufsync_name" size="30" title="Rechercher" value="" type="text" placeholder="Rechercher une personne...">
+								<input name="p_p_col_id" value="column-1" type="hidden">
+							   	<input name="p_p_col_count" value="1" type="hidden">
+							   	<input src="$images_folder/search.png" title="Rechercher" type="image" align="absmiddle" border="0"> 
+							   
+							</form>
+				        </div>
+			        
+			        </div>
+			    </div>
+	        </div>
+        </section>
+        
         $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
 	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
         $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Systèmes d'information")
