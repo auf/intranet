@@ -1437,122 +1437,123 @@ input[type=button][class*=aui] {
   width: 49.25%;
   margin-left: 1.5%;
   float: left;
+  min-height: 101px;
 }
-/* line 426, ../sass/style.scss */
+/* line 427, ../sass/style.scss */
 #contenu .centre .sfl-members .news:nth-child(2n+1),
 #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news:nth-child(2n+1) {
   margin-left: 0;
 }
 
 /* portlets des derniers documents d'un pôle/région/espaces collaboratifs */
-/* line 436, ../sass/style.scss */
+/* line 437, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container ul.title-list {
   padding: 0;
   margin: 0;
 }
-/* line 441, ../sass/style.scss */
+/* line 442, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list {
   padding: 10px 0;
   background: none;
 }
-/* line 445, ../sass/style.scss */
+/* line 446, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span {
   display: block;
 }
-/* line 448, ../sass/style.scss */
+/* line 449, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list > span a {
   float: none;
 }
-/* line 453, ../sass/style.scss */
+/* line 454, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .portlet-content-container li.title-list .asset-metadata {
   margin-left: 0;
 }
-/* line 459, ../sass/style.scss */
+/* line 460, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .metadata-author {
   background: none;
   padding-left: 30px;
 }
-/* line 464, ../sass/style.scss */
+/* line 465, ../sass/style.scss */
 #contenu .centre .sfl-derniers-documents .vertical-separator {
   display: none;
 }
 
 /* ckeditor */
-/* line 471, ../sass/style.scss */
+/* line 472, ../sass/style.scss */
 body.html-editor {
   font-size: 14px !important;
 }
-/* line 487, ../sass/style.scss */
+/* line 488, ../sass/style.scss */
 body.html-editor ol li {
   list-type: decimal;
 }
 
 /* page de résultat de recherche */
-/* line 495, ../sass/style.scss */
+/* line 496, ../sass/style.scss */
 #contenu .portlet-search .portlet-icon-back {
   color: #3f3d4b;
 }
-/* line 502, ../sass/style.scss */
+/* line 503, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content .menu .search-facet .facet-value {
   font-size: 1em;
   background: none;
   padding-left: 0;
 }
-/* line 507, ../sass/style.scss */
+/* line 508, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content .menu .search-facet .facet-value.current-term a {
   color: #018bb6;
 }
-/* line 511, ../sass/style.scss */
+/* line 512, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content .menu .search-facet .facet-value img {
   margin: 0;
   padding: 0;
   display: none;
 }
-/* line 520, ../sass/style.scss */
+/* line 521, ../sass/style.scss */
 #contenu .portlet-search .search-layout .search-layout-content ul.modified {
   padding: 0;
 }
-/* line 525, ../sass/style.scss */
+/* line 526, ../sass/style.scss */
 #contenu .portlet-search .results-grid {
   border: none;
 }
-/* line 530, ../sass/style.scss */
+/* line 531, ../sass/style.scss */
 #contenu .portlet-search .results-header th {
   background: url(../images/titrebox.png) repeat-x;
   border-color: #dfdfdf;
 }
-/* line 537, ../sass/style.scss */
+/* line 538, ../sass/style.scss */
 #contenu .portlet-search .results-row td {
   border-color: #dfdfdf;
 }
 
 /* demande de Marc redmine#35289 */
-/* line 546, ../sass/style.scss */
+/* line 547, ../sass/style.scss */
 #contenu .portlet-wiki,
 #contenu .portlet-message-boards {
   /* menu lors de l'édition d'une page */
 }
-/* line 547, ../sass/style.scss */
+/* line 548, ../sass/style.scss */
 #contenu .portlet-wiki .top-links,
 #contenu .portlet-message-boards .top-links {
   float: none;
 }
-/* line 551, ../sass/style.scss */
+/* line 552, ../sass/style.scss */
 #contenu .portlet-wiki .top-links li img,
 #contenu .portlet-message-boards .top-links li img {
   display: none;
 }
-/* line 558, ../sass/style.scss */
+/* line 559, ../sass/style.scss */
 #contenu .portlet-wiki .top-links-navigation,
 #contenu .portlet-message-boards .top-links-navigation {
   padding-left: 0;
 }
-/* line 563, ../sass/style.scss */
+/* line 564, ../sass/style.scss */
 #contenu .portlet-wiki .aui-tabview-list,
 #contenu .portlet-message-boards .aui-tabview-list {
   padding: 0;
 }
-/* line 566, ../sass/style.scss */
+/* line 567, ../sass/style.scss */
 #contenu .portlet-wiki .aui-tabview-list li,
 #contenu .portlet-message-boards .aui-tabview-list li {
   background: none !important;
@@ -1560,8 +1561,72 @@ body.html-editor ol li {
   margin-bottom: 0 !important;
 }
 
+/* message pour administrateur #35256 */
+/* line 577, ../sass/style.scss */
+.page-customization-bar {
+  font-size: 12px;
+}
+
+/* #35303 */
+/* line 583, ../sass/style.scss */
+#contenu .portlet-rss .feed {
+  padding: 20px 14px 10px;
+  font-size: 1.9em;
+}
+/* line 587, ../sass/style.scss */
+#contenu .portlet-rss .feed > .feed-date {
+  display: none;
+}
+/* line 591, ../sass/style.scss */
+#contenu .portlet-rss .opens-new-window-accessible {
+  display: none;
+}
+/* line 592, ../sass/style.scss */
+#contenu .portlet-rss .feed-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+/* line 594, ../sass/style.scss */
+#contenu .portlet-rss .feed-description {
+  display: none;
+}
+/* line 595, ../sass/style.scss */
+#contenu .portlet-rss .feed-image-right {
+  display: none;
+}
+/* line 597, ../sass/style.scss */
+#contenu .portlet-rss .feed-entry {
+  margin-top: 10px;
+}
+/* line 600, ../sass/style.scss */
+#contenu .portlet-rss .feed-entry:first-child {
+  margin-top: 0;
+}
+/* line 604, ../sass/style.scss */
+#contenu .portlet-rss .feed-entry .feed-date {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+/* line 609, ../sass/style.scss */
+#contenu .portlet-rss .feed-entry-author {
+  color: #3f3d4b;
+}
+/* line 612, ../sass/style.scss */
+#contenu .portlet-rss .feed-entry-content {
+  padding: 10px;
+}
+/* line 615, ../sass/style.scss */
+#contenu .portlet-rss .feed-entry-content img[align=left] {
+  margin: 0 10px 5px 0;
+}
+/* line 620, ../sass/style.scss */
+#contenu .portlet-rss .separator {
+  display: none;
+}
+
 @media only screen and (min-width: 940px) and (max-width: 981px) {
-  /* line 579, ../sass/style.scss */
+  /* line 627, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1588,7 +1653,7 @@ body.html-editor ol li {
     font-size: 11px;
   }
 
-  /* line 593, ../sass/style.scss */
+  /* line 641, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1615,7 +1680,7 @@ body.html-editor ol li {
     font-size: 11px;
   }
 
-  /* line 607, ../sass/style.scss */
+  /* line 655, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;

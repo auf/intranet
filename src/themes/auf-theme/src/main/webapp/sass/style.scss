@@ -422,6 +422,7 @@ input[type=button][class*=aui] {
             width:49.25%;
             margin-left:1.5%;
             float:left;
+            min-height:101px;
 
             &:nth-child(2n+1) {
                 margin-left:0;
@@ -570,6 +571,53 @@ body.html-editor {
             }
         }
     }
+}
+
+/* message pour administrateur #35256 */
+.page-customization-bar {
+    font-size: 12px;
+}
+
+/* #35303 */
+#contenu .portlet-rss {
+    .feed {
+        padding: 20px 14px 10px;
+        font-size:1.9em;
+
+         & > .feed-date {
+            display:none;
+        }
+    }
+    .opens-new-window-accessible {display: none;}
+    .feed-title {font-size:1.1em; font-weight: bold; margin:0 0 10px;}
+
+    .feed-description {display:none;}
+    .feed-image-right {display:none;}
+    .feed-entries {}
+    .feed-entry {
+        margin-top:10px;
+
+        &:first-child {
+            margin-top:0;
+        }
+
+        .feed-date {
+            font-style: italic;
+            margin-bottom:5px;
+        }
+    }
+    .feed-entry-author {
+        color: rgb(63, 61, 75);
+    }
+    .feed-entry-content {
+        padding:10px;
+
+        img[align=left] {
+            $mgn: 10px;
+            margin:0 $mgn $mgn / 2 0;
+        }
+    }
+    .separator {display:none;}
 }
 
 @media only screen and (min-width: 940px) and (max-width: 981px) {
