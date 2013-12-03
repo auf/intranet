@@ -103,7 +103,8 @@ $theme.include($body_top_include)
 		        <div class=" portlet-content-container" style="">
 			        <div class="portlet-body">
 				        <div class="annuaire-recherche">
-				        	<form id="search-form" name="_aufsync_WAR_aufsync_fm" method="get" action="annuaire?p_p_id=aufsync_WAR_aufsync&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_aufsync_WAR_aufsync_action=searchPerson&_aufsync_WAR_aufsync_search=default">
+				        	<form id="search-form" name="_aufsync_WAR_aufsync_fm" method="get"
+                                action="/annuaire?p_p_id=aufsync_WAR_aufsync&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_aufsync_WAR_aufsync_action=searchPerson&_aufsync_WAR_aufsync_search=default">
 
 								<input name="p_p_id" value="aufsync_WAR_aufsync" type="hidden">
 								<input name="p_p_lifecycle" value="0" type="hidden">
