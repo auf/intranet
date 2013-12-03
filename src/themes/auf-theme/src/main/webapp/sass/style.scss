@@ -1,5 +1,19 @@
 @import "style-original.scss";
 
+.clearfix {
+    display: inline-block;
+    width:100%;
+
+    &:after {
+       content: " "; /* Older browser do not support empty content */
+       visibility: hidden;
+       display: block;
+       height: 0;
+       clear: both;
+    }
+}
+
+
 @mixin img-reset{
     border:none;
     margin:0;
@@ -356,6 +370,12 @@ input[type=button][class*=aui] {
 
 /* porlet navigation */
 #contenu .centre .portlet-navigation {
+
+    /* redmine#35307 */
+    .portlet-title {
+        display:none;
+    }
+
     .nav-menu {
         ul {
             padding-left:0;
@@ -380,6 +400,24 @@ input[type=button][class*=aui] {
                 a {
                     color: #777;
                 }
+            }
+        }
+    }
+}
+
+
+#contenu .centre .portlet-navigation + .portlet-static-end + #main-content {
+    .portlet-column-content .portlet-journal-content {
+        /* redmine#35307 */
+        .portlet-title {
+            display:none;
+        }
+
+        .portlet-content-container {
+            .portlet-body {
+                padding:0 !important;
+                background:none;
+                border:none;
             }
         }
     }
@@ -427,6 +465,11 @@ input[type=button][class*=aui] {
             &:nth-child(2n+1) {
                 margin-left:0;
             }
+        }
+
+        .auf-show-all-employees {
+            display:block;
+            margin:10px auto;
         }
     }
 }
