@@ -16,6 +16,6 @@ if needed you can mount the /opt/liferay filesystem:
 
 ## PermGen Space error
 
-$ vi /opt/liferay-portal/tomcat/bin/setenv.bat
+$ vi /opt/liferay-portal/tomcat/bin/setenv.sh
 
 Modifier le paramètre *-XX:MaxPermSize=256m* pour *-XX:MaxPermSize=512m*

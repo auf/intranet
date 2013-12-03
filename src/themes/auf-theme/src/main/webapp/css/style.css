@@ -1526,8 +1526,42 @@ body.html-editor ol li {
   border-color: #dfdfdf;
 }
 
+/* demande de Marc redmine#35289 */
+/* line 546, ../sass/style.scss */
+#contenu .portlet-wiki,
+#contenu .portlet-message-boards {
+  /* menu lors de l'édition d'une page */
+}
+/* line 547, ../sass/style.scss */
+#contenu .portlet-wiki .top-links,
+#contenu .portlet-message-boards .top-links {
+  float: none;
+}
+/* line 551, ../sass/style.scss */
+#contenu .portlet-wiki .top-links li img,
+#contenu .portlet-message-boards .top-links li img {
+  display: none;
+}
+/* line 558, ../sass/style.scss */
+#contenu .portlet-wiki .top-links-navigation,
+#contenu .portlet-message-boards .top-links-navigation {
+  padding-left: 0;
+}
+/* line 563, ../sass/style.scss */
+#contenu .portlet-wiki .aui-tabview-list,
+#contenu .portlet-message-boards .aui-tabview-list {
+  padding: 0;
+}
+/* line 566, ../sass/style.scss */
+#contenu .portlet-wiki .aui-tabview-list li,
+#contenu .portlet-message-boards .aui-tabview-list li {
+  background: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 @media only screen and (min-width: 940px) and (max-width: 981px) {
-  /* line 547, ../sass/style.scss */
+  /* line 579, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1554,7 +1588,7 @@ body.html-editor ol li {
     font-size: 11px;
   }
 
-  /* line 561, ../sass/style.scss */
+  /* line 593, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
@@ -1581,7 +1615,7 @@ body.html-editor ol li {
     font-size: 11px;
   }
 
-  /* line 575, ../sass/style.scss */
+  /* line 607, ../sass/style.scss */
   #contenu .centre .sfl-members .news,
   #contenu .centre .portlet-boundary_aufuserlist_WAR_aufsync_ .news {
     width: 100%;
