@@ -150,7 +150,10 @@ $theme.include($body_top_include)
 					$velocityPortletPreferences.setValue("portletSetupShowBorders", "false")
 					#embedPortletUsing("73_INSTANCE_3XWoAtbmI9rj", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
-
+				#end
+				
+				#if ($aufTool.isNotUnderFrontpageSite($page.getPlid()))
+				
 					<h1>$site_name</h1>
 
 		            $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
