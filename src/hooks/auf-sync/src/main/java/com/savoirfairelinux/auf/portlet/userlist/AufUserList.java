@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import com.liferay.portal.NoSuchUserException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
@@ -21,10 +23,14 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.savoirfairelinux.auf.hook.db.AufEmploye;
 import com.savoirfairelinux.auf.hook.util.AnnuaireUtil;
 import com.savoirfairelinux.auf.portlet.AufCombinedUser;
+import com.savoirfairelinux.auf.theme.util.AufSyncVelocityTool;
 
 @Controller
 @RequestMapping("VIEW")
 public class AufUserList {
+	
+	private static Log log = LogFactoryUtil.getLog(AufUserList.class);
+	
 
 	@RenderMapping
 	public String view(Model model, RenderRequest request, RenderResponse response) throws Exception {
@@ -55,7 +61,7 @@ public class AufUserList {
 						User liferayUser = UserLocalServiceUtil.getUserByEmailAddress(CompanyThreadLocal.getCompanyId(), e.getEmail());
 						combinedUsers.add(new AufCombinedUser(e, liferayUser.getPortraitURL(themeDisplay)));
 					} catch (NoSuchUserException ex) {
-						System.out.println("MISSED USER");
+						log.debug("MISSED USER");
 					}
 				}
 			}

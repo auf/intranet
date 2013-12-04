@@ -3,6 +3,7 @@
 <%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui" %>
 
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
 
 <%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %>
 <%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
@@ -19,10 +20,10 @@
 		<div class="news">
 			<div class="photo"><img src="${user.getPortraitUrl()}" width="50" height="50"></div>
 			<div class="desc">
-				<portlet:renderURL var="url">
-					<portlet:param name="action" value="viewPerson" />
-					<portlet:param name="idEmploye" value="${user.getEmploye().getEmail()}" />
-				</portlet:renderURL>
+				<liferay-portlet:renderURL plid="15280" portletName="aufsync_WAR_aufsync" var="url">
+					<liferay-portlet:param name="action" value="viewPerson" />
+					<liferay-portlet:param name="idEmploye" value="${user.getEmploye().getEmail()}" />
+				</liferay-portlet:renderURL>
 				<h4><a href="${url}">${user.getEmploye().getFullName()} (${user.getEmploye().getEmail()})</a></h4>
 				<p class="date">${user.getEmploye().getPostDesc()}</p>
 				<p class="date">
