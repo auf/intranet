@@ -4,9 +4,12 @@
 #set ($portlet_title = $portlet_display.getTitle())
 #set ($portlet_back_url = $htmlUtil.escapeAttribute($portlet_display.getURLBack()))
 
+#parse ($init)
+
 <section class="portlet" id="portlet_$portlet_id">
 	<header class="portlet-topper">
 		<h1 class="portlet-title">
+			#set( $portlet_title = $portlet_title.replace("__AUF_SITE_NAME__", $site_name) )
 			$theme.iconPortlet() <span class="portlet-title-text">$portlet_title</span>
 		</h1>
 
