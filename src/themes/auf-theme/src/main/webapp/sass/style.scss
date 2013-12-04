@@ -645,27 +645,36 @@ body.html-editor {
         }
 
         .feed-date {
-            font-style: italic;
-            margin-bottom:5px;
+            display: none;
         }
     }
-    .feed-entry-author {
-        color: rgb(63, 61, 75);
+
+    .feed-entry-title {
+        font-weight: bold;
     }
+
+    .feed-entry-enclosure,
+    .feed-entry-author,
+    .separator {
+        display:none;
+    }
+
     .feed-entry-content {
         padding:10px;
 
         img[align=left] {
-            $mgn: 10px;
-            margin:0 $mgn $mgn / 2 0;
+            display:none;
         }
     }
-    .separator {display:none;}
 }
 
 .auf-employee-search-portlet + .portlet-journal-content {
     .portlet-content .portlet-body {
         padding:20px 14px 10px;
+
+        input[name=_aufsync_WAR_aufsync_name] {
+            width: 80%;
+        }
     }
 }
 
