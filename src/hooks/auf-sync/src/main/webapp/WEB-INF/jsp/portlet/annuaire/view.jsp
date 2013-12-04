@@ -106,7 +106,7 @@
             <div class="box_centre">
 	            <c:forEach var="user" items="${users}">
 					<div class="news">
-                        <div class="photo"><img src="${user.getPortraitUrl()}" width="50" height="50"></div>
+                        <div class="photo"><img src="${user.getPortraitUrl()}" width="50"></div>
                         <div class="desc">
                         	<portlet:renderURL var="url">
 				                <portlet:param name="action" value="viewPerson" />
