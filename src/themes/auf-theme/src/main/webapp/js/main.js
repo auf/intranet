@@ -11,8 +11,8 @@ var AUF = function(){
 			var max_employees = 12,
 				employee_selector = ".portlet-boundary_aufuserlist_WAR_aufsync_ .box_centre .news";
 
-			if ( $(employee_selector).length > 12 ){
-				/* hide all other employees higher than max_employees */
+			if ( $(employee_selector).length > max_employees ){
+				/* hide all other employees higher than max_employees variable */
 				$(employee_selector).slice(max_employees).hide();
 
 				/* add button to show 'em all after the 12th element */
@@ -20,6 +20,7 @@ var AUF = function(){
 					'<div class="clearfix"><input class="aui-button-input auf-show-all-employees" type="button" value="Afficher tous les employés"></div>'
 				);
 
+				/* show all employee button's click behavior */
 				$("input.auf-show-all-employees").click(function(){
 					$(employee_selector).slice(max_employees).fadeIn();
 					$(this).fadeOut(function(){
