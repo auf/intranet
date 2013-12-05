@@ -14,6 +14,7 @@
 	<modules>
 		<module>themes/auf-theme</module>
 		<module>hooks/auf-theme-hook</module>
+		<module>portlets/auf-collaboration-site-portlet</module>
 		<module>hooks/auf-sync</module>
 		<module>hooks/auf-asset-publisher-hook</module>
 		<module>portlets/auf-weather-portlet</module>
