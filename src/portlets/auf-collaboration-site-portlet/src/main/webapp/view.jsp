@@ -18,7 +18,7 @@
 
 <c:forEach var="site" items="${availableSites}" >
 <div>
-	<h3><a href="mailto:${site.getEmailAddresses()}">${site.getSite().getDescriptiveName()}</a></h3>
+	<h3><a href="${site.getEmailAddresses()}">${site.getSite().getDescriptiveName()}</a></h3>
 	<p>${site.getSite().getDescription()}</p>
 </div>	
 </c:forEach>

@@ -32,7 +32,7 @@ public class AvailableSiteHelper {
 		List<UserGroupRole> siteOwners = null;
 		
 		Set<String> emailAddresses = new HashSet<String>();
-		StringBuilder emailAddressesString = new StringBuilder();
+		StringBuilder emailAddressesString = new StringBuilder("mailto:");
 		try {
 			siteAdmins = UserGroupRoleLocalServiceUtil.getUserGroupRolesByGroupAndRole(site.getGroupId(), SITE_ADMIN_ROLE_ID);
 		} catch (SystemException e) {
@@ -43,7 +43,7 @@ public class AvailableSiteHelper {
 		}
 		
 		if (siteAdmins == null && siteOwners==null) {
-			return "";
+			return "#";
 		}
 		
 		if (siteAdmins != null) {

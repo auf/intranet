@@ -36,7 +36,8 @@ public class CollaborationSitePortlet extends MVCPortlet {
 			for (Group site : GroupLocalServiceUtil.getGroups(QueryUtil.ALL_POS, QueryUtil.ALL_POS)) {
 			  if (site.isRegularSite() 
 					  && (!GroupLocalServiceUtil.hasUserGroup(liferayUser.getUserId(), site.getGroupId()))
-					  && (!site.isControlPanel())) {
+					  && (!site.isControlPanel())
+					  && (!site.isGuest())) {
 				  AvailableSiteHelper ash = new AvailableSiteHelper(site);
 				  availableSites.add(ash);
 			  }
