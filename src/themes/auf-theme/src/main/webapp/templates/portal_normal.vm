@@ -151,9 +151,9 @@ $theme.include($body_top_include)
 					#embedPortletUsing("73_INSTANCE_3XWoAtbmI9rj", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
 				#end
-				
+
 				#if ($aufTool.isNotUnderFrontpageSite($page.getPlid()))
-				
+
 					<h1>$site_name</h1>
 
 		            $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
@@ -211,4 +211,19 @@ $theme.include($body_bottom_include)
 
 $theme.include($bottom_include)
 
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.auf.org/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "29"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
 </html>
