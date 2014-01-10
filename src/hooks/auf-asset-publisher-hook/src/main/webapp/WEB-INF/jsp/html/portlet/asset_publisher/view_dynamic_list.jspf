@@ -34,24 +34,55 @@ int total = 0;
 
 if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinkedAssetEntryId() > 0)) {
 	if (displayStyle.equals("auf-publisher")) {
+		%>
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Institutionnelles</a></li>
+				<li><a href="#tabs-2">Métiers</a></li>
+				<li><a href="#tabs-3">Régions</a></li>
+				<li><a href="#tabs-4">RH</a></li>
+			</ul>
+	 	<%
 		
-		//then autoselect all groups
-		long groupId = themeDisplay.getLayout().getGroupId(); 
-		long orgId = GroupLocalServiceUtil.getGroup(groupId).getOrganizationId();
-		
-		java.util.Queue<com.liferay.portal.model.Organization> remainder = new java.util.LinkedList<com.liferay.portal.model.Organization>();
-		remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), orgId));
-		
-		java.util.List<com.liferay.portal.model.Group> groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
-		
-		while (!remainder.isEmpty()) {
-			com.liferay.portal.model.Organization org = remainder.poll();
-			remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), org.getOrganizationId()));
+		//long journalArticleClassId = ClassNameServiceUtil.fetchClassNameId(JournalArticle.class);  
+        assetEntryQuery.setClassTypeIds(new long[] { 15672 }); //AUFACTUALITE Structure
+        assetEntryQuery.setStart(0);
+        assetEntryQuery.setEnd(3);
+        //assetEntryQuery.setClassNameIds(new long[] { journalArticleClassId });  
+	 	
+	 	//actualites du pole services generaux
+	 	assetEntryQuery.setGroupIds(new long[] {10854});
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+		request.setAttribute("view.jsp-results", results);
+		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+		%>
+			<div id="tabs-1">
+			<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+			</div>
 
-			groups.add(org.getGroup());
+ 		<%
+	 	
+	 	//tous les poles strategiques sauf RH et services generaux
+	 	assetEntryQuery.setGroupIds(new long[] {10846, 10842, 10838});
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+		request.setAttribute("view.jsp-results", results);
+		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+ 		%>
+			<div id="tabs-2">
+			<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+			</div>
+
+ 		<%
+ 		
+	 	//actualites de toutes les regions
+	 	java.util.List <com.liferay.portal.model.Organization> regions = com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), 10901);
+	 	java.util.List<com.liferay.portal.model.Group> groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
+		
+		for (com.liferay.portal.model.Organization region : regions) {
+			groups.add(region.getGroup());
 		}
 		
-		long[] allGroupIds = new long[groups.size()+1];
+		long[] allGroupIds = new long[groups.size()];
 		for (int i=0; i<groups.size(); i++) {
 			if (groups.get(i).isControlPanel()) {
 				continue;
@@ -61,107 +92,35 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 				allGroupIds[i] = groups.get(i).getGroupId();
 			}
 		}
-		allGroupIds[groups.size()] = groupId;
+	 	assetEntryQuery.setGroupIds(allGroupIds);
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+		request.setAttribute("view.jsp-results", results);
+		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+ 		%>
+			<div id="tabs-3">
+			<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+			</div>
+
+ 		<%
+ 		
+
+	 	//actualites du pole RH
+	 	assetEntryQuery.setGroupIds(new long[] {10850});
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+		request.setAttribute("view.jsp-results", results);
+		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+ 		%>
+			<div id="tabs-4">
+			<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+			</div>
+
+ 		<%
 		
-		assetEntryQuery.setGroupIds(allGroupIds);
+	 	%>
+	 	</div>
+	 	<%
 		
-		AssetVocabulary assetVocabulary = AssetVocabularyLocalServiceUtil.getVocabulary(assetVocabularyId);
 
-		List<AssetCategory> assetCategories = AssetCategoryLocalServiceUtil.getVocabularyRootCategories(assetVocabulary.getVocabularyId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
-
-		assetEntryQuery.setClassNameIds(classNameIds);
-		
-		int tabsCounter;
-
-		%>
-				<div id="tabs">
-				<ul>
-		<%
-		tabsCounter=1;
-		for (AssetCategory assetCategory : assetCategories) {
-			assetCategory = assetCategory.toEscapedModel();
-
-			long[] oldAllCategoryIds = assetEntryQuery.getAllCategoryIds();
-
-			long[] newAllAssetCategoryIds = ArrayUtil.append(oldAllCategoryIds, assetCategory.getCategoryId());
-
-			assetEntryQuery.setAllCategoryIds(newAllAssetCategoryIds);
-
-			int groupTotal = AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
-
-
-			if (groupTotal>0) {
-
-	%>
-				<li><a href="#tabs-<%= tabsCounter++ %>"><%= assetCategory.getTitle(locale) %></a></li>	
-	<%
-			}
-			
-			assetEntryQuery.setAllCategoryIds(oldAllCategoryIds);
-			
-		}
-		%>
-				</ul>
-		<%
-
-		tabsCounter=1;
-		for (AssetCategory assetCategory : assetCategories) {
-			assetCategory = assetCategory.toEscapedModel();
-
-			long[] oldAllCategoryIds = assetEntryQuery.getAllCategoryIds();
-
-			long[] newAllAssetCategoryIds = ArrayUtil.append(oldAllCategoryIds, assetCategory.getCategoryId());
-
-			assetEntryQuery.setAllCategoryIds(newAllAssetCategoryIds);
-
-			int groupTotal = AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
-
-			total += groupTotal;
-
-			assetEntryQuery.setEnd(end);
-			assetEntryQuery.setStart(start);
-
-			results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
-
-			if (!results.isEmpty()) {
-				searchContainer.setResults(results);
-
-				request.setAttribute("view.jsp-results", results);
-	%>
-				<div id="tabs-<%= tabsCounter++ %>">
-				<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
-				</div>
-
-	<%
-			}
-
-
-			if (groupTotal > 0) {
-				if ((end > 0) && (end > groupTotal)) {
-					end -= groupTotal;
-				}
-				else {
-					end = 0;
-				}
-
-				if ((start > 0) && (start > groupTotal)) {
-					start -= groupTotal;
-				}
-				else {
-					start = 0;
-				}
-			}
-
-			assetEntryQuery.setAllCategoryIds(oldAllCategoryIds);
-			assetEntryQuery.setEnd(QueryUtil.ALL_POS);
-			assetEntryQuery.setStart(QueryUtil.ALL_POS);
-		}
-		
-		%>
-				</div>
-		<%
-
-		searchContainer.setTotal(total);
 		
 	}
 	else if (assetVocabularyId > 0) {
@@ -226,7 +185,7 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 		searchContainer.setTotal(total);
 	}
 	else if (!groupByClass) {
-		if (displayStyle.equals("auf-activities") || displayStyle.equals("auf-event-list") || displayStyle.equals("auf-actuality-list")) {
+		if (displayStyle.equals("auf-activities") || displayStyle.equals("auf-event-list")) {
 			//then autoselect all groups
 			List<Group> groups;
 			long[] allGroupIds;
