@@ -5,13 +5,52 @@
 2. Installer et configurer Maven3 (légèrement périmé, mais la section configuration 
     semble correct: http://doc.ubuntu-fr.org/maven)
 
-3. Ajouter les artéfacts Liferay EE (section "Installing EE/CE Artifacts from a Zip File" 
+3. mettre la conf (ajuster le path <localRepository>) ~/.m2/settings.xml
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>/var/maison/maven/repository</localRepository>
+
+<profiles>
+    <profile>
+        <id>nexus.savoirfairelinux.com</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+    
+        <repositories>
+          <repository>
+            <id>public</id>
+            <url>http://nexus.savoirfairelinux.com/content/groups/public</url>
+          </repository>
+        </repositories>
+    
+        <pluginRepositories>
+          <pluginRepository>
+            <id>public</id>
+            <url>http://nexus.savoirfairelinux.com/content/groups/public</url>
+          </pluginRepository>
+        </pluginRepositories>
+    </profile>
+</profiles>
+
+</settings>
+
+
+4. * Ajouter les artéfacts Liferay EE (section "Installing EE/CE Artifacts from a Zip File" 
     et "Installing EE/CE Artifacts from a Zip File" de 
     http://www.liferay.com/fr/documentation/liferay-portal/6.1/development/-/ai/installing-required-liferay-artifacts)
- 
-4. Faire un clone du projet.
 
-5. Dans le dossier src/ exécuter 'mvn clean package liferay:deploy -Dliferay.auto.deploy.dir=/absolutePathToOutputFolder'. Cela peut prendre plusieurs minutes la première fois.
+    ant install
+
+   * un compte avec un licence EE doit télécharger dans le Liferay marketplace "weather-portlet-6.1.30.3-ee-ga3"
+     et après ça on doit mettre le fichier dans le dossier "src/portlets/auf-weather-portlet/lib"
+ 
+5. Faire un clone du projet.
+
+6. Dans le dossier src/ exécuter 'mvn clean package liferay:deploy -Dliferay.auto.deploy.dir=/absolutePathToOutputFolder'. Cela peut prendre plusieurs minutes la première fois.
 
 == déploiement des wars==
 
