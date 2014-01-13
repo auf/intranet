@@ -67,7 +67,7 @@
                 	<ul>
                 	<c:forEach var="site" items="${userSites}">
 						<li>
-                            <a href="${site.getFriendlyURL()}">
+                            <a href="/web${site.getFriendlyURL()}">
                                 ${site.getDescriptiveName()}
                             </a>&nbsp;:&nbsp;${site.getDescription()}
                         </li>
@@ -77,7 +77,7 @@
                 	<ul>
                 	<c:forEach var="pole" items="${userPoles}">
 						<li>
-                            <a href="${pole.getFriendlyURL()}">
+                            <a href="/web${pole.getFriendlyURL()}">
                                 ${pole.getDescriptiveName()}
                             </a>&nbsp;:&nbsp;${pole.getDescription()}
                         </li>
