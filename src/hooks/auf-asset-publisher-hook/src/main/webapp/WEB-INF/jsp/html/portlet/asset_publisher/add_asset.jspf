@@ -18,7 +18,7 @@
 addPortletURLs = getAddPortletURLs(liferayPortletRequest, liferayPortletResponse, classNameIds, classTypeIds, assetEntryQuery.getAllCategoryIds(), allAssetTagNames);
 %>
 
-<c:if test="<%= !addPortletURLs.isEmpty() %>">
+<c:if test="<%= !addPortletURLs.isEmpty() && !displayStyle.equals(\"auf-publisher\") %>">
 
 	<%
 	String taglibId = "addNew";
@@ -87,12 +87,7 @@ addPortletURLs = getAddPortletURLs(liferayPortletRequest, liferayPortletResponse
 
 			PortletURL addPortletURL = entry.getValue();
 
-			if (displayStyle.equals("auf-publisher")) {
-				long currentGroupId = themeDisplay.getLayout().getGroupId();
-				addPortletURL.setParameter("groupId", String.valueOf(currentGroupId));
-			} else {
-				addPortletURL.setParameter("groupId", String.valueOf(groupId));
-			}
+			addPortletURL.setParameter("groupId", String.valueOf(groupId));
 
 			String addPortletURLString = addPortletURL.toString();
 
