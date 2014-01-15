@@ -19,7 +19,6 @@ if role == 'vagrant':
             fp.write("IdentityFile ~/.ssh/id_rsa")
     local('ssh-add %s' % op.expanduser('~/.vagrant.d/insecure_private_key'))
 
-@task
 def mount():
     """
     Mount the mount folder
@@ -31,7 +30,6 @@ def mount():
     # [TODO] à faire pour un Mac
 
 
-@task
 def unmount():
     """
     Unmount the mount folder
@@ -43,7 +41,7 @@ def unmount():
     # [TODO] à faire pour un Mac
 
 @task
-def catalina_out():
+def catalina():
     """
     tail-ing the catalina.out file from the vagrant folder
     """
@@ -65,7 +63,6 @@ def mvn_deploy_theme():
     with lcd("../../src/themes/%s" % THEME_NAME):
         local("mvn clean package liferay:deploy")
 
-@task
 def compass_compile():
     """
     Running compass compile from the vagrant folder
@@ -135,7 +132,6 @@ def lfr_restart():
     lfr_stop()
     lfr_start()
 
-@task
 def deploy():
     """
     Mounts the mount folder, copy all deployable files and
@@ -145,4 +141,26 @@ def deploy():
     copy_deployables()
     mvn_deploy_all()
 
+@task
+def vsuspend():
+    """
+    Unmount the mount folder and suspend the VM
+    """
+    unmount()
+    local("vagrant suspend")
 
+@task
+def vresume():
+    """
+    Resume the VM & mount the mount folder
+    """
+    local("vagrant resume")
+    mount()
+
+@task
+def vup():
+    """
+    Setup the VM and deploy everything
+    """
+    local("vagrant up")
+    deploy()
