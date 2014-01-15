@@ -22,22 +22,25 @@ if role == 'vagrant':
 @task
 def mount():
     """
-    [TODO] à faire pour un Mac
+    Mount the mount folder
     """
 
     if system() == "Linux":
         local("sudo mount -O soft,timeo=5,retrans=5,actimeo=10,retry=5 -o nolock 10.0.0.17:/opt/liferay-portal mount/")
 
+    # [TODO] à faire pour un Mac
 
 
 @task
 def unmount():
     """
-    [TODO] à faire pour un Mac
+    Unmount the mount folder
     """
 
     if system() == "Linux":
         local("sudo umount -fl ./mount")
+
+    # [TODO] à faire pour un Mac
 
 @task
 def catalina_out():
@@ -49,7 +52,7 @@ def catalina_out():
 @task
 def mvn_deploy_all():
     """
-    Deploying every hooks and theme in the vagrant folder
+    Deploy every hooks and theme from the vagrant folder
     """
     with lcd("../../src"):
         local("mvn clean package liferay:deploy")
@@ -57,7 +60,7 @@ def mvn_deploy_all():
 @task
 def mvn_deploy_theme():
     """
-    Deploying the current theme in the vagrant folder
+    Deploy the current theme from the vagrant folder
     """
     with lcd("../../src/themes/%s" % THEME_NAME):
         local("mvn clean package liferay:deploy")
@@ -71,14 +74,9 @@ def compass_compile():
         local("compass compile")
 
 @task
-def compass_deploy():
-    compass_compile()
-    mvn_deploy_theme()
-
-@task
 def copy_assets(folder=None):
     """
-    Copying all CSS and JS files in the VM
+    Copies all CSS and JS files in the VM
     """
     compass_compile()
 
@@ -104,9 +102,7 @@ def copy_assets(folder=None):
 @task
 def copy_deployables():
     """
-    So we may copy any packages that aren't managed within maven in the VM
-
-    ex: license file, translation hooks.
+    Copies any packages that aren't managed within maven in the VM
     """
     file_types = [
         "lpkg",
@@ -119,13 +115,34 @@ def copy_deployables():
 
 @task
 def lfr_start():
+    """
+    Starts Liferay
+    """
     sudo("/etc/init.d/liferay start")
 
 @task
 def lfr_stop():
+    """
+    Stops Liferay
+    """
     sudo("/etc/init.d/liferay stop")
 
 @task
 def lfr_restart():
+    """
+    Restarts Liferay
+    """
     lfr_stop()
     lfr_start()
+
+@task
+def deploy():
+    """
+    Mounts the mount folder, copy all deployable files and
+    deploy every hooks and the theme
+    """
+    mount()
+    copy_deployables()
+    mvn_deploy_all()
+
+
