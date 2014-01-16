@@ -376,30 +376,64 @@ input[type=button][class*=aui] {
         display:none;
     }
 
+    .portlet-body {
+        overflow: visible !important;
+    }
+
     .nav-menu {
-        ul {
-            padding-left:0;
-            padding-right:0;
+        li {
+            list-style: none;
+            padding:0 10px;
         }
 
-        li {
-            line-height:40px;
-            background-color:#fff;
-            background-position: 10px center;
-            padding:0 10px;
-            display:inline-block;
-            border: 1px solid #dfdfdf;
+        .level-1 {
+            padding-left:0;
+            padding-right:0;
 
-            a {
-                padding-left: 15px;
-            }
-
-            &.selected {
-                background-color: #f0f0f0;
+            & > li {
+                line-height:40px;
+                background-color:#fff;
+                background-position: 10px center;
+                display:inline-block;
+                border: 1px solid #dfdfdf;
+                position: relative;
 
                 a {
-                    color: #777;
+                    padding-left: 15px;
                 }
+
+                &.selected, &.open {
+                    background-color: #f0f0f0;
+
+                    & > a {
+                        color: #777;
+                    }
+                }
+            }
+
+            & > li {
+                &.open {
+                    &:hover {
+                        .level-2 {
+                            display:block;
+                        }
+                    }
+                }
+            }
+        }
+
+        .level-2 {
+            display:none;
+            position:absolute;
+            top:39px;
+            left:0;
+            width:200px;
+            background: #fff;
+            padding-top:10px;
+            padding-bottom:10px;
+
+            li.open  {
+                background-position: 0 6px;
             }
         }
     }
@@ -676,6 +710,10 @@ body.html-editor {
             width: 80%;
         }
     }
+}
+
+.aui-autocomplete-list-item {
+    font-size:12px;
 }
 
 @media only screen and (min-width: 940px) and (max-width: 981px) {
