@@ -148,7 +148,9 @@ public class AufAnnuaire {
 
 		if (liferayUser.getExpandoBridge().hasAttribute("projets")) {
 			if (liferayUser.getExpandoBridge().getAttribute("projets") != null) {
-				model.addAttribute("userProjects", liferayUser.getExpandoBridge().getAttribute("projets").toString());
+				String projects = liferayUser.getExpandoBridge().getAttribute("projets").toString();
+				projects = projects.replace("\n", "<br />");
+				model.addAttribute("userProjects", projects);
 			} else {
 				model.addAttribute("userProjects", "");
 			}
