@@ -24,10 +24,13 @@ if role == 'vagrant':
             fp.write("IdentityFile ~/.ssh/id_rsa")
     local('ssh-add %s' % op.expanduser('~/.vagrant.d/insecure_private_key'))
 
+@task
 def mount():
     """
     Mount the mount folder
     """
+
+    print(green(u"Mount en cours..."))
 
     if system() == "Linux":
         local("sudo mount -O soft,timeo=5,retrans=5,actimeo=10,retry=5 -o nolock %s:/opt/liferay-portal mount/" % VM_IP)
@@ -36,13 +39,19 @@ def mount():
     if system() == "Darwin":
         local("sudo mount -t nfs -o resvport %s:/opt/liferay-portal/ mount" % VM_IP)
 
+@task
 def unmount():
     """
     Unmount the mount folder
     """
 
+    print(green(u"Unmount en cours..."))
+
     if system() == "Linux":
-        local("sudo umount -fl ./mount")
+        try:
+            local("sudo umount -fl ./mount")
+        except:
+            return
 
     # Mac OS
     if system() == "Darwin":
@@ -68,12 +77,15 @@ def mvn(what="all"):
     """
     Deploy every hooks and theme from the vagrant folder
     """
+
+    print(green(u"Déploiement maven en cours..."))
+
     if what == "all":
         with lcd("../../src"):
             local("mvn clean package liferay:deploy")
 
         print(green("You can choose to only deploy the theme with the following command:", True))
-        print(green("'mvn deploy:theme'", True))
+        print(green("'fab mvn:theme'", True))
 
     if what == "theme":
         with lcd("../../src/themes/%s" % THEME_NAME):
@@ -114,15 +126,35 @@ def copy_assets(folder=None):
         print(green("You may use a parameter in this function to specify a directory", True))
         print(green("'fab copy_assets:css' will only transfer the css folder", True))
 
+@task
+def copy_deployables():
+    """
+    Copies any packages that aren't managed within maven in the VM
+    """
+    file_types = [
+        "lpkg",
+        "xml",
+        "war"
+    ]
+
+    for ft in file_types:
+        put("./deployables/*.%s" % ft, "/opt/liferay-portal/deploy")
+
+@task
 def deploy():
     """
-    Mounts the mount folder, copy all deployable files and
-    deploy every hooks and the theme
+
+    vagrant up + Mounts the mount folder, copy all deployable files and deploy every hooks and the theme
     """
     v("up")
-    mount()
-    copy_deployables()
-    mvn()
+
+@task
+def admin():
+    """
+    Shows the admin credentials
+    """
+    print(green(u"Ouvrez votre navigateur à l'url suivante: ~/web/guest/sfl-secret-login"))
+    local("sflvault show 4125")
 
 @task
 def v(cmd):
@@ -132,8 +164,18 @@ def v(cmd):
     cmds = ["ssh", "suspend", "resume", "up", "destroy"]
 
     if cmd in cmds:
+        if cmd in ["suspend", "destroy"]:
+            unmount()
+
         print(green(u"Commande vagrant {} en cours d'éxécution".format(cmd)))
         local("vagrant {}".format(cmd))
+
+        if cmd in ["resume", "up"]:
+            mount()
+
+        if cmd == "up":
+            copy_deployables()
+            mvn()
     else:
         print(red(u"La commande vagrant {} n'existe pas".format(cmd)))
 
