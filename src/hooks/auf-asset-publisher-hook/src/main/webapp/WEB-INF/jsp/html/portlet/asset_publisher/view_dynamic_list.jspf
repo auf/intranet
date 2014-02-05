@@ -15,6 +15,12 @@
 --%>
 
 <%@page import="com.liferay.portal.security.auth.CompanyThreadLocal"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.liferay.portal.service.UserLocalServiceUtil"%>
+<%@page import="com.liferay.portal.model.Group"%>
+<%@page import="com.liferay.portal.model.User"%>
+
 <%
 int end = searchContainer.getEnd();
 int start = searchContainer.getStart();
@@ -211,6 +217,63 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 				groups = GroupLocalServiceUtil.getGroups(-1, -1);
 				allGroupIds = new long[groups.size()];
 			}
+			for (int i=0; i<groups.size(); i++) {
+				if (groups.get(i).isControlPanel()) {
+					continue;
+				}
+	
+				if (groups.get(i).isCommunity() || groups.get(i).isOrganization()) {
+					allGroupIds[i] = groups.get(i).getGroupId();
+				}
+			}
+			
+			assetEntryQuery.setGroupIds(allGroupIds);
+		} else if (displayStyle.equals("auf-activities-collaborative")) {
+			//then autoselect all groups from the collaborative space
+			List<Group> groups = new ArrayList<Group>();;
+			long[] allGroupIds;
+			
+			User liferayUser = UserLocalServiceUtil.getUser(themeDisplay.getUserId());
+			
+			for (Group site : liferayUser.getGroups()) {
+			  if (site.isRegularSite()) {
+				  groups.add(site);
+			  }
+			}
+			
+			allGroupIds = new long[groups.size()];
+
+			for (int i=0; i<groups.size(); i++) {
+				if (groups.get(i).isControlPanel()) {
+					continue;
+				}
+	
+				if (groups.get(i).isCommunity() || groups.get(i).isOrganization()) {
+					allGroupIds[i] = groups.get(i).getGroupId();
+				}
+			}
+			
+			assetEntryQuery.setGroupIds(allGroupIds);
+		} else if (displayStyle.equals("auf-activities-pole")) {
+			//then autoselect all groups from the poles
+			List<Group> groups;
+			long[] allGroupIds;
+			long orgId = 10801;
+			
+			java.util.Queue<com.liferay.portal.model.Organization> remainder = new java.util.LinkedList<com.liferay.portal.model.Organization>();
+			remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), orgId));
+			
+			groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
+			
+			while (!remainder.isEmpty()) {
+				com.liferay.portal.model.Organization org = remainder.poll();
+				remainder.addAll(com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), org.getOrganizationId()));
+
+				groups.add(org.getGroup());
+			}
+			
+			allGroupIds = new long[groups.size()];
+
 			for (int i=0; i<groups.size(); i++) {
 				if (groups.get(i).isControlPanel()) {
 					continue;
