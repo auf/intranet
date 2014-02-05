@@ -32,7 +32,9 @@ def mount():
     if system() == "Linux":
         local("sudo mount -O soft,timeo=5,retrans=5,actimeo=10,retry=5 -o nolock %s:/opt/liferay-portal mount/" % VM_IP)
 
-    # [TODO] à faire pour un Mac
+    # Mac OS
+    if system() == "Darwin":
+        local("sudo mount -t nfs -o resvport %s:/opt/liferay-portal/ mount" % VM_IP)
 
 def unmount():
     """
@@ -42,14 +44,24 @@ def unmount():
     if system() == "Linux":
         local("sudo umount -fl ./mount")
 
-    # [TODO] à faire pour un Mac
+    # Mac OS
+    if system() == "Darwin":
+        local("sudo umount -f mount")
 
 @task
-def catalina():
+def log(operation=""):
     """
-    tail-ing the catalina.out
+    tail-ing the latest log files
     """
-    run("tail -f /opt/liferay-portal/tomcat/logs/catalina.out")
+    print(green("You may call it using the catalina parameter to output the catalina file", True))
+    print(green("ex: fab log:catalina"))
+
+    if operation == "":
+        today = datetime.date.today()
+        run("tail -f /opt/liferay-portal/logs/liferay.%s.log" % today.strftime("%Y-%m-%d"))
+
+    if operation == "catalina":
+        run("tail -f /opt/liferay-portal/tomcat/logs/catalina.out")
 
 @task
 def mvn(what="all"):
@@ -102,60 +114,28 @@ def copy_assets(folder=None):
         print(green("You may use a parameter in this function to specify a directory", True))
         print(green("'fab copy_assets:css' will only transfer the css folder", True))
 
-@task
-def start():
-    """
-    Starts Liferay
-    """
-    sudo("/etc/init.d/liferay start")
-
-@task
-def stop():
-    """
-    Stops Liferay
-    """
-    sudo("/etc/init.d/liferay stop")
-
-@task
-def restart():
-    """
-    Restarts Liferay
-    """
-    stop()
-    start()
-
 def deploy():
     """
     Mounts the mount folder, copy all deployable files and
     deploy every hooks and the theme
     """
+    v("up")
     mount()
     copy_deployables()
-    deploy()
+    mvn()
 
 @task
-def suspend():
+def v(cmd):
     """
-    Unmount the mount folder and suspend the VM
+    Usual vagrant commands ex: fab v:ssh, fab v:suspend
     """
-    unmount()
-    local("vagrant suspend")
+    cmds = ["ssh", "suspend", "resume", "up", "destroy"]
 
-@task
-def resume():
-    """
-    Resume the VM & mount the mount folder
-    """
-    local("vagrant resume")
-    mount()
-
-@task
-def up():
-    """
-    Setup the VM and deploy everything
-    """
-    local("vagrant up")
-    deploy()
+    if cmd in cmds:
+        print(green(u"Commande vagrant {} en cours d'éxécution".format(cmd)))
+        local("vagrant {}".format(cmd))
+    else:
+        print(red(u"La commande vagrant {} n'existe pas".format(cmd)))
 
 @task
 def watch():
@@ -179,7 +159,9 @@ def watch():
                 return
 
             current_ext = os.path.splitext(event.src_path)[-1].lower()
-            if current_ext in EXTS:
+            current_filename = os.path.basename(event.src_path)
+
+            if not current_filename.startswith(".") and current_ext in EXTS:
                 now = datetime.datetime.now()
                 if (datetime.datetime.now() - self.last_collected).total_seconds() < 1:
                     return
@@ -194,7 +176,7 @@ def watch():
                     copy_assets("templates")
 
                 sys.stdout.write('\n')
-                self.last_collected = datetime.datetime.now()
+                self.last_collected = now
 
     event_handler = ChangeHandler()
     observer = Observer()
