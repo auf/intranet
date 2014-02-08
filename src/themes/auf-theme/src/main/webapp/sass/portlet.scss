@@ -776,3 +776,31 @@ body.portlet {
 		zoom: 1;
 	}
 }
+
+.weather-portlet {
+	.portlet-content-container {
+		.portlet-body {
+			color:#dfdfdf;
+
+
+			& > * {
+				display: none;
+				color:#dfdfdf;
+			}
+
+			form {
+				display: block;
+				padding: 10px 10px 0 10px;
+
+				& > * {
+					display: none;
+					color:#dfdfdf;
+				}
+			}
+
+			.lfr-table {
+				display: block;
+			}
+		}
+	}
+}

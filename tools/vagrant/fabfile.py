@@ -168,14 +168,15 @@ def v(cmd):
             unmount()
 
         print(green(u"Commande vagrant {} en cours d'éxécution".format(cmd)))
+
         local("vagrant {}".format(cmd))
 
         if cmd in ["resume", "up"]:
             mount()
 
-        if cmd == "up":
-            copy_deployables()
-            mvn()
+            print(green(u"Veuillez rouler les commandes fabric suivantes:"))
+            print(green(u"fab copy_deployables et fab mvn"))
+
     else:
         print(red(u"La commande vagrant {} n'existe pas".format(cmd)))
 
@@ -196,6 +197,7 @@ def watch():
         def __init__(self, *args, **kwargs):
             super(ChangeHandler, self).__init__(*args, **kwargs)
             self.last_collected = datetime.datetime.now()
+
         def on_any_event(self, event):
             if event.is_directory:
                 return
@@ -219,6 +221,8 @@ def watch():
 
                 sys.stdout.write('\n')
                 self.last_collected = now
+            print green('\nWatching *.scss, *.js, and *.vm files for changes.\n')
+
 
     event_handler = ChangeHandler()
     observer = Observer()
