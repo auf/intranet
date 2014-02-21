@@ -91,6 +91,7 @@ $theme.include($body_top_include)
             	<h5>$user.getFullName()</h5>
             	<p class="poste">$aufSyncTool.getUserPost($user.getEmailAddress())</p>
                 <p class="setting"><a href="$themeDisplay.getURLMyAccount().toString()">#language('auf-settings')</a></p>
+                <p class="logout"><a href="https://id.auf.org/logout">#language('auf-logout')</a></p>
              </div>
         </div>
 	    #end
