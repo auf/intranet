@@ -73,6 +73,15 @@ public class AvailableSiteHelper {
 			emailAddressesString.append(ea);
 			emailAddressesString.append(";");
 		}
+		
+		try {
+			emailAddressesString.append("?subject=Je souhaiterais rejoindre le espace collaboratif&body=Bonjour, je souhaiterais rejoindre le espace collaboratif suivant: " + site.getDescriptiveName() + ". Merci.");
+		} catch (PortalException e) {
+			e.printStackTrace();
+		} catch (SystemException e) {
+			e.printStackTrace();
+		}
+		
 		return emailAddressesString.toString();
 	}
 
