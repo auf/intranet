@@ -15,6 +15,8 @@ env.roles = ['vagrant']
 
 role = env.roles[0]
 
+THEME_NAME = "auf-theme"
+
 if role == 'vagrant':
     if not op.exists(op.expanduser('~/.ssh/config')):
         print "Votre fichier ~/.ssh/config n'existe pas et doit exister pour que la prochaine commande fonctionne. Creation d'une config lambda."
@@ -22,44 +24,68 @@ if role == 'vagrant':
             fp.write("IdentityFile ~/.ssh/id_rsa")
     local('ssh-add %s' % op.expanduser('~/.vagrant.d/insecure_private_key'))
 
+@task
 def mount():
     """
     Mount the mount folder
     """
 
+    print(green(u"Mount en cours..."))
+
     if system() == "Linux":
         local("sudo mount -O soft,timeo=5,retrans=5,actimeo=10,retry=5 -o nolock %s:/opt/liferay-portal mount/" % VM_IP)
 
-    # [TODO] à faire pour un Mac
+    # Mac OS
+    if system() == "Darwin":
+        local("sudo mount -t nfs -o resvport %s:/opt/liferay-portal/ mount" % VM_IP)
 
+@task
 def unmount():
     """
     Unmount the mount folder
     """
 
-    if system() == "Linux":
-        local("sudo umount -fl ./mount")
+    print(green(u"Unmount en cours..."))
 
-    # [TODO] à faire pour un Mac
+    if system() == "Linux":
+        try:
+            local("sudo umount -fl ./mount")
+        except:
+            return
+
+    # Mac OS
+    if system() == "Darwin":
+        local("sudo umount -f mount")
 
 @task
-def catalina():
+def log(operation=""):
     """
-    tail-ing the catalina.out
+    tail-ing the latest log files
     """
-    run("tail -f /opt/liferay-portal/tomcat/logs/catalina.out")
+    print(green("You may call it using the catalina parameter to output the catalina file", True))
+    print(green("ex: fab log:catalina"))
+
+    if operation == "":
+        today = datetime.date.today()
+        run("tail -f /opt/liferay-portal/logs/liferay.%s.log" % today.strftime("%Y-%m-%d"))
+
+    if operation == "catalina":
+        run("tail -f /opt/liferay-portal/tomcat/logs/catalina.out")
 
 @task
 def mvn(what="all"):
     """
     Deploy every hooks and theme from the vagrant folder
     """
+
+    print(green(u"Déploiement maven en cours..."))
+
     if what == "all":
         with lcd("../../src"):
             local("mvn clean package liferay:deploy")
 
         print(green("You can choose to only deploy the theme with the following command:", True))
-        print(green("'mvn deploy:theme'", True))
+        print(green("'fab mvn:theme'", True))
 
     if what == "theme":
         with lcd("../../src/themes/%s" % THEME_NAME):
@@ -101,59 +127,58 @@ def copy_assets(folder=None):
         print(green("'fab copy_assets:css' will only transfer the css folder", True))
 
 @task
-def start():
+def copy_deployables():
     """
-    Starts Liferay
+    Copies any packages that aren't managed within maven in the VM
     """
-    sudo("/etc/init.d/liferay start")
+    file_types = [
+        "lpkg",
+        "xml",
+        "war"
+    ]
+
+    for ft in file_types:
+        put("./deployables/*.%s" % ft, "/opt/liferay-portal/deploy")
 
 @task
-def stop():
-    """
-    Stops Liferay
-    """
-    sudo("/etc/init.d/liferay stop")
-
-@task
-def restart():
-    """
-    Restarts Liferay
-    """
-    stop()
-    start()
-
 def deploy():
     """
-    Mounts the mount folder, copy all deployable files and
-    deploy every hooks and the theme
+
+    vagrant up + Mounts the mount folder, copy all deployable files and deploy every hooks and the theme
     """
-    mount()
-    copy_deployables()
-    deploy()
+    v("up")
 
 @task
-def suspend():
+def admin():
     """
-    Unmount the mount folder and suspend the VM
+    Shows the admin credentials
     """
-    unmount()
-    local("vagrant suspend")
+    print(green(u"Ouvrez votre navigateur à l'url suivante: ~/web/guest/sfl-secret-login"))
+    local("sflvault show 4125")
 
 @task
-def resume():
+def v(cmd):
     """
-    Resume the VM & mount the mount folder
+    Usual vagrant commands ex: fab v:ssh, fab v:suspend
     """
-    local("vagrant resume")
-    mount()
+    cmds = ["ssh", "suspend", "resume", "up", "destroy"]
 
-@task
-def up():
-    """
-    Setup the VM and deploy everything
-    """
-    local("vagrant up")
-    deploy()
+    if cmd in cmds:
+        if cmd in ["suspend", "destroy"]:
+            unmount()
+
+        print(green(u"Commande vagrant {} en cours d'éxécution".format(cmd)))
+
+        local("vagrant {}".format(cmd))
+
+        if cmd in ["resume", "up"]:
+            mount()
+
+            print(green(u"Veuillez rouler les commandes fabric suivantes:"))
+            print(green(u"fab copy_deployables et fab mvn"))
+
+    else:
+        print(red(u"La commande vagrant {} n'existe pas".format(cmd)))
 
 @task
 def watch():
@@ -172,12 +197,15 @@ def watch():
         def __init__(self, *args, **kwargs):
             super(ChangeHandler, self).__init__(*args, **kwargs)
             self.last_collected = datetime.datetime.now()
+
         def on_any_event(self, event):
             if event.is_directory:
                 return
 
             current_ext = os.path.splitext(event.src_path)[-1].lower()
-            if current_ext in EXTS:
+            current_filename = os.path.basename(event.src_path)
+
+            if not current_filename.startswith(".") and current_ext in EXTS:
                 now = datetime.datetime.now()
                 if (datetime.datetime.now() - self.last_collected).total_seconds() < 1:
                     return
@@ -192,7 +220,9 @@ def watch():
                     copy_assets("templates")
 
                 sys.stdout.write('\n')
-                self.last_collected = datetime.datetime.now()
+                self.last_collected = now
+            print green('\nWatching *.scss, *.js, and *.vm files for changes.\n')
+
 
     event_handler = ChangeHandler()
     observer = Observer()

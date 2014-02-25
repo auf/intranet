@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     #if (!$is_signed_in )
     #if ($plid != 40472 )
     <meta http-equiv="refresh" content="0;url=/c/portal/login">
@@ -21,7 +21,7 @@
     </script>
     #end
     #end
-    
+
     #js ("$javascript_folder/jquery-1.9.1.min.js")
     #js ("$javascript_folder/jquery-ui.js")
     <script>
@@ -79,7 +79,7 @@ $theme.include($body_top_include)
     </nav>
 
     <!-- PARTIE CENTRALE -->
-    <div id="contenu">
+    <div class="contenu">
 
      	<!-- colonne gauche -->
         <div class="gauche">
