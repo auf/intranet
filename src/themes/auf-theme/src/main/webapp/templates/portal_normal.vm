@@ -167,7 +167,10 @@ $theme.include($body_top_include)
 
 					<h1>$site_name</h1>
 
-		            $velocityPortletPreferences.setValue("displayStyle", "from-level-0")
+					$velocityPortletPreferences.setValue("displayStyle", "[custom]")
+					$velocityPortletPreferences.setValue("rootLayoutType", "absolute")
+					$velocityPortletPreferences.setValue("rootLayoutLevel", "0")
+					$velocityPortletPreferences.setValue("includedLayouts", "all")
 					#embedPortletUsing("71_INSTANCE_arr2uHQblbOr", "", $velocityPortletPreferences.toString())
 			        $velocityPortletPreferences.reset()
 		        #end
