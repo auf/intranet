@@ -735,6 +735,50 @@ body.html-editor {
     }
 }
 
+/* ------------------ Actualités ------------------------ */
+
+.portlet-asset-publisher .lfr-meta-actions.asset-actions { margin:-2.5em 1em 0 0; }
+
+.portlet-asset-publisher { 
+
+    .taglib-header {
+        border-bottom: 0 solid #C8C9CA;
+        margin-bottom: 0;
+
+       h1.header-title { 
+            font-size: 1.6em;            
+            text-transform: uppercase; 
+            font-weight: bold;
+            margin:0;
+            
+            span { color:#3F3D4B; }            
+        }   
+        
+        .header-back-to a {    
+            margin-right: 100px;
+            padding: 0;
+        } 
+    }
+}
+
+.centre .news .photo { max-width: 250px; height:auto; }
+
+.centre .news {
+
+    padding:30px 0;
+    position:relative;
+    overflow: visible;
+
+    .date { color:#00aade; position:absolute; top:0px;}
+    ol, ul { display: table; }
+}
+
+
+  
+
+
+/* ------------------ Mediaqueries ------------------------ */
+
 @media only screen and (min-width: 940px) and (max-width: 981px) {
     .contenu .centre {
         .sfl-members,
