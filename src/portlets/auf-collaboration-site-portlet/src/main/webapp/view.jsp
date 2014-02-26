@@ -4,21 +4,28 @@
 
 <portlet:defineObjects />
 
-
-<h2>Voici la liste des espaces collaboratifs auxquelles vous appartenez</h2>
+<h2>Liste des espaces collaboratifs auxquelles vous appartenez</h2>
 
 <c:forEach var="site" items="${userSites}" >
-<div>
-	<h3><a href="/web${site.getFriendlyURL()}">${site.getDescriptiveName()}</a></h3>
-	<p>${site.getDescription()}</p>
+<div class="site">
+	<div class="auf-site-image"><a href="/web${site.getSite().getFriendlyURL()}"><img src="/image/company_logo?img_id=${site.getSite().getPublicLayoutSet().getLogoId()}" /></a></div>
+	<div class="auf-site-description">
+		<p><span class="auf-site-highlight">Titre : </span><a href="/web${site.getSite().getFriendlyURL()}">${site.getSite().getDescriptiveName()}</a></p>
+		<p><span class="auf-site-highlight">Description : </span>${site.getSite().getDescription()}</p>
+		<p><span class="auf-site-highlight">Nombre de membres : </span>${site.getMembersCount()}</p>
+	</div>
 </div>	
 </c:forEach>
 
-<h2>Voici la liste des espaces qui existent vous puvez vous abonnez en envoyant un mail au responsable</h2>
+<h2>Liste des espaces qui existent vous pouvez vous abonnez en envoyant un mail au responsable</h2>
 
 <c:forEach var="site" items="${availableSites}" >
 <div>
-	<h3><a href="${site.getEmailAddresses()}">${site.getSite().getDescriptiveName()}</a></h3>
-	<p>${site.getSite().getDescription()}</p>
+	<div class="auf-site-image"><a href="${site.getEmailAddresses()}"><img src="/image/company_logo?img_id=${site.getSite().getPublicLayoutSet().getLogoId()}" /></a></div>
+	<div class="auf-site-description">
+		<p><span class="auf-site-highlight">Titre : </span><a href="${site.getEmailAddresses()}">${site.getSite().getDescriptiveName()}</a></p>
+		<p><span class="auf-site-highlight">Description : </span>${site.getSite().getDescription()}</p>
+		<p><span class="auf-site-highlight">Nombre de membres : </span>${site.getMembersCount()}</p>
+	</div>
 </div>	
 </c:forEach>

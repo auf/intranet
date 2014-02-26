@@ -21,15 +21,15 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
 public class CollaborationSitePortlet extends MVCPortlet {
 	
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
-		List<Group> userSites = new ArrayList<Group>();
-		List<AvailableSiteHelper> availableSites = new ArrayList<AvailableSiteHelper>();
+		List<AufSiteHelper> userSites = new ArrayList<AufSiteHelper>();
+		List<AufSiteHelper> availableSites = new ArrayList<AufSiteHelper>();
 		
 		User liferayUser;
 		try {
 			liferayUser = UserLocalServiceUtil.getUser(PortalUtil.getUserId(renderRequest));
 			for (Group site : liferayUser.getGroups()) {
 			  if (site.isRegularSite()) {
-				  userSites.add(site);
+				  userSites.add(new AufSiteHelper(site));
 			  }
 			}
 			
@@ -38,8 +38,7 @@ public class CollaborationSitePortlet extends MVCPortlet {
 					  && (!GroupLocalServiceUtil.hasUserGroup(liferayUser.getUserId(), site.getGroupId()))
 					  && (!site.isControlPanel())
 					  && (!site.isGuest())) {
-				  AvailableSiteHelper ash = new AvailableSiteHelper(site);
-				  availableSites.add(ash);
+				availableSites.add(new AufSiteHelper(site));
 			  }
 			}
 		} catch (PortalException e) {

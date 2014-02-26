@@ -12,19 +12,28 @@ import com.liferay.portal.model.UserGroupRole;
 import com.liferay.portal.service.UserGroupRoleLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
 
-public class AvailableSiteHelper {
+public class AufSiteHelper {
 	
 	private Group site;
 	
 	private final long SITE_ADMIN_ROLE_ID = 10169;
 	private final long SITE_OWNER_ROLE_ID = 10171;
 
-	public AvailableSiteHelper(Group site) {
+	public AufSiteHelper(Group site) {
 		this.site = site;
 	}
 	
 	public Group getSite() {
 		return site;
+	}
+	
+	public int getMembersCount() {
+		try {
+			return UserLocalServiceUtil.getGroupUsersCount(site.getGroupId());
+		} catch (SystemException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	
 	public String getEmailAddresses() {
