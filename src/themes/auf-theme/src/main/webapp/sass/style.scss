@@ -763,12 +763,12 @@ body.html-editor {
 
 /* ----------- */
 
-.centre .news .photo { 
+.centre .news.details-view .photo { 
     max-width: 250px; 
     height:auto; 
 }
 
-.centre .news {
+.centre .news.details-view {
     padding:30px 0;
     position:relative;
     overflow: visible;
