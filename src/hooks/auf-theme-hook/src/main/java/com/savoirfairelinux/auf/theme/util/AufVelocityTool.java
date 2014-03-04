@@ -109,7 +109,7 @@ public class AufVelocityTool
 	{
 		try {
 			Layout l = LayoutLocalServiceUtil.getLayout(plid);
-			if ((l.getGroup().isGuest()) && (l.getGroup().getDefaultPublicPlid() == plid)) {
+			if ((l.getGroup().isGuest()) && (l.getGroup().getDefaultPublicPlid() == plid) || (l.getGroup().getOrganizationId() == 10805 || l.getGroup().getOrganizationId() == 10833 || l.getGroup().getOrganizationId() == 10901 )) {
 				return false;
 			}
 		} catch (PortalException e) {
@@ -126,7 +126,7 @@ public class AufVelocityTool
 	{
 		try {
 			Layout l = LayoutLocalServiceUtil.getLayout(plid);
-			if ((l.getGroup().isGuest())) {
+			if (l.getGroup().isGuest()  || (l.getGroup().getOrganizationId() == 10805 || l.getGroup().getOrganizationId() == 10833 || l.getGroup().getOrganizationId() == 10901 )) {
 				return false;
 			}
 		} catch (PortalException e) {
