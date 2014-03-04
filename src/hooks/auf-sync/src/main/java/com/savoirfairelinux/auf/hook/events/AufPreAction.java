@@ -52,13 +52,13 @@ public class AufPreAction extends com.liferay.portal.kernel.events.Action
 //			System.out.println("GROUP : " + group.getName() + " - " + group.getGroupId());
 //			try {
 //				if (group.hasPublicLayouts()) {
-//					if (group.getPublicLayoutSet().getLayoutSetPrototypeId() == 10364) {
+//					if (group.getPublicLayoutSet().getLayoutSetPrototypeId() == 39917) {
 //						//community 10338
-//						//region 10364
-//						//region nouvelle 39917
+//						//region 39917
+//						//region nouvelle 45471
 //						try {
 //							log.warn("Setting site template");
-//							setSiteTemplate(group.getGroupId(), 39917, false);
+//							setSiteTemplate(group.getGroupId(), 45471, false);
 //							log.warn("Site template set");
 //						} catch (PortalException e) {
 //							 //TODO Auto-generated catch block
