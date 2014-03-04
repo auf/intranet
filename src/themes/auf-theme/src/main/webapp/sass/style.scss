@@ -494,7 +494,7 @@ input[type=button][class*=aui] {
             width:49.25%;
             margin-left:1.5%;
             float:left;
-            min-height:101px;
+            min-height:110px;
 
             &:nth-child(2n+1) {
                 margin-left:0;
@@ -705,7 +705,7 @@ body.html-editor {
 
 .auf-employee-search-portlet {
     input[name="_aufsync_WAR_aufsync_name"] {
-        width: 80% !important;
+        width: 78% !important;
     }
 }
 
