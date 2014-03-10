@@ -3,6 +3,7 @@ var AUF = function(){
 		init: function(){
 			this.portlet_activite_image_vide();
 			this.hide_employees();
+			this.hide_placeholders_on_click();
 		},
 		portlet_activite_image_vide: function(){
 			$(".news .photo img[src='']").attr("src", "/auf-theme/images/logo.jpg");
@@ -28,6 +29,20 @@ var AUF = function(){
 					});
 				});
 			}
+		},
+		hide_placeholders_on_click : function(){
+			$("input[name=_aufsync_WAR_aufsync_name], input[name=_3_keywords]").focus(function(){
+				var placeholder_text = $(this).attr("placeholder");
+				$(this).attr("placeholder", "").data("placeholder", placeholder_text);
+			}).blur(function(){
+				var $t = $(this);
+				if ($t.val() === "") {
+					$t.attr(
+						"placeholder",
+						$t.data("placeholder")
+					);
+				}
+			});
 		}
 	}
 }();

@@ -783,13 +783,34 @@ body.portlet {
 
 			form {
 				display: block;
-				padding: 10px 10px 0 10px;
+				padding: 0 10px;
 
+				.rect {
+					padding:20px 10px;
+				}
 			}
 
 			.lfr-table {
 				display: block;
 			}
 		}
+	}
+}
+
+.portlet-document-library {
+	.select-documents .aui-field-element {
+		padding:0;
+	}
+
+	.search-button-container {
+		.lfr-search-combobox-item {
+			.aui-field-input-text {
+				height:26px;
+			}
+		}
+	}
+
+	.show-sync-message.lfr-message-trigger {
+		margin:0;
 	}
 }

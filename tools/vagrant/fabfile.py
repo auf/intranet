@@ -82,14 +82,14 @@ def mvn(what="all"):
 
     if what == "all":
         with lcd("../../src"):
-            local("mvn clean package liferay:deploy")
+            local("mvn clean package liferay:deploy -PAUF")
 
         print(green("You can choose to only deploy the theme with the following command:", True))
         print(green("'fab mvn:theme'", True))
 
     if what == "theme":
         with lcd("../../src/themes/%s" % THEME_NAME):
-            local("mvn clean package liferay:deploy")
+            local("mvn clean package liferay:deploy -PAUF")
 
 def compass_compile():
     """
