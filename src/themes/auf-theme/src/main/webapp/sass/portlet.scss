@@ -814,3 +814,11 @@ body.portlet {
 		margin:0;
 	}
 }
+
+.portlet-navigation {
+	.portlet-content-container {
+		& > .portlet-body {
+			padding:0 !important;
+		}
+	}
+}
