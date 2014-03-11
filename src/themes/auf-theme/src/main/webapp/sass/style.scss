@@ -1,4 +1,5 @@
 @import "style-original.scss";
+@import "liferay-fixes.scss";
 
 .clearfix {
     display: inline-block;
@@ -402,12 +403,17 @@ input[type=button][class*=aui] {
                     padding-left: 15px;
                 }
 
-                &.selected, &.open {
+                &.selected,
+                &.open {
                     background-color: #f0f0f0;
 
                     & > a {
                         color: #777;
                     }
+                }
+
+                &.selected {
+                    background-color:#fff;
                 }
             }
 
@@ -425,7 +431,7 @@ input[type=button][class*=aui] {
         .level-2 {
             display:none;
             position:absolute;
-            top:39px;
+            top:41px;
             left:0;
             width:200px;
             background: #fff;
@@ -831,7 +837,13 @@ body.html-editor {
     .auf-site-image {
         border: 1px solid #DFDFDF;
         float:left;
-        margin-right:20px;
+        margin:0 20px 0 0;
+        max-width:250px;
+
+        a, img {
+            width:100%;
+            margin:0;
+        }
     }
 }
 

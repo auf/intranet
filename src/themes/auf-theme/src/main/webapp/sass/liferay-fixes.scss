@@ -1,0 +1,72 @@
+/*
+    Les sélecteurs CSS ci-dessous servent à corriger
+    les problématiques dans les formulaires Liferay causés par
+    les sélecteurs trop généraux du thème de l'AUF.
+
+    Le thème n'a pas été fait par notre équipe
+
+    - Bernard Chhun
+ */
+
+.taglib-header  {
+    .header-back-to {
+        a {
+            padding:0;
+        }
+    }
+}
+
+.aui-button-holder {
+    padding:0 10px;
+
+    .aui-button {
+        margin-bottom:10px;
+        display:inline-block;
+    }
+}
+
+.portlet-message-boards,
+.portlet-calendar {
+    .aui-form {
+        .aui-field {
+            float:none;
+        }
+
+        label {
+            float:none;
+            width:auto;
+            float:none;
+            text-align:left;
+            display: inline-block;
+        }
+
+        select {
+            width:auto;
+        }
+    }
+}
+
+.contenu .centre .portlet-calendar {
+    .aui-tabview-list {
+        border:none;
+        padding:0;
+
+        li {
+            list-style:none;
+            padding-left:0;
+            margin-bottom:0;
+        }
+    }
+
+
+}
+
+.contenu .centre .taglib-calendar {
+    tr {
+        td {
+            a {
+                height:25px;
+            }
+        }
+    }
+}
