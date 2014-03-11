@@ -245,7 +245,7 @@ input[type=button][class*=aui] {
     // .portlet-asset-publisher {
     .portlet-content-container {
         .portlet-body {
-            // @extend .auf-box-centre;
+            @extend .auf-box-centre;
 
             .asset-activities {
                 @extend .news2;
