@@ -265,11 +265,10 @@ input[type=button][class*=aui] {
         .portlet-content-container {
             .portlet-body {
                 background-color: transparent;
-                padding: 0;
+                padding: 0 !important;
                 border: none;
                 margin-bottom: 0;
                 overflow: hidden;
-
             }
         }
     }

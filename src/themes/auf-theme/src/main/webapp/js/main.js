@@ -1,16 +1,50 @@
+// Mocked console
+(function() {
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
+
 var AUF = function(){
+	console.log("AUF namespace");
+
 	return {
 		init: function(){
+			console.log("init");
+
 			this.portlet_activite_image_vide();
 			this.hide_employees();
 			this.hide_placeholders_on_click();
 		},
 		portlet_activite_image_vide: function(){
+			console.log("portlet_activite_image_vide");
+
 			$(".news .photo img[src='']").attr("src", "/auf-theme/images/logo.jpg");
 		},
 		hide_employees: function(){
+			console.log("hide_employees");
+
 			var max_employees = 12,
 				employee_selector = ".portlet-boundary_aufuserlist_WAR_aufsync_ .box_centre .news";
+
+
+			console.log("length: ", $(employee_selector).length);
 
 			if ( $(employee_selector).length > max_employees ){
 				/* hide all other employees higher than max_employees variable */
@@ -31,6 +65,8 @@ var AUF = function(){
 			}
 		},
 		hide_placeholders_on_click : function(){
+			console.log("hide_placeholders_on_click");
+
 			$("input[name=_aufsync_WAR_aufsync_name], input[name=_3_keywords]").focus(function(){
 				var placeholder_text = $(this).attr("placeholder");
 				$(this).attr("placeholder", "").data("placeholder", placeholder_text);
@@ -55,6 +91,8 @@ AUI().ready(
 	*/
 
 	function() {
+		console.log("AUI().ready()");
+		AUF.init();
 	}
 );
 
@@ -80,6 +118,5 @@ Liferay.on(
 	*/
 
 	function() {
-		AUF.init();
 	}
 );
