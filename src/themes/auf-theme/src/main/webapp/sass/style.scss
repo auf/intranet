@@ -436,6 +436,7 @@ input[type=button][class*=aui] {
             background: #fff;
             padding-top:10px;
             padding-bottom:10px;
+            z-index:1000;
 
             li.open  {
                 background-position: 0 6px;
