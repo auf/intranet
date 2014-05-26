@@ -18,7 +18,7 @@
 addPortletURLs = getAddPortletURLs(liferayPortletRequest, liferayPortletResponse, classNameIds, classTypeIds, assetEntryQuery.getAllCategoryIds(), allAssetTagNames);
 %>
 
-<c:if test="<%= !addPortletURLs.isEmpty() && !displayStyle.equals(\"auf-publisher\") %>">
+<c:if test="<%= !addPortletURLs.isEmpty() && !displayStyle.equals(\"auf-publisher\") && !displayStyle.equals(\"auf-event-list\") %>">
 
 	<%
 	String taglibId = "addNew";
