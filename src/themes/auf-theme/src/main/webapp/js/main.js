@@ -106,7 +106,28 @@ Liferay.Portlet.ready(
 	*/
 
 	function(portletId, node) {
+		
+		AUI().use('aui-toggler', function(A){
+			var containeur = node.one('.portlet');
+			if(containeur){
+				var header = node.one('.portlet-topper');
+  				var content = node.one('.portlet-content');
+    			new A.Toggler(
+      				{
+        				animated: true,
+        				container: containeur,
+        				header: header,
+        				content: content,
+        				transition: {
+        				  duration: .5,
+        				  easing: 'cubic-bezier'
+        				}
+      				}
+   				);
+			}
+		});
 	}
+
 );
 
 Liferay.on(
