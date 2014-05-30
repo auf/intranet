@@ -563,6 +563,10 @@ p{
   border: 1px solid #dfdfdf;
   margin-bottom: 30px;
   overflow: hidden;
+  .journal-content-article{
+    border:none;
+    padding:0px;
+  }
 }
 
 /*.centre .box_centre2,*/
@@ -572,6 +576,10 @@ p{
   border: 1px solid #dfdfdf;
   margin-bottom: 10px;
   overflow: hidden;
+  .journal-content-article{
+    border:none;
+    padding:0px;
+  }
 }
 
 .centre .box_centre .pdf{ padding-left: 25px; background: url(../images/pdf.png) left no-repeat;}

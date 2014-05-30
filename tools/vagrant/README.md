@@ -13,6 +13,8 @@ Some vagrant/liferays labs.
 
 ### 4. Use the configuration templates to create a common.properties corresponding to your Liferay version (in puppet/configuration/)
 
+### 4.BIS Go to The Maven page on the Wiki, and set all your settings for maven
+
 ### 5. Install the following python modules: fabric, watchdog
 
     $ sudo pip install -r requirements-freeze.txt

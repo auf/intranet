@@ -4,9 +4,9 @@
 #set($returnUrl = $httpUtil.getParameter($url, "redirect", false))
 #set($returnUrl = $httpUtil.decodeURL($myReturnUrl))
 
-<p>$start.getData() - $end.getData()</p>
-<p>$reserved-article-title.getData()</p>
-<p>$description.getData()</p>
+<p class="auf-date-event">du $start.getData() au $end.getData()</p>
+<!-- <p>$reserved-article-title.getData()</p> -->
+<div class="white-box-content"><p>$description.getData()</p></div>
 
 #if(!($returnUrl == ""))
 <p><a href="$returnUrl">retour</a></p>
