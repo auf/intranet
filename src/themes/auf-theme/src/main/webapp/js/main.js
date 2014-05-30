@@ -111,6 +111,7 @@ Liferay.Portlet.ready(
 			var containeur = node.one('.portlet');
 			if(containeur){
 				var header = node.one('.portlet-topper');
+				header.addClass('cursorPointer');
   				var content = node.one('.portlet-content');
     			new A.Toggler(
       				{

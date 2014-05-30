@@ -247,7 +247,10 @@ input[type=button][class*=aui] {
     .portlet-content-container {
         .portlet-body {
             @extend .auf-box-centre;
-
+            .journal-content-article{
+                border: none;
+                padding: 0px;
+             }
             .asset-activities {
                 @extend .news2;
 
@@ -270,10 +273,7 @@ input[type=button][class*=aui] {
                 border: none;
                 margin-bottom: 0;
                 overflow: hidden;
-                .journal-content-article{
-                    border: 1px solid #DFDFDF;
-                    padding: 15px;
-                }
+                // 
             }
         }
     }
@@ -463,12 +463,18 @@ input[type=button][class*=aui] {
                 padding:0 !important;
                 background:none;
                 border:none;
+                // Pour l'affichage de la boite blanch lorsque le portlet-body ne l'a pas
+                .journal-content-article{
+                    background-color: #FCFCFC;
+                    border: 1px solid #DFDFDF;
+                    padding: 15px;
+                }
             }
         }
     }
 }
 
-%white-box-content{
+.white-box-content{
     background-color:#FCFCFC;
     border:1px solid #DFDFDF;
     padding:15px;
@@ -485,9 +491,14 @@ input[type=button][class*=aui] {
     }
 }
 
-.journal-content-article {
+
+
+/* portlet contenu web */
+.contenu .centre .portlet-journal-content {
+    
+    .journal-content-article {
         font-size:1.3rem;
-        @extend %white-box-content;
+        @extend .white-box-content;
 
         h2{
             text-transform: uppercase;
@@ -519,17 +530,13 @@ input[type=button][class*=aui] {
         }
 }
 
-/* portlet contenu web */
-.contenu .centre .portlet-journal-content {
-    
-
         ul {
             overflow: hidden;
         }
     
 
     .entry-links{
-        @extend %white-box-content
+        @extend .white-box-content
     }
 
     span {
@@ -1023,4 +1030,12 @@ body.html-editor {
 
         .set-block:nth-child(2n) { margin-left:4%; }
     }
+}
+
+.cursorPointer{
+    cursor: pointer;
+}
+
+.auf-date-event{
+    color:#00aade;
 }
