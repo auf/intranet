@@ -106,31 +106,8 @@ Liferay.Portlet.ready(
 	*/
 
 	function(portletId, node) {
-		// console.log("portlet");
-		// AUI().use('aui-toggler', function(A){
-		// 	console.log(node);
-		// 	var containeur = node.one('.portlet');
-		// 	if(containeur){
-		// 		console.log(containeur);
-		// 		var header = node.one('.portlet-topper');
-		// 		header.addClass('cursorPointer');
-  // 				var content = node.one('.portlet-content');
-  //   			new A.Toggler(
-  //     				{
-  //       				animated: true,
-  //       				container: containeur,
-  //       				header: header,
-  //       				content: content,
-  //       				transition: {
-  //       				  duration: .5,
-  //       				  easing: 'cubic-bezier'
-  //       				}
-  //     				}
-  //  				);
-		// 	}
-		// });
-	}
 
+}
 );
 
 Liferay.on(
@@ -142,22 +119,16 @@ Liferay.on(
 	*/
 
 	function() {
-		console.log("all portlet");
 		AUI().use('aui-toggler', function(A){
 			A.all('.portlet').each(function(node){
-				var containeur = node;
-
-				var header = node.one('.portlet-topper');
-				header.placeAfter('<div class="toggle-portlet-btn"></div>');
+				node.one('.portlet-topper').placeAfter('<div class="toggle-portlet-btn"></div>');
 				var button = node.one('.toggle-portlet-btn');
-				button.addClass('cursorPointer');
-
   				var content = node.one('.portlet-content');
 
     			var portletToggler = new A.Toggler(
       				{
         				animated: true,
-        				container: containeur,
+        				container: node,
         				header: button,
         				content: content,
         				transition: {
@@ -166,17 +137,6 @@ Liferay.on(
         				}
       				}
    				);
-   				
-   				// button.on('click', function(){
-   				// 	console.log('portletToggler click');
-   				// 	if(portletToggler.get('expanded')){
-   				// 		console.log('true exp');
-   				// 		button.removeClass('toggle-portlet-btn-minus');
-   				// 	}else{
-   				// 		console.log('false exp');
-   				// 		button.addClass('toggle-portlet-btn-minus');
-   				// 	}
-   				// });
 			});
 		});
 	}
