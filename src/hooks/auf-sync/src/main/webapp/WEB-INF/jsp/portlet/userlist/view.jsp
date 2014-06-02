@@ -14,8 +14,8 @@
 
 
 <portlet:defineObjects />
-
-<div class="box_centre">
+<%-- class "site-member" for add toggler tool with javascript--%>
+<div class="box_centre site-member">
 	<c:forEach var="user" items="${users}">
 		<div class="news">
 			<div class="photo"><img src="${user.getPortraitUrl()}" width="50"></div>

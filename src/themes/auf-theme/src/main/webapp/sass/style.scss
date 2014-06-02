@@ -1040,9 +1040,11 @@ body.html-editor {
 
 
 .toggle-portlet-btn{
-    width:40px;
-    height:20px;
+    display: inline-block;
+    width:30px;
+    height:15px;
     background-image:url(../images/toggle-portlet-btn.png);
+    background-size:contain;
     background-position:0px 0px;
     cursor: pointer;
     overflow:hidden;
