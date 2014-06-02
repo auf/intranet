@@ -120,23 +120,32 @@ Liferay.on(
 
 	function() {
 		AUI().use('aui-toggler', function(A){
-			A.all('.portlet').each(function(node){
-				node.one('.portlet-topper').placeAfter('<div class="toggle-portlet-btn"></div>');
-				var button = node.one('.toggle-portlet-btn');
-  				var content = node.one('.portlet-content');
+			A.all('.portlet-boundary').each(function(node){
+				var applyToggler = node.hasClass('portlet-asset-publisher') || node.one('.site-member');
+				
+				if(applyToggler){
+					var toolbar = node.one('.portlet-topper-toolbar');
 
-    			var portletToggler = new A.Toggler(
-      				{
-        				animated: true,
-        				container: node,
-        				header: button,
-        				content: content,
-        				transition: {
-        				  duration: .5,
-        				  easing: 'cubic-bezier'
-        				}
-      				}
-   				);
+					if(toolbar){
+	
+						toolbar.prepend('<div class="toggle-portlet-btn"></div>');
+						var button = node.one('.toggle-portlet-btn');
+	  					var content = node.one('.portlet-content');
+	
+    					var portletToggler = new A.Toggler(
+      						{
+        						animated: true,
+        						container: node,
+        						header: button,
+        						content: content,
+        						transition: {
+        						  duration: .5,
+        						  easing: 'cubic-bezier'
+        						}
+      						}
+   						);
+   					}
+   				}
 			});
 		});
 	}
