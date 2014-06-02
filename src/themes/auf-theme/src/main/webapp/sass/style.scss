@@ -1032,10 +1032,22 @@ body.html-editor {
     }
 }
 
-.cursorPointer{
-    cursor: pointer;
-}
+
 
 .auf-date-event{
     color:#00aade;
+}
+
+
+.toggle-portlet-btn{
+    width:40px;
+    height:20px;
+    background-image:url(../images/toggle-portlet-btn.png);
+    background-position:0px 0px;
+    cursor: pointer;
+    overflow:hidden;
+    opacity: 0.5;
+}
+.toggle-portlet-btn-plus{
+    background-position:-10px 0px;
 }

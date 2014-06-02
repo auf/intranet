@@ -106,29 +106,8 @@ Liferay.Portlet.ready(
 	*/
 
 	function(portletId, node) {
-		
-		AUI().use('aui-toggler', function(A){
-			var containeur = node.one('.portlet');
-			if(containeur){
-				var header = node.one('.portlet-topper');
-				header.addClass('cursorPointer');
-  				var content = node.one('.portlet-content');
-    			new A.Toggler(
-      				{
-        				animated: true,
-        				container: containeur,
-        				header: header,
-        				content: content,
-        				transition: {
-        				  duration: .5,
-        				  easing: 'cubic-bezier'
-        				}
-      				}
-   				);
-			}
-		});
-	}
 
+}
 );
 
 Liferay.on(
@@ -140,5 +119,25 @@ Liferay.on(
 	*/
 
 	function() {
+		AUI().use('aui-toggler', function(A){
+			A.all('.portlet').each(function(node){
+				node.one('.portlet-topper').placeAfter('<div class="toggle-portlet-btn"></div>');
+				var button = node.one('.toggle-portlet-btn');
+  				var content = node.one('.portlet-content');
+
+    			var portletToggler = new A.Toggler(
+      				{
+        				animated: true,
+        				container: node,
+        				header: button,
+        				content: content,
+        				transition: {
+        				  duration: .5,
+        				  easing: 'cubic-bezier'
+        				}
+      				}
+   				);
+			});
+		});
 	}
 );
