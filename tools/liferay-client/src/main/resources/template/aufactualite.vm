@@ -61,17 +61,11 @@
 #set($returnUrl = $httpUtil.decodeURL($returnUrl))
 
 
-
-
-<div class="news">
-	<div class="photo"><img src="$image.getData()" width="50" height="50"></div>
-	<div class="desc">
-		<h4>$reserved-article-title.data</h4>
-		<p class="date"> $dateTool.format( "d MMMM yyyy", $indexFormat.parse($reserved-article-modified-date.data)) - par $reserved-article-author-name.data</p>
-	</div>
-	$content.getData()
+<div class="news details-view clearfix">
+    <p class="date"> $dateTool.format( "d MMMM yyyy", $indexFormat.parse($reserved-article-modified-date.data)) - par $reserved-article-author-name.data</p>
+    
+<div class="white-box-content">
+<div class="photo"><img src="$image.getData()" /></div>
+    $content.getData()
 </div>
-
-#if(!($returnUrl == ""))
-<p><a href="$returnUrl">retour</a></p>
-#end
+</div>
