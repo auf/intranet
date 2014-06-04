@@ -13,7 +13,7 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
-		<resource-bundle>content/language</resource-bundle>
+		<resource-bundle>content.language</resource-bundle>
 		<portlet-info>
 			<title>auf-sync</title>
 			<short-title>auf-sync</short-title>
@@ -44,7 +44,7 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
-		<resource-bundle>content/language</resource-bundle>
+		<resource-bundle>content.language</resource-bundle>
 		<portlet-info>
 			<title>auf-user-list</title>
 			<short-title>auf-user-list</short-title>
