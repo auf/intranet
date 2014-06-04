@@ -29,6 +29,7 @@ public class StartupAction extends SimpleAction {
 
 	@Override
 	public void run(String[] ids) throws ActionException {
+		/*
 		log.info("Adding Organisations");
 		
 		log.info("Adding AUF");
@@ -63,6 +64,7 @@ public class StartupAction extends SimpleAction {
 				addOrganization(region.getName(), poleRegions);
 			}
 		}
+		*/
 		
 		log.info("Synchronizing Users");
 		SynchronizeEventAction.synchronizeUsers();

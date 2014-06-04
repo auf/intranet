@@ -34,4 +34,8 @@ public class AufRegion {
 		return (active == 1) ? true : false;
 	}
 
+	public String getCode() {
+		return id;
+	}
+
 }

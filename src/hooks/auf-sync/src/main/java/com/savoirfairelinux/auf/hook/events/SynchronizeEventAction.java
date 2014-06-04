@@ -176,7 +176,14 @@ public class SynchronizeEventAction extends Action {
 			}
 			
 			try {
-				String name = aufEmploye.getImplantation().getRegion().getName();
+				String name = null;
+				if (aufEmploye.getImplantation().getRegion().getCode().equals("SCM") ||
+						aufEmploye.getImplantation().getRegion().getCode().equals("SCP")) {
+					name = "Services centraux";
+				} else {
+					name = aufEmploye.getImplantation().getRegion().getName();
+				}
+				
 				long orgId = OrganizationLocalServiceUtil.getOrganizationId(companyId, name);
 				if (orgId != 0) {
 					UserLocalServiceUtil.addOrganizationUsers(orgId, new long[] {liferayUser.getUserId()});
