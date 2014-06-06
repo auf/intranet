@@ -1,7 +1,6 @@
 #set($first_nav_items = $aufTool.NavigationItems)
 <nav class="auf-navigation" id="navigation">
 	<ul class="main-menu">
-#if ($user.screenName == "admin")
 		#foreach ($nav_item in $first_nav_items)
 			#if (!$nav_item.layout.hidden)
 				<li>
@@ -39,64 +38,5 @@
 				</li>
 			#end
 		#end
-		<li><a>menu statique >>></a><li>
-#end
-		<li>
-			#set( $homeURL = $portalUtil.addPreservedParameters($theme_display, $homeURL))
-            <a href="$homeURL" class="main-menu">Accueil</span></a>
-		</li>
-		<li>
-			<a href="/web/poles-support">Pôles support</span></a>
-			<ul class="auf-child-menu">
-				#set( $poles = $aufTool.getSubOrganizations($poleSupportOrgId) )
-				#foreach ($pole in $poles)
-					<li>
-	                    #set( $pole_url = "/web"+$pole.getGroup().getFriendlyURL() )
-	                    #set( $pole_url = $portalUtil.addPreservedParameters($theme_display, $pole_url))
-						<a href="$pole_url">$pole.getName()</a>
-					</li>
-				#end
-			</ul>
-		</li>
-		<li>
-			<a href="/web/poles-strategiques">Pôles strategiques</span></a>
-			<ul class="auf-child-menu">
-				#set( $poles = $aufTool.getSubOrganizations($poleStrategicOrgId) )
-				#foreach ($pole in $poles)
-					<li>
-	                    #set( $pole_url = "/web"+$pole.getGroup().getFriendlyURL() )
-	                    #set( $pole_url = $portalUtil.addPreservedParameters($theme_display, $pole_url))
-						<a href="$pole_url">$pole.getName()</a>
-					</li>
-				#end
-			</ul>
-		</li>
-		<li>
-			<a href="/web/regions">Régions</span></a>
-			<ul class="auf-child-menu">
-				#set( $regions = $aufTool.getSubOrganizations($regionOrgId) )
-				#foreach ($region in $regions)
-					<li>
-	                    #set( $region_url = "/web"+$region.getGroup().getFriendlyURL() )
-	                    #set( $region_url = $portalUtil.addPreservedParameters($theme_display, $region_url))
-
-						<a href="$region_url">$region.getName()</a>
-					</li>
-				#end
-			</ul>
-		</li>
-		<li>
-			<a href="/web/guest/auf-espaces-collaboratifs">Espaces collaboratifs</span></a>
-			<ul class="auf-child-menu">
-				#set( $sites = $aufTool.getCollaborationSites($user_id) )
-				#foreach ($site in $sites)
-					<li>
-	                    #set( $site_url = "/web"+$site.getFriendlyURL() )
-	                    #set( $site_url = $portalUtil.addPreservedParameters($theme_display, $site_url))
-						<a href="$site_url">$site.getDescriptiveName()</a>
-					</li>
-				#end
-			</ul>
-		</li>
 	</ul>
 </nav>
