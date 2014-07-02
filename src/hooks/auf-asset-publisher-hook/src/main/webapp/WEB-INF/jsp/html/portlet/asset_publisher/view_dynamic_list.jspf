@@ -43,10 +43,11 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 		%>
 		<div id="tabs">
 			<ul>
-				<li><a href="#tabs-1">Institutionnelles</a></li>
+				<li><a href="#tabs-1">Direction</a></li>
 				<li><a href="#tabs-2">Métiers</a></li>
 				<li><a href="#tabs-3">Régions</a></li>
-				<li><a href="#tabs-4">RH</a></li>
+				<li><a href="#tabs-4">Projets</a></li>
+				<li><a href="#tabs-5">RH</a></li>
 			</ul>
 	 	<%
 		
@@ -56,8 +57,8 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
         assetEntryQuery.setEnd(3);
         //assetEntryQuery.setClassNameIds(new long[] { journalArticleClassId });  
 	 	
-	 	//actualites du pole services generaux
-	 	assetEntryQuery.setGroupIds(new long[] {10854});
+	 	//actualites du pole direction
+	 	assetEntryQuery.setGroupIds(new long[] {90855});
 		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
 		request.setAttribute("view.jsp-results", results);
 		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
@@ -68,8 +69,16 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 
  		<%
 	 	
-	 	//tous les poles strategiques sauf RH et services generaux
-	 	assetEntryQuery.setGroupIds(new long[] {10846, 10842, 10838});
+	 	//
+	 	assetEntryQuery.setGroupIds(new long[] {
+	 			10830, //a3
+	 			10826, //b3
+	 			10818, //b2
+	 			10814, //a2
+	 			10838, //finance
+	 			10842, //informatique
+	 			10846, //institutionel
+	 			90922}); //missions et voyage
 		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
 		request.setAttribute("view.jsp-results", results);
 		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
@@ -80,7 +89,7 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 
  		<%
  		
-	 	//actualites de toutes les regions
+ 		//actualites de toutes les regions
 	 	java.util.List <com.liferay.portal.model.Organization> regions = com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), 10901);
 	 	java.util.List<com.liferay.portal.model.Group> groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
 		
@@ -109,6 +118,35 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 
  		<%
  		
+ 		//actualites de toutes les projets
+	 	regions = com.liferay.portal.service.OrganizationLocalServiceUtil.getSuborganizations(com.liferay.portal.security.auth.CompanyThreadLocal.getCompanyId(), 90872);
+	 	groups = new java.util.ArrayList<com.liferay.portal.model.Group>();
+		
+		for (com.liferay.portal.model.Organization region : regions) {
+			groups.add(region.getGroup());
+		}
+		
+		allGroupIds = new long[groups.size()];
+		for (int i=0; i<groups.size(); i++) {
+			if (groups.get(i).isControlPanel()) {
+				continue;
+			}
+
+			if (groups.get(i).isCommunity() || groups.get(i).isOrganization()) {
+				allGroupIds[i] = groups.get(i).getGroupId();
+			}
+		}
+	 	assetEntryQuery.setGroupIds(allGroupIds);
+		results = AssetEntryServiceUtil.getEntries(assetEntryQuery);
+		request.setAttribute("view.jsp-results", results);
+		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
+ 		%>
+			<div id="tabs-4">
+			<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
+			</div>
+
+ 		<%
+ 		
 
 	 	//actualites du pole RH
 	 	assetEntryQuery.setGroupIds(new long[] {10850});
@@ -116,7 +154,7 @@ if (!portletName.equals(PortletKeys.RELATED_ASSETS) || (assetEntryQuery.getLinke
 		request.setAttribute("view.jsp-results", results);
 		total += AssetEntryServiceUtil.getEntriesCount(assetEntryQuery);
  		%>
-			<div id="tabs-4">
+			<div id="tabs-5">
 			<%@ include file="/html/portlet/asset_publisher/view_dynamic_list_asset.jspf" %>
 			</div>
 
