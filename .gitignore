@@ -4,3 +4,5 @@ target**
 .settings
 .classpath
 auf-data.sql
+files
+src/portlets/saml-portlet
