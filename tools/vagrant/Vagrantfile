@@ -1,8 +1,11 @@
+Vagrant.require_version ">= 1.3.2"
+
 Vagrant.configure("2") do |config|
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   config.vm.define "auf-liferay" do |config|
+    config.vm.hostname = "auf-liferay"
     config.vm.network :forwarded_port, guest: 8080, host: 8080
     config.vm.network :forwarded_port, guest: 8000, host: 8000
     config.vm.network :private_network, ip: "10.0.0.17"
@@ -11,7 +14,10 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 4096]
       v.name = "auf-liferay"
     end
-    
+        
+    if Vagrant.has_plugin?("vagrant-sshfs")
+        config.sshfs.paths = { "/opt/liferay-portal" => "mount" }
+    end    
     
     config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/manifests"

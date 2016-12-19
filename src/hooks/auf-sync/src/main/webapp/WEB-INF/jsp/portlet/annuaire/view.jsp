@@ -93,7 +93,7 @@
            </div>
            <!-- fin tableau -->
 
-           <p>Pour toute question ou remarque au sujet de cette fiche, vous pouvez prendre contact avec <a href="mailto:odette@auf.org">Odette Tremblay</a></p>
+           <p>Pour toute question ou remarque au sujet de cette fiche, vous pouvez prendre contact avec <a href="mailto:intranet@auf.org">l'administrateur de l'intranet</a></p>
 
 	</c:when>
 	<c:otherwise>
@@ -117,6 +117,16 @@
                             <p class="date">
                                 ${user.getEmploye().getImplantationName()} - ${user.getEmploye().getImplantationCity()}
                             </p>
+							<p class="date">
+								<c:if test="${not empty user.getEmploye().getTelIp()}">
+									T&eacute;l&eacute;phone IP : ${user.getEmploye().getTelIp()}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</c:if> 
+								
+								<c:if test="${not empty user.getEmploye().getTelIp()}">
+									T&eacute;l&eacute;phone : ${user.getEmploye().getTelephone()}
+								</c:if> 
+							</p>
                     	</div>
                     	<div class="desc">
                             <!-- <p class="date">${user.getEmploye().getTelIp()}</p>

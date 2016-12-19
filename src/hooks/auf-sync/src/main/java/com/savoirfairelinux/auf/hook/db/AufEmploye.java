@@ -127,7 +127,11 @@ public class AufEmploye {
 	}
 
 	public String getTelephone() {
-		return getPhysicalImplantation().getTelephone() + telPost;
+		if(telPost.trim().isEmpty()){
+			return getPhysicalImplantation().getTelephone();
+		} else { 
+			return String.format("%s poste %s", getPhysicalImplantation().getTelephone(), telPost);
+		}
 	}
 	
 	public String getTelecopier() {
