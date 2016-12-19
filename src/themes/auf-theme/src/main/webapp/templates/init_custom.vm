@@ -30,7 +30,7 @@ This file allows you to override and define new Velocity variables.
 #set ( $annuaireId = 15280 )
 #set ( $contactPageId = 14422 )
 
-
+#set ( $ssoEnabled = $propsUtil.get("saml.enabled").equalsIgnoreCase("true"))
 
 #* ***********************************************
 Local (dev)

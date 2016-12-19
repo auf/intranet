@@ -16,7 +16,7 @@
 		<module>portlets/auf-collaboration-site-portlet</module>
 		<module>hooks/auf-sync</module>
 		<module>hooks/auf-asset-publisher-hook</module>
-		<module>portlets/auf-weather-portlet</module>
+<!-- 		<module>portlets/auf-weather-portlet</module> -->
     <module>portlets/auf-poles-portlet</module>
   </modules>
 

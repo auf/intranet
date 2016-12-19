@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    #if (!$is_signed_in )
+    #if (!$is_signed_in and $ssoEnabled)
     #if ($plid != 40472 )
     <meta http-equiv="refresh" content="0;url=/c/portal/login">
     <script type="text/javascript">
@@ -96,14 +96,7 @@ $theme.include($body_top_include)
         </div>
 	    #end
 
-	    $velocityPortletPreferences.setValue("portletSetupShowBorders", "true")
-	    $velocityPortletPreferences.setValue("portletSetupUseCustomTitle", "true")
-        $velocityPortletPreferences.setValue("portletSetupTitle_fr_CA", "Météo")
-	    $velocityPortletPreferences.setValue("zips", $weatherPlace)
-		#embedPortletUsing("1_WAR_weatherportlet", "", $velocityPortletPreferences.toString())
-        $velocityPortletPreferences.reset()
-
-        <section class="portlet portlet-boundary auf-employee-search-portlet">
+	    <section class="portlet portlet-boundary auf-employee-search-portlet">
 	        <header class="portlet-topper">
 		        <h1 class="portlet-title">
                     <span>&nbsp;</span>
@@ -145,10 +138,7 @@ $theme.include($body_top_include)
         $velocityPortletPreferences.reset()
 
 		#if ( $is_signed_in)
-		#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
-
-		#embedPortletUsing("39_INSTANCE_6qyaUAePwIVw", "", $aufTool.getRssSetting($aufSiteId))
-
+			#embedPortletUsing("101_INSTANCE_eFzcOQLPj6zh", "", $aufTool.getEventSetting($aufSiteId))
         #end
 
         </div>
@@ -214,7 +204,7 @@ $theme.include($body_top_include)
 
     <!-- FOOTER -->
     <footer>
-        <p><small>&copy; Copyright AUF 2013</small></p>
+        <p><small>&copy; Copyright AUF 2017</small></p>
     </footer>
 
 </div>
