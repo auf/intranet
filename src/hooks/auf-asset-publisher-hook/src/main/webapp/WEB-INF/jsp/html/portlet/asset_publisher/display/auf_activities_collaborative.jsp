@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.model.Group"%>
+<%@page import="com.liferay.portal.service.GroupLocalServiceUtil"%>
 <%@ include file="/html/common/init.jsp" %>
 <%@ page import="com.liferay.portal.kernel.util.DateUtil" %>
 <%@ page import="java.util.Date" %>
@@ -127,6 +129,10 @@ if (Validator.isNull(viewURL)) {
 String viewURLMessage = viewInContext ? assetRenderer.getViewInContextMessage() : "read-more-x-about-x";
 
 viewURL = _checkViewURL(assetEntry, viewInContext, viewURL, currentURL, themeDisplay);
+
+long assetGroupId = assetRenderer.getGroupId();
+Group assetGroup = GroupLocalServiceUtil.getGroup(assetGroupId);
+String assetGroupName = assetGroup.getDescriptiveName(locale);
 %>
 
 <c:if test="<%= show %>">
@@ -155,6 +161,9 @@ viewURL = _checkViewURL(assetEntry, viewInContext, viewURL, currentURL, themeDis
 			<liferay-ui:message
 				arguments="<%= new String[] {LanguageUtil.getTimeDescription(pageContext, (System.currentTimeMillis() - assetEntry.getModifiedDate().getTime()), true), userName} %>" key="x-ago-by-x"
 			/>
+		</p>
+		<p class="date2">
+			<%= assetGroupName %>
 		</p>
 	</div>
 </c:if>
