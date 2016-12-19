@@ -6,7 +6,7 @@
 				<li>
 					#set($section = $nav_item.Layout.ExpandoBridge.getAttribute("Section"))
                     #set($url = $nav_item.getURL())
-					#if ($section.get(0) == "Espaces collaboratifs")
+					#if ($section.size()>0 && $section.get(0) == "Espaces collaboratifs")
 			            <a href="$url" class="main-menu">$nav_item.getName()</a>
 						<ul class="auf-child-menu">
 							#set( $sites = $aufTool.getCollaborationSites($user_id) )
@@ -19,7 +19,7 @@
 							#end
 						</ul>
 					#else
-						#if ($section.get(0) == "Normal")
+						#if ($section.size()>0 && $section.get(0) == "Normal")
 				            <a href="$url" class="main-menu">$nav_item.getName()</a>
 			            #else
 		                    #set( $url = $portalUtil.addPreservedParameters($theme_display, "/web$nav_item.Layout.FriendlyURL"))
